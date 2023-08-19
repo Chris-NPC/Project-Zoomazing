@@ -16,5 +16,16 @@ namespace CMPG223_Group22_Project
         {
             InitializeComponent();
         }
+
+//===============================================
+        //Use camelCase for variables            |
+        //CAPITAL LETTERS FOR CONSTANTS          |
+        //snake_case_for_tables_to_be_used       |
+//===============================================
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
