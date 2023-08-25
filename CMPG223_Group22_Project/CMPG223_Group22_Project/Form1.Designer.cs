@@ -49,7 +49,7 @@ namespace CMPG223_Group22_Project
             this.Controls.Add(this.lblWelcome);
             this.Name = "Form1";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.DoubleClick += new System.EventHandler(this.Form1_DoubleClick);
             this.ResumeLayout(false);
             this.PerformLayout();
 
