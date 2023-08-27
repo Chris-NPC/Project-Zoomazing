@@ -434,6 +434,7 @@ namespace CMPG223_Group22_Project
             this.btnAddVisitor.TabIndex = 22;
             this.btnAddVisitor.Text = "Add Visitor";
             this.btnAddVisitor.UseVisualStyleBackColor = true;
+            this.btnAddVisitor.Click += new System.EventHandler(this.btnAddVisitor_Click);
             // 
             // lblVLName
             // 

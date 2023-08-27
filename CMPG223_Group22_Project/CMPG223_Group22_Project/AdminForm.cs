@@ -99,19 +99,19 @@ namespace CMPG223_Group22_Project
             {
                 case 0:                     //Adds animal
                     {
-                        sql = "SELECT * FROM tbl... ";
+                        sql = "SELECT * FROM ANIMALS ";
                         break;
                     }
                 case 1:                     //Updates Animal
                     {
-                        sql = "UPDATE FROM tbl...";
+                        sql = "UPDATE FROM ANIMALS";
                         break;
                     }
                 case 2:                     //Remove animal
                     {
                         if (cbxID.SelectedIndex != null && cbxID.SelectedIndex.ToString() != null)  //?
                         {
-                            sql = $"DELETE FROM tbl... WHERE {cbxID.SelectedItem.ToString()}";
+                            sql = $"DELETE FROM ANIMALS WHERE {cbxID.SelectedItem.ToString()}";
                         }
                         break;
                     }
@@ -123,5 +123,35 @@ namespace CMPG223_Group22_Project
             }
         }
 
+        private void btnAddVisitor_Click(object sender, EventArgs e)
+        {
+            string sql;
+            switch (cbxChooseAction.SelectedIndex)
+            {
+                case 0:                     //Adds animal
+                    {
+                        sql = "SELECT * FROM VISITORS ";
+                        break;
+                    }
+                case 1:                     //Updates Animal
+                    {
+                        sql = "UPDATE FROM VISITORS";
+                        break;
+                    }
+                case 2:                     //Remove animal
+                    {
+                        if (cbxID.SelectedIndex != null && cbxID.SelectedIndex.ToString() != null)  //?
+                        {
+                            sql = $"DELETE FROM VISITORS";
+                        }
+                        break;
+                    }
+                default:
+                    {
+                        break;
+                    }
+
+            }
+        }
     }
 }
