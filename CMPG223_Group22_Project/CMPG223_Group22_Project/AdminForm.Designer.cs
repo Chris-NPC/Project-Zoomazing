@@ -92,6 +92,7 @@ namespace CMPG223_Group22_Project
             this.tcAdmin.SelectedIndex = 0;
             this.tcAdmin.Size = new System.Drawing.Size(1306, 801);
             this.tcAdmin.TabIndex = 0;
+            this.tcAdmin.Click += new System.EventHandler(this.tcAdmin_Click);
             // 
             // tpAnimals
             // 
@@ -120,6 +121,7 @@ namespace CMPG223_Group22_Project
             this.tpAnimals.TabIndex = 0;
             this.tpAnimals.Text = "Animals";
             this.tpAnimals.UseVisualStyleBackColor = true;
+            this.tpAnimals.Click += new System.EventHandler(this.tpAnimals_Click);
             // 
             // panel1
             // 

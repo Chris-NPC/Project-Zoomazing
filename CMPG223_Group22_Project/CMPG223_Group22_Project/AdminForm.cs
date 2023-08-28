@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace CMPG223_Group22_Project
 {
@@ -16,6 +17,58 @@ namespace CMPG223_Group22_Project
         {
             InitializeComponent();
         }
+
+        string connString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\chris\OneDrive\Documents\CMPG 223 - Project\Zoomazing Demo\Project-Zoomazing\CMPG223_Group22_Project\CMPG223_Group22_Project\Database1.mdf;Integrated Security=True";
+        SqlConnection conn;
+        SqlCommand command;
+        DataSet ds;
+        SqlDataAdapter adapter;
+        SqlDataReader reader;
+
+        private void sql_showComponents(string sql)
+        {
+            conn = new SqlConnection(connString);
+            command = new SqlCommand(sql, conn);
+            adapter = new SqlDataAdapter();
+            ds = new DataSet();
+        }
+
+        private void sql_showAnimals()
+        {
+            string sql = "SELECT * FROM ANIMALS";
+            sql_showComponents(sql);
+            adapter.SelectCommand = command;
+            adapter.Fill(ds,"ANIMALS");
+
+            dgvShowAnimals.DataSource = ds;
+            dgvShowAnimals.DataMember = "ANIMALS";
+        }
+
+        private void sql_showVisitors()
+        {
+            string sql = "SELECT * FROM VISITORS";
+            sql_showComponents(sql);
+            adapter.SelectCommand = command;
+            adapter.Fill(ds, "VISITORS");
+
+            dgvShowVisitors.DataSource = ds;
+            dgvShowVisitors.DataMember = "VISITORS";
+        }
+
+        private void sql_add()
+        {
+
+        }
+        private void sql_update()
+        {
+
+        }
+        private void sql_delete()
+        {
+
+        }
+
+
 
         private void cbxChooseAction_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -99,7 +152,8 @@ namespace CMPG223_Group22_Project
             {
                 case 0:                     //Adds animal
                     {
-                        sql = "SELECT * FROM ANIMALS ";
+                        sql = "SELECT * FROM ANIMALS";
+                        //sql_show(sql);
                         break;
                     }
                 case 1:                     //Updates Animal
@@ -152,6 +206,16 @@ namespace CMPG223_Group22_Project
                     }
 
             }
+        }
+
+        private void tpAnimals_Click(object sender, EventArgs e)
+        {
+            sql_showAnimals();
+        }
+
+        private void tcAdmin_Click(object sender, EventArgs e)
+        {
+            sql_showVisitors();
         }
     }
 }
