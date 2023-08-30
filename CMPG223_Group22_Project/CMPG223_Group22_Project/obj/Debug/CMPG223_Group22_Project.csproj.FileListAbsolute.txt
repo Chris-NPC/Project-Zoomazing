@@ -1,0 +1,4 @@
+C:\Users\Angelina Ramsunar\OneDrive\Documents\GitHub\Project-Zoomazing\CMPG223_Group22_Project\CMPG223_Group22_Project\obj\Debug\CMPG223_Group22_Project.csproj.AssemblyReference.cache
+C:\Users\Angelina Ramsunar\OneDrive\Documents\GitHub\Project-Zoomazing\CMPG223_Group22_Project\CMPG223_Group22_Project\obj\Debug\CMPG223_Group22_Project.Form1.resources
+C:\Users\Angelina Ramsunar\OneDrive\Documents\GitHub\Project-Zoomazing\CMPG223_Group22_Project\CMPG223_Group22_Project\obj\Debug\CMPG223_Group22_Project.Login.resources
+C:\Users\Angelina Ramsunar\OneDrive\Documents\GitHub\Project-Zoomazing\CMPG223_Group22_Project\CMPG223_Group22_Project\obj\Debug\CMPG223_Group22_Project.csproj.GenerateResource.cache
