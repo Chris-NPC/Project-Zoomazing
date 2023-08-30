@@ -16,29 +16,6 @@ namespace CMPG223_Group22_Project
         public string surname;
         public string contactNum;
 
-        /*public string changePersonDetals()
-        {
-            string changedPerson;
-
-            return changedPerson;
-        }*/
-
-        /*public string addPerson()
-        {
-            string personAdded;
-
-
-            return personAdded;
-        }*/
-
-        /*public string deletePerson()
-        {
-            string personDeleted;
-
-
-            return personDeleted;
-        }*/
-
         public string getName()
         {
             return name;
@@ -69,6 +46,20 @@ namespace CMPG223_Group22_Project
             this.contactNum = contactNum;
         }
 
+        public void changePersonDetals()
+        {
+
+        }
+
+        public void addPerson()
+        {
+
+        }
+
+        public void deletePerson()
+        {
+
+        }
 
     }
 }
