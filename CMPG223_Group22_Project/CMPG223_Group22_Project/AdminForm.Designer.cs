@@ -92,7 +92,6 @@ namespace CMPG223_Group22_Project
             this.tcAdmin.SelectedIndex = 0;
             this.tcAdmin.Size = new System.Drawing.Size(1306, 801);
             this.tcAdmin.TabIndex = 0;
-            this.tcAdmin.Click += new System.EventHandler(this.tcAdmin_Click);
             // 
             // tpAnimals
             // 
@@ -121,7 +120,6 @@ namespace CMPG223_Group22_Project
             this.tpAnimals.TabIndex = 0;
             this.tpAnimals.Text = "Animals";
             this.tpAnimals.UseVisualStyleBackColor = true;
-            this.tpAnimals.Click += new System.EventHandler(this.tpAnimals_Click);
             // 
             // panel1
             // 
@@ -494,6 +492,7 @@ namespace CMPG223_Group22_Project
             this.Name = "AdminForm";
             this.Text = "AdminForm";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.AdminForm_Load);
             this.tcAdmin.ResumeLayout(false);
             this.tpAnimals.ResumeLayout(false);
             this.tpAnimals.PerformLayout();

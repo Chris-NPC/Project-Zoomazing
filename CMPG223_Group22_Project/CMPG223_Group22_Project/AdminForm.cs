@@ -180,6 +180,16 @@ namespace CMPG223_Group22_Project
         private void btnAddVisitor_Click(object sender, EventArgs e)
         {
             string sql;
+
+            cPerson personClass = new cPerson();
+            personClass.setName(txtVName.Text);
+            personClass.setSurname(txtVLName.Text);
+            personClass.setContactNum(txtContactNumber.Text);
+
+            lstbxVisitorLog.Items.Add(personClass.getName());
+            lstbxVisitorLog.Items.Add(personClass.getSurname());
+            lstbxVisitorLog.Items.Add(personClass.getContactNum());
+
             switch (cbxChooseAction.SelectedIndex)
             {
                 case 0:                     //Adds animal
@@ -208,13 +218,9 @@ namespace CMPG223_Group22_Project
             }
         }
 
-        private void tpAnimals_Click(object sender, EventArgs e)
+        private void AdminForm_Load(object sender, EventArgs e)
         {
             sql_showAnimals();
-        }
-
-        private void tcAdmin_Click(object sender, EventArgs e)
-        {
             sql_showVisitors();
         }
     }
