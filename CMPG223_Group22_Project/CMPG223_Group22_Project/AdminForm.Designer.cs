@@ -64,7 +64,7 @@ namespace CMPG223_Group22_Project
             this.txtVLName = new System.Windows.Forms.TextBox();
             this.lblContactNumber = new System.Windows.Forms.Label();
             this.lblVAge = new System.Windows.Forms.Label();
-            this.btnAddVisitor = new System.Windows.Forms.Button();
+            this.btnVisitorAction = new System.Windows.Forms.Button();
             this.lblVLName = new System.Windows.Forms.Label();
             this.tpReports = new System.Windows.Forms.TabPage();
             this.lstbxReport = new System.Windows.Forms.ListBox();
@@ -95,6 +95,7 @@ namespace CMPG223_Group22_Project
             // 
             // tpAnimals
             // 
+            this.tpAnimals.BackColor = System.Drawing.Color.YellowGreen;
             this.tpAnimals.Controls.Add(this.panel1);
             this.tpAnimals.Controls.Add(this.lblActionChoose);
             this.tpAnimals.Controls.Add(this.cbxChooseAction);
@@ -119,7 +120,6 @@ namespace CMPG223_Group22_Project
             this.tpAnimals.Size = new System.Drawing.Size(1298, 772);
             this.tpAnimals.TabIndex = 0;
             this.tpAnimals.Text = "Animals";
-            this.tpAnimals.UseVisualStyleBackColor = true;
             // 
             // panel1
             // 
@@ -167,13 +167,14 @@ namespace CMPG223_Group22_Project
             this.lstbxAnimalLog.ItemHeight = 16;
             this.lstbxAnimalLog.Location = new System.Drawing.Point(796, 16);
             this.lstbxAnimalLog.Name = "lstbxAnimalLog";
-            this.lstbxAnimalLog.Size = new System.Drawing.Size(392, 292);
+            this.lstbxAnimalLog.Size = new System.Drawing.Size(392, 708);
             this.lstbxAnimalLog.TabIndex = 18;
             // 
             // pnlYesNo
             // 
             this.pnlYesNo.Controls.Add(this.rdbFalse);
             this.pnlYesNo.Controls.Add(this.rdbTrue);
+            this.pnlYesNo.ForeColor = System.Drawing.SystemColors.ControlText;
             this.pnlYesNo.Location = new System.Drawing.Point(229, 641);
             this.pnlYesNo.Name = "pnlYesNo";
             this.pnlYesNo.Size = new System.Drawing.Size(99, 66);
@@ -251,6 +252,7 @@ namespace CMPG223_Group22_Project
             // lblWeight
             // 
             this.lblWeight.AutoSize = true;
+            this.lblWeight.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblWeight.Location = new System.Drawing.Point(39, 616);
             this.lblWeight.Name = "lblWeight";
             this.lblWeight.Size = new System.Drawing.Size(100, 17);
@@ -260,6 +262,7 @@ namespace CMPG223_Group22_Project
             // lblVaccStatus
             // 
             this.lblVaccStatus.AutoSize = true;
+            this.lblVaccStatus.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblVaccStatus.Location = new System.Drawing.Point(39, 666);
             this.lblVaccStatus.Name = "lblVaccStatus";
             this.lblVaccStatus.Size = new System.Drawing.Size(129, 17);
@@ -269,6 +272,7 @@ namespace CMPG223_Group22_Project
             // lblAAge
             // 
             this.lblAAge.AutoSize = true;
+            this.lblAAge.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblAAge.Location = new System.Drawing.Point(39, 543);
             this.lblAAge.Name = "lblAAge";
             this.lblAAge.Size = new System.Drawing.Size(37, 17);
@@ -278,6 +282,7 @@ namespace CMPG223_Group22_Project
             // lblGender
             // 
             this.lblGender.AutoSize = true;
+            this.lblGender.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblGender.Location = new System.Drawing.Point(39, 577);
             this.lblGender.Name = "lblGender";
             this.lblGender.Size = new System.Drawing.Size(60, 17);
@@ -297,6 +302,7 @@ namespace CMPG223_Group22_Project
             // lblID
             // 
             this.lblID.AutoSize = true;
+            this.lblID.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblID.Location = new System.Drawing.Point(39, 471);
             this.lblID.Name = "lblID";
             this.lblID.Size = new System.Drawing.Size(25, 17);
@@ -306,6 +312,7 @@ namespace CMPG223_Group22_Project
             // lblAName
             // 
             this.lblAName.AutoSize = true;
+            this.lblAName.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblAName.Location = new System.Drawing.Point(39, 505);
             this.lblAName.Name = "lblAName";
             this.lblAName.Size = new System.Drawing.Size(49, 17);
@@ -325,7 +332,7 @@ namespace CMPG223_Group22_Project
             this.tpVisitors.Controls.Add(this.txtVLName);
             this.tpVisitors.Controls.Add(this.lblContactNumber);
             this.tpVisitors.Controls.Add(this.lblVAge);
-            this.tpVisitors.Controls.Add(this.btnAddVisitor);
+            this.tpVisitors.Controls.Add(this.btnVisitorAction);
             this.tpVisitors.Controls.Add(this.lblVLName);
             this.tpVisitors.Location = new System.Drawing.Point(4, 25);
             this.tpVisitors.Name = "tpVisitors";
@@ -426,15 +433,15 @@ namespace CMPG223_Group22_Project
             this.lblVAge.TabIndex = 26;
             this.lblVAge.Text = "Age:";
             // 
-            // btnAddVisitor
+            // btnVisitorAction
             // 
-            this.btnAddVisitor.Location = new System.Drawing.Point(187, 584);
-            this.btnAddVisitor.Name = "btnAddVisitor";
-            this.btnAddVisitor.Size = new System.Drawing.Size(95, 47);
-            this.btnAddVisitor.TabIndex = 22;
-            this.btnAddVisitor.Text = "Add Visitor";
-            this.btnAddVisitor.UseVisualStyleBackColor = true;
-            this.btnAddVisitor.Click += new System.EventHandler(this.btnAddVisitor_Click);
+            this.btnVisitorAction.Location = new System.Drawing.Point(187, 584);
+            this.btnVisitorAction.Name = "btnVisitorAction";
+            this.btnVisitorAction.Size = new System.Drawing.Size(95, 47);
+            this.btnVisitorAction.TabIndex = 22;
+            this.btnVisitorAction.Text = "Add Visitor";
+            this.btnVisitorAction.UseVisualStyleBackColor = true;
+            this.btnVisitorAction.Click += new System.EventHandler(this.btnAddVisitor_Click);
             // 
             // lblVLName
             // 
@@ -545,7 +552,7 @@ namespace CMPG223_Group22_Project
         private System.Windows.Forms.TextBox txtVLName;
         private System.Windows.Forms.Label lblContactNumber;
         private System.Windows.Forms.Label lblVAge;
-        private System.Windows.Forms.Button btnAddVisitor;
+        private System.Windows.Forms.Button btnVisitorAction;
         private System.Windows.Forms.Label lblVLName;
         private System.Windows.Forms.ListBox lstbxReport;
         private System.Windows.Forms.Button btnTotalCost;

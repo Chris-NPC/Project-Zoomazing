@@ -153,7 +153,6 @@ namespace CMPG223_Group22_Project
                 case 0:                     //Adds animal
                     {
                         sql = "SELECT * FROM ANIMALS";
-                        //sql_show(sql);
                         break;
                     }
                 case 1:                     //Updates Animal
