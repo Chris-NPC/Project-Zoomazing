@@ -56,7 +56,30 @@ namespace CMPG223_Group22_Project
                         if (count > 0)
                         {
                             // User exists and password is correct
-                           
+                            string userTypeQuery = "SELECT EmployeeType FROM Users WHERE Name = @LoginName";
+                            using (SqlCommand userTypeCommand = new SqlCommand(userTypeQuery, connect))
+                            {
+                                userTypeCommand.Parameters.AddWithValue("@LoginName", LoginName);
+                                string userType = (string)userTypeCommand.ExecuteScalar();
+
+                                if (userType == "admin")
+                                {
+                                    // User is an admin, perform admin actions
+                                    // For example, open admin dashboard/form
+                                    
+                                }
+                                else if (userType == "staff")
+                                {
+                                    // User is staff, perform staff actions
+                                    // For example, open staff dashboard/form
+                                    // You can create a different Form for staff and show it here
+                                }
+                                else
+                                {
+                                    // Unknown user type, handle the error or display a message
+                                }
+
+                            }
                         }
                         else
                         {
