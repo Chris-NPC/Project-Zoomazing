@@ -9,74 +9,95 @@ namespace CMPG223_Group22_Project
     class cAnimals
     {
         public string name;
-        public string gender;
+        public string fullGender; //or char?
+        public char gender;
         public float weight;
-        public bool vaccination;
+        public string vaccination;
+        public bool isVacc;
         public DateTime dateOfBirth;
 
-        public void getName()
-        {
-
-        }
-
-        public void getGender()
-        {
-
-        }
-
-        public void getWeight()
-        {
-
-        }
-
-        public void getVacc()
-        {
-
-        }
-
-        public void getDateOfBirth()
-        {
-
-        }
-
-        public string setName()
+        public string getName()
         {
             return name;
         }
 
-        public string setGender()
+        public char getGender()
         {
             return gender;
         }
 
-        public float setWeight()
+        public float getWeight()
         {
             return weight;
         }
 
-        public bool setVacc()
+        public bool getVacc()
         {
-            return vaccination;
+            return isVacc;
         }
 
-        public DateTime setDateOfBirth()
+        public DateTime getDateOfBirth()
         {
             return dateOfBirth;
+        }
+
+        public void setName(string name)
+        {
+            this.name = name;
+        }
+
+        public void setGender(string fullGender)
+        {
+            if (fullGender == "Male")
+            {
+                gender = 'M';
+            }
+            else if (fullGender == "Female")
+            {
+                gender = 'F';
+            }
+        }
+
+        public void setWeight(float weight)
+        {
+            this.weight = weight;
+        }
+
+        public void setVacc(string vaccination)
+        {
+            if (vaccination == "True")
+            {
+                isVacc = true;
+            }
+            else if (vaccination == "False")
+            {
+                isVacc = false;
+            }
+        }
+
+        public void setDateOfBirth(DateTime dateOfBirth)
+        {
+            this.dateOfBirth = dateOfBirth;
+
         }
 
         public void changeAnimalDetail()
         {
             
-        }
+        }/// <summary>
+        /// update 
+        /// </summary>
 
         public void addAnimal()
         {
 
-        }
+        }/// <summary>
+        /// add
+        /// </summary>
 
         public void deleteAnimal()
         {
 
-        }
+        }///delete
     }
 }

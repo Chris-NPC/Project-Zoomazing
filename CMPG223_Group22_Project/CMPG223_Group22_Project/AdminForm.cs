@@ -69,7 +69,6 @@ namespace CMPG223_Group22_Project
         }
 
 
-
         private void cbxChooseAction_SelectedIndexChanged(object sender, EventArgs e)
         {
             switch (cbxChooseAction.SelectedIndex)
@@ -87,7 +86,9 @@ namespace CMPG223_Group22_Project
 
                         txtAName.Visible = true;
                         nudAAge.Visible = true;
-                        cbxGender.Visible = true;
+                        pnlAGender.Visible = true;
+                        rdbMale.Visible = true;
+                        rdbFemale.Visible = true;
                         txtWeight.Visible = true;
                         lblVaccStatus.Visible = true;
                         pnlYesNo.Visible = true;
@@ -108,7 +109,9 @@ namespace CMPG223_Group22_Project
 
                         txtAName.Visible = true;
                         nudAAge.Visible = true;
-                        cbxGender.Visible = true;
+                        pnlAGender.Visible = true;
+                        rdbMale.Visible = true;
+                        rdbFemale.Visible = true;
                         txtWeight.Visible = true;
                         lblVaccStatus.Visible = true;
                         pnlYesNo.Visible = true;
@@ -129,7 +132,9 @@ namespace CMPG223_Group22_Project
 
                         txtAName.Visible = false;
                         nudAAge.Visible = false;
-                        cbxGender.Visible = false;
+                        pnlAGender.Visible = false;
+                        rdbMale.Visible = false;
+                        rdbFemale.Visible = false;
                         txtWeight.Visible = false;
                         lblVaccStatus.Visible = false;
                         pnlYesNo.Visible = false;
@@ -152,7 +157,32 @@ namespace CMPG223_Group22_Project
             {
                 case 0:                     //Adds animal
                     {
-                        sql = "SELECT * FROM ANIMALS";
+                        sql = "SELECT * FROM ANIMALS";      //INSERT
+                        cAnimals animalClass = new cAnimals();
+
+                        ///////////////////////////////////////////////////////////////
+                        animalClass.setName(txtAName.Text);
+                        //Do date of birth//----------------------------------------------------------------
+                        if (rdbMale.Checked)
+                        {
+                            animalClass.setGender(rdbMale.Text);
+                        }
+                        else if (rdbFemale.Checked)
+                        {
+                            animalClass.setGender(rdbFemale.Text);
+                        }
+                        //else dont proceed
+                        animalClass.setWeight(float.Parse(txtWeight.Text));
+                        if (rdbTrue.Checked)
+                        {
+                            animalClass.setVacc(rdbTrue.Text);
+                        }
+                        else if (rdbFalse.Checked)
+                        {
+                            animalClass.setVacc(rdbFalse.Text);
+                        }
+                        ///////////////////////////////////////////////////////////////
+
                         break;
                     }
                 case 1:                     //Updates Animal
@@ -176,7 +206,7 @@ namespace CMPG223_Group22_Project
             }
         }
 
-        private void btnAddVisitor_Click(object sender, EventArgs e)
+        private void btnVisitorAction_Click(object sender, EventArgs e)
         {
             string sql;
 
@@ -221,6 +251,29 @@ namespace CMPG223_Group22_Project
         {
             sql_showAnimals();
             sql_showVisitors();
+            lblID.Visible = false;
+            cbxID.Visible = false;
+
+            lblAName.Visible = false;
+            lblAAge.Visible = false;
+            lblGender.Visible = false;
+            lblWeight.Visible = false;
+            lblVaccStatus.Visible = false;
+
+            txtAName.Visible = false;
+            nudAAge.Visible = false;
+            pnlAGender.Visible = false;
+            rdbMale.Visible = false;
+            rdbFemale.Visible = false;
+            txtWeight.Visible = false;
+            lblVaccStatus.Visible = false;
+            pnlYesNo.Visible = false;
         }
+
+        private void tpAnimals_Click(object sender, EventArgs e)
+        {
+            cbxChooseAction.SelectedIndex = -1;
+        }
+
     }
 }
