@@ -16,6 +16,7 @@ namespace CMPG223_Group22_Project
         public bool isVacc;
         public DateTime dateOfBirth;
 
+        
         public string getName()
         {
             return name;
@@ -75,26 +76,31 @@ namespace CMPG223_Group22_Project
             }
         }
 
-        public void setDateOfBirth(DateTime dateOfBirth)
+        public void setDateOfBirth(int day, int month, int year)
         {
-            this.dateOfBirth = dateOfBirth;
+            string dateOfBirthString = day.ToString() + month.ToString() + year.ToString();
+            DateTime dob = DateTime.Parse(day + "/" + month + "/" + year);
+
+            dateOfBirth = dob;
+
         }
 
         public string addAnimal()
         {
             string sql = $"INSERT INTO ANIMALS VALUES({getName()}, {getDateOfBirth()}, {getGender()}, {getWeight()}, {getVacc()})";
 
+
             return sql ;
         }/// <summary>
          /// add
          /// </summary>
 
-        public string changeAnimalDetail(int animalId)
-        {
-            string sql = $"UPDATE ANIMALS SET Animal_Name = {getName()}, Date_Of_Birth = {getDateOfBirth()}, Gender = {getGender()}, Weight = {getWeight()}, Vaccination = {getVacc()} WHERE Animal_ID = {animalId}";
+        //public string changeAnimalDetail(int animalId)
+        //{
+          //  string sql = $"UPDATE ANIMALS SET Animal_Name = {getName()}, Date_Of_Birth = {getDateOfBirth()}, Gender = {getGender()}, Weight = {getWeight()}, Vaccination = {getVacc()} WHERE Animal_ID = {animalId}";
 
-            return sql;
-        }/// <summary>
+         //   return sql;
+        //}/// <summary>
         /// update 
         /// </summary>
 

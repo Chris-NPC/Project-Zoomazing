@@ -56,6 +56,15 @@ namespace CMPG223_Group22_Project
             dgvShowVisitors.DataMember = "VISITORS";
         }
 
+        private void sql_AddAnimal()
+        {
+            cAnimals animalClass = new cAnimals();
+            sql_showComponents(animalClass.addAnimal());
+            conn.Open();
+            adapter.InsertCommand = command;
+            command.ExecuteNonQuery();
+        }
+
 
         private void cbxChooseAction_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -67,13 +76,13 @@ namespace CMPG223_Group22_Project
                         cbxID.Visible = false;
 
                         lblAName.Visible = true;
-                        lblAAge.Visible = true;
+                        lblADOB.Visible = true;
                         lblGender.Visible = true;
                         lblWeight.Visible = true;
                         lblVaccStatus.Visible = true;
 
                         txtAName.Visible = true;
-                        nudAAge.Visible = true;
+                        nudADay.Visible = true;
                         pnlAGender.Visible = true;
                         rdbMale.Visible = true;
                         rdbFemale.Visible = true;
@@ -90,13 +99,13 @@ namespace CMPG223_Group22_Project
                         cbxID.Visible = true;
 
                         lblAName.Visible = true;
-                        lblAAge.Visible = true;
+                        lblADOB.Visible = true;
                         lblGender.Visible = true;
                         lblWeight.Visible = true;
                         lblVaccStatus.Visible = true;
 
                         txtAName.Visible = true;
-                        nudAAge.Visible = true;
+                        nudADay.Visible = true;
                         pnlAGender.Visible = true;
                         rdbMale.Visible = true;
                         rdbFemale.Visible = true;
@@ -113,13 +122,13 @@ namespace CMPG223_Group22_Project
                         cbxID.Visible = true;
 
                         lblAName.Visible = false;
-                        lblAAge.Visible = false;
+                        lblADOB.Visible = false;
                         lblGender.Visible = false;
                         lblWeight.Visible = false;
                         lblVaccStatus.Visible = false;
 
                         txtAName.Visible = false;
-                        nudAAge.Visible = false;
+                        nudADay.Visible = false;
                         pnlAGender.Visible = false;
                         rdbMale.Visible = false;
                         rdbFemale.Visible = false;
@@ -151,6 +160,8 @@ namespace CMPG223_Group22_Project
                         ///////////////////////////////////////////////////////////////
                         animalClass.setName(txtAName.Text);
                         //Do date of birth//----------------------------------------------------------------
+                        animalClass.setDateOfBirth((int)(nudADay.Value), (int)(nudAMonth.Value), (int)nudAYear.Value);
+                        //----------------------------------------------------------------------------------
                         if (rdbMale.Checked)
                         {
                             animalClass.setGender(rdbMale.Text);
@@ -170,7 +181,13 @@ namespace CMPG223_Group22_Project
                             animalClass.setVacc(rdbFalse.Text);
                         }
                         ///////////////////////////////////////////////////////////////
-                        animalClass.addAnimal();
+                        
+                        sql_AddAnimal();
+                        conn.Close();
+
+                        conn.Open();
+                        sql_showAnimals();
+                        conn.Close();
                         break;
                     }
                 case 1:                     //Updates Animal
@@ -182,6 +199,9 @@ namespace CMPG223_Group22_Project
                         ///////////////////////////////////////////////////////////////
                         animalId = int.Parse(cbxChooseAction.SelectedItem.ToString());
                         animalClass.setName(txtAName.Text);
+                        string dateOfBirthString = nudADay.Value.ToString() + nudAMonth.Value.ToString() + nudAYear.Value.ToString();
+                        DateTime dob = DateTime.Parse(dateOfBirthString);
+                        animalClass.setDateOfBirth((int)nudADay.Value, (int)nudAMonth.Value, (int)nudAYear.Value);
                         //Do date of birth//----------------------------------------------------------------
                         if (rdbMale.Checked)
                         {
@@ -202,7 +222,7 @@ namespace CMPG223_Group22_Project
                             animalClass.setVacc(rdbFalse.Text);
                         }
                         ///////////////////////////////////////////////////////////////
-                        animalClass.changeAnimalDetail(animalId);
+                        //animalClass.changeAnimalDetail(animalId);
                         break;
                     }
                 case 2:                     //Remove animal
@@ -267,13 +287,13 @@ namespace CMPG223_Group22_Project
             cbxID.Visible = false;
 
             lblAName.Visible = false;
-            lblAAge.Visible = false;
+            lblADOB.Visible = false;
             lblGender.Visible = false;
             lblWeight.Visible = false;
             lblVaccStatus.Visible = false;
 
             txtAName.Visible = false;
-            nudAAge.Visible = false;
+            nudADay.Visible = false;
             pnlAGender.Visible = false;
             rdbMale.Visible = false;
             rdbFemale.Visible = false;

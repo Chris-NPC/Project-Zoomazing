@@ -42,14 +42,14 @@ namespace CMPG223_Group22_Project
             this.pnlYesNo = new System.Windows.Forms.Panel();
             this.rdbFalse = new System.Windows.Forms.RadioButton();
             this.rdbTrue = new System.Windows.Forms.RadioButton();
-            this.nudAAge = new System.Windows.Forms.NumericUpDown();
+            this.nudADay = new System.Windows.Forms.NumericUpDown();
             this.cbxID = new System.Windows.Forms.ComboBox();
             this.dgvShowAnimals = new System.Windows.Forms.DataGridView();
             this.txtWeight = new System.Windows.Forms.TextBox();
             this.txtAName = new System.Windows.Forms.TextBox();
             this.lblWeight = new System.Windows.Forms.Label();
             this.lblVaccStatus = new System.Windows.Forms.Label();
-            this.lblAAge = new System.Windows.Forms.Label();
+            this.lblADOB = new System.Windows.Forms.Label();
             this.lblGender = new System.Windows.Forms.Label();
             this.btnAnimalAction = new System.Windows.Forms.Button();
             this.lblID = new System.Windows.Forms.Label();
@@ -76,18 +76,24 @@ namespace CMPG223_Group22_Project
             this.lstbxReport = new System.Windows.Forms.ListBox();
             this.btnTotalCost = new System.Windows.Forms.Button();
             this.btnNumTickets = new System.Windows.Forms.Button();
+            this.nudAMonth = new System.Windows.Forms.NumericUpDown();
+            this.nudAYear = new System.Windows.Forms.NumericUpDown();
+            this.lblAGap1 = new System.Windows.Forms.Label();
+            this.lblAGap2 = new System.Windows.Forms.Label();
             this.tcAdmin.SuspendLayout();
             this.tpAnimals.SuspendLayout();
             this.pnlAGender.SuspendLayout();
             this.pnlAHeading.SuspendLayout();
             this.pnlYesNo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudAAge)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudADay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvShowAnimals)).BeginInit();
             this.tpVisitors.SuspendLayout();
             this.pnlVHeading.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudVAge)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvShowVisitors)).BeginInit();
             this.tpReports.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudAMonth)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudAYear)).BeginInit();
             this.SuspendLayout();
             // 
             // tcAdmin
@@ -105,20 +111,24 @@ namespace CMPG223_Group22_Project
             // tpAnimals
             // 
             this.tpAnimals.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.tpAnimals.Controls.Add(this.lblAGap2);
+            this.tpAnimals.Controls.Add(this.lblAGap1);
+            this.tpAnimals.Controls.Add(this.nudAYear);
+            this.tpAnimals.Controls.Add(this.nudAMonth);
             this.tpAnimals.Controls.Add(this.pnlAGender);
             this.tpAnimals.Controls.Add(this.pnlAHeading);
             this.tpAnimals.Controls.Add(this.lblActionChoose);
             this.tpAnimals.Controls.Add(this.cbxChooseAction);
             this.tpAnimals.Controls.Add(this.lstbxAnimalLog);
             this.tpAnimals.Controls.Add(this.pnlYesNo);
-            this.tpAnimals.Controls.Add(this.nudAAge);
+            this.tpAnimals.Controls.Add(this.nudADay);
             this.tpAnimals.Controls.Add(this.cbxID);
             this.tpAnimals.Controls.Add(this.dgvShowAnimals);
             this.tpAnimals.Controls.Add(this.txtWeight);
             this.tpAnimals.Controls.Add(this.txtAName);
             this.tpAnimals.Controls.Add(this.lblWeight);
             this.tpAnimals.Controls.Add(this.lblVaccStatus);
-            this.tpAnimals.Controls.Add(this.lblAAge);
+            this.tpAnimals.Controls.Add(this.lblADOB);
             this.tpAnimals.Controls.Add(this.lblGender);
             this.tpAnimals.Controls.Add(this.btnAnimalAction);
             this.tpAnimals.Controls.Add(this.lblID);
@@ -139,7 +149,7 @@ namespace CMPG223_Group22_Project
             this.pnlAGender.Controls.Add(this.rdbMale);
             this.pnlAGender.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnlAGender.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.pnlAGender.Location = new System.Drawing.Point(276, 640);
+            this.pnlAGender.Location = new System.Drawing.Point(244, 640);
             this.pnlAGender.Name = "pnlAGender";
             this.pnlAGender.Size = new System.Drawing.Size(152, 66);
             this.pnlAGender.TabIndex = 22;
@@ -254,19 +264,19 @@ namespace CMPG223_Group22_Project
             this.rdbTrue.Text = "True";
             this.rdbTrue.UseVisualStyleBackColor = true;
             // 
-            // nudAAge
+            // nudADay
             // 
-            this.nudAAge.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nudAAge.Location = new System.Drawing.Point(277, 579);
-            this.nudAAge.Name = "nudAAge";
-            this.nudAAge.Size = new System.Drawing.Size(152, 28);
-            this.nudAAge.TabIndex = 4;
+            this.nudADay.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nudADay.Location = new System.Drawing.Point(243, 579);
+            this.nudADay.Name = "nudADay";
+            this.nudADay.Size = new System.Drawing.Size(42, 28);
+            this.nudADay.TabIndex = 4;
             // 
             // cbxID
             // 
             this.cbxID.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxID.FormattingEnabled = true;
-            this.cbxID.Location = new System.Drawing.Point(276, 472);
+            this.cbxID.Location = new System.Drawing.Point(243, 472);
             this.cbxID.Name = "cbxID";
             this.cbxID.Size = new System.Drawing.Size(153, 28);
             this.cbxID.TabIndex = 2;
@@ -292,7 +302,7 @@ namespace CMPG223_Group22_Project
             // txtAName
             // 
             this.txtAName.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAName.Location = new System.Drawing.Point(275, 523);
+            this.txtAName.Location = new System.Drawing.Point(243, 523);
             this.txtAName.Name = "txtAName";
             this.txtAName.Size = new System.Drawing.Size(153, 28);
             this.txtAName.TabIndex = 3;
@@ -319,16 +329,16 @@ namespace CMPG223_Group22_Project
             this.lblVaccStatus.TabIndex = 14;
             this.lblVaccStatus.Text = "Vaccination Status:";
             // 
-            // lblAAge
+            // lblADOB
             // 
-            this.lblAAge.AutoSize = true;
-            this.lblAAge.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAAge.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblAAge.Location = new System.Drawing.Point(39, 577);
-            this.lblAAge.Name = "lblAAge";
-            this.lblAAge.Size = new System.Drawing.Size(221, 25);
-            this.lblAAge.TabIndex = 11;
-            this.lblAAge.Text = "Age: (Date of birth:)";
+            this.lblADOB.AutoSize = true;
+            this.lblADOB.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblADOB.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblADOB.Location = new System.Drawing.Point(39, 577);
+            this.lblADOB.Name = "lblADOB";
+            this.lblADOB.Size = new System.Drawing.Size(149, 25);
+            this.lblADOB.TabIndex = 11;
+            this.lblADOB.Text = "Date of birth:";
             // 
             // lblGender
             // 
@@ -564,7 +574,7 @@ namespace CMPG223_Group22_Project
             // lstbxReport
             // 
             this.lstbxReport.FormattingEnabled = true;
-            this.lstbxReport.ItemHeight = 16;
+            this.lstbxReport.ItemHeight = 20;
             this.lstbxReport.Location = new System.Drawing.Point(17, 134);
             this.lstbxReport.Name = "lstbxReport";
             this.lstbxReport.Size = new System.Drawing.Size(489, 404);
@@ -588,6 +598,40 @@ namespace CMPG223_Group22_Project
             this.btnNumTickets.Text = "Report for number of tickets";
             this.btnNumTickets.UseVisualStyleBackColor = true;
             // 
+            // nudAMonth
+            // 
+            this.nudAMonth.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nudAMonth.Location = new System.Drawing.Point(314, 579);
+            this.nudAMonth.Name = "nudAMonth";
+            this.nudAMonth.Size = new System.Drawing.Size(42, 28);
+            this.nudAMonth.TabIndex = 23;
+            // 
+            // nudAYear
+            // 
+            this.nudAYear.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nudAYear.Location = new System.Drawing.Point(385, 579);
+            this.nudAYear.Name = "nudAYear";
+            this.nudAYear.Size = new System.Drawing.Size(66, 28);
+            this.nudAYear.TabIndex = 24;
+            // 
+            // lblAGap1
+            // 
+            this.lblAGap1.AutoSize = true;
+            this.lblAGap1.Location = new System.Drawing.Point(291, 581);
+            this.lblAGap1.Name = "lblAGap1";
+            this.lblAGap1.Size = new System.Drawing.Size(17, 20);
+            this.lblAGap1.TabIndex = 25;
+            this.lblAGap1.Text = "/";
+            // 
+            // lblAGap2
+            // 
+            this.lblAGap2.AutoSize = true;
+            this.lblAGap2.Location = new System.Drawing.Point(362, 581);
+            this.lblAGap2.Name = "lblAGap2";
+            this.lblAGap2.Size = new System.Drawing.Size(17, 20);
+            this.lblAGap2.TabIndex = 26;
+            this.lblAGap2.Text = "/";
+            // 
             // AdminForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -606,7 +650,7 @@ namespace CMPG223_Group22_Project
             this.pnlAHeading.PerformLayout();
             this.pnlYesNo.ResumeLayout(false);
             this.pnlYesNo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudAAge)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudADay)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvShowAnimals)).EndInit();
             this.tpVisitors.ResumeLayout(false);
             this.tpVisitors.PerformLayout();
@@ -615,6 +659,8 @@ namespace CMPG223_Group22_Project
             ((System.ComponentModel.ISupportInitialize)(this.nudVAge)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvShowVisitors)).EndInit();
             this.tpReports.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.nudAMonth)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudAYear)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -632,11 +678,11 @@ namespace CMPG223_Group22_Project
         private System.Windows.Forms.TextBox txtAName;
         private System.Windows.Forms.Label lblWeight;
         private System.Windows.Forms.Label lblVaccStatus;
-        private System.Windows.Forms.Label lblAAge;
+        private System.Windows.Forms.Label lblADOB;
         private System.Windows.Forms.Label lblGender;
         private System.Windows.Forms.ComboBox cbxID;
         private System.Windows.Forms.DataGridView dgvShowAnimals;
-        private System.Windows.Forms.NumericUpDown nudAAge;
+        private System.Windows.Forms.NumericUpDown nudADay;
         private System.Windows.Forms.Panel pnlYesNo;
         private System.Windows.Forms.RadioButton rdbFalse;
         private System.Windows.Forms.RadioButton rdbTrue;
@@ -668,5 +714,9 @@ namespace CMPG223_Group22_Project
         private System.Windows.Forms.Panel pnlAGender;
         private System.Windows.Forms.RadioButton rdbFemale;
         private System.Windows.Forms.RadioButton rdbMale;
+        private System.Windows.Forms.NumericUpDown nudAYear;
+        private System.Windows.Forms.NumericUpDown nudAMonth;
+        private System.Windows.Forms.Label lblAGap2;
+        private System.Windows.Forms.Label lblAGap1;
     }
 }
