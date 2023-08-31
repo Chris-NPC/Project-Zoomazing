@@ -31,7 +31,7 @@ namespace CMPG223_Group22_Project
         {
             this.tcAdmin = new System.Windows.Forms.TabControl();
             this.tpAnimals = new System.Windows.Forms.TabPage();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnlAHeading = new System.Windows.Forms.Panel();
             this.lblAHeading = new System.Windows.Forms.Label();
             this.lblActionChoose = new System.Windows.Forms.Label();
             this.cbxChooseAction = new System.Windows.Forms.ComboBox();
@@ -53,6 +53,10 @@ namespace CMPG223_Group22_Project
             this.lblID = new System.Windows.Forms.Label();
             this.lblAName = new System.Windows.Forms.Label();
             this.tpVisitors = new System.Windows.Forms.TabPage();
+            this.pnlVHeading = new System.Windows.Forms.Panel();
+            this.lblVHeading = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.nudVAge = new System.Windows.Forms.NumericUpDown();
             this.lblVID = new System.Windows.Forms.Label();
             this.lblVFName = new System.Windows.Forms.Label();
@@ -72,11 +76,12 @@ namespace CMPG223_Group22_Project
             this.btnNumTickets = new System.Windows.Forms.Button();
             this.tcAdmin.SuspendLayout();
             this.tpAnimals.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.pnlAHeading.SuspendLayout();
             this.pnlYesNo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudAAge)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvShowAnimals)).BeginInit();
             this.tpVisitors.SuspendLayout();
+            this.pnlVHeading.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudVAge)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvShowVisitors)).BeginInit();
             this.tpReports.SuspendLayout();
@@ -95,8 +100,8 @@ namespace CMPG223_Group22_Project
             // 
             // tpAnimals
             // 
-            this.tpAnimals.BackColor = System.Drawing.Color.YellowGreen;
-            this.tpAnimals.Controls.Add(this.panel1);
+            this.tpAnimals.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.tpAnimals.Controls.Add(this.pnlAHeading);
             this.tpAnimals.Controls.Add(this.lblActionChoose);
             this.tpAnimals.Controls.Add(this.cbxChooseAction);
             this.tpAnimals.Controls.Add(this.lstbxAnimalLog);
@@ -121,18 +126,18 @@ namespace CMPG223_Group22_Project
             this.tpAnimals.TabIndex = 0;
             this.tpAnimals.Text = "Animals";
             // 
-            // panel1
+            // pnlAHeading
             // 
-            this.panel1.Controls.Add(this.lblAHeading);
-            this.panel1.Location = new System.Drawing.Point(42, 16);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(655, 75);
-            this.panel1.TabIndex = 21;
+            this.pnlAHeading.Controls.Add(this.lblAHeading);
+            this.pnlAHeading.Location = new System.Drawing.Point(42, 16);
+            this.pnlAHeading.Name = "pnlAHeading";
+            this.pnlAHeading.Size = new System.Drawing.Size(655, 75);
+            this.pnlAHeading.TabIndex = 21;
             // 
             // lblAHeading
             // 
             this.lblAHeading.AutoSize = true;
-            this.lblAHeading.Location = new System.Drawing.Point(246, 25);
+            this.lblAHeading.Location = new System.Drawing.Point(247, 30);
             this.lblAHeading.Name = "lblAHeading";
             this.lblAHeading.Size = new System.Drawing.Size(114, 17);
             this.lblAHeading.TabIndex = 0;
@@ -321,6 +326,10 @@ namespace CMPG223_Group22_Project
             // 
             // tpVisitors
             // 
+            this.tpVisitors.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.tpVisitors.Controls.Add(this.pnlVHeading);
+            this.tpVisitors.Controls.Add(this.label2);
+            this.tpVisitors.Controls.Add(this.comboBox1);
             this.tpVisitors.Controls.Add(this.nudVAge);
             this.tpVisitors.Controls.Add(this.lblVID);
             this.tpVisitors.Controls.Add(this.lblVFName);
@@ -340,11 +349,49 @@ namespace CMPG223_Group22_Project
             this.tpVisitors.Size = new System.Drawing.Size(1298, 772);
             this.tpVisitors.TabIndex = 1;
             this.tpVisitors.Text = "Visitors";
-            this.tpVisitors.UseVisualStyleBackColor = true;
+            // 
+            // pnlVHeading
+            // 
+            this.pnlVHeading.Controls.Add(this.lblVHeading);
+            this.pnlVHeading.Location = new System.Drawing.Point(42, 16);
+            this.pnlVHeading.Name = "pnlVHeading";
+            this.pnlVHeading.Size = new System.Drawing.Size(655, 75);
+            this.pnlVHeading.TabIndex = 31;
+            // 
+            // lblVHeading
+            // 
+            this.lblVHeading.AutoSize = true;
+            this.lblVHeading.Location = new System.Drawing.Point(246, 25);
+            this.lblVHeading.Name = "lblVHeading";
+            this.lblVHeading.Size = new System.Drawing.Size(111, 17);
+            this.lblVHeading.TabIndex = 0;
+            this.lblVHeading.Text = "Maintain Visitors";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(39, 119);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(103, 17);
+            this.label2.TabIndex = 30;
+            this.label2.Text = "Choose Action:";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Add Animal",
+            "Change Animal Details",
+            "Remove Animal"});
+            this.comboBox1.Location = new System.Drawing.Point(576, 112);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 24);
+            this.comboBox1.TabIndex = 29;
+            this.comboBox1.Text = "ACTION";
             // 
             // nudVAge
             // 
-            this.nudVAge.Location = new System.Drawing.Point(230, 446);
+            this.nudVAge.Location = new System.Drawing.Point(228, 578);
             this.nudVAge.Name = "nudVAge";
             this.nudVAge.Size = new System.Drawing.Size(100, 22);
             this.nudVAge.TabIndex = 20;
@@ -352,7 +399,7 @@ namespace CMPG223_Group22_Project
             // lblVID
             // 
             this.lblVID.AutoSize = true;
-            this.lblVID.Location = new System.Drawing.Point(40, 342);
+            this.lblVID.Location = new System.Drawing.Point(39, 471);
             this.lblVID.Name = "lblVID";
             this.lblVID.Size = new System.Drawing.Size(25, 17);
             this.lblVID.TabIndex = 23;
@@ -361,7 +408,7 @@ namespace CMPG223_Group22_Project
             // lblVFName
             // 
             this.lblVFName.AutoSize = true;
-            this.lblVFName.Location = new System.Drawing.Point(43, 414);
+            this.lblVFName.Location = new System.Drawing.Point(39, 543);
             this.lblVFName.Name = "lblVFName";
             this.lblVFName.Size = new System.Drawing.Size(80, 17);
             this.lblVFName.TabIndex = 25;
@@ -371,15 +418,15 @@ namespace CMPG223_Group22_Project
             // 
             this.lstbxVisitorLog.FormattingEnabled = true;
             this.lstbxVisitorLog.ItemHeight = 16;
-            this.lstbxVisitorLog.Location = new System.Drawing.Point(574, 6);
+            this.lstbxVisitorLog.Location = new System.Drawing.Point(796, 16);
             this.lstbxVisitorLog.Name = "lstbxVisitorLog";
-            this.lstbxVisitorLog.Size = new System.Drawing.Size(241, 292);
+            this.lstbxVisitorLog.Size = new System.Drawing.Size(392, 708);
             this.lstbxVisitorLog.TabIndex = 28;
             // 
             // cbxVID
             // 
             this.cbxVID.FormattingEnabled = true;
-            this.cbxVID.Location = new System.Drawing.Point(229, 339);
+            this.cbxVID.Location = new System.Drawing.Point(228, 468);
             this.cbxVID.Name = "cbxVID";
             this.cbxVID.Size = new System.Drawing.Size(100, 24);
             this.cbxVID.TabIndex = 17;
@@ -387,30 +434,30 @@ namespace CMPG223_Group22_Project
             // dgvShowVisitors
             // 
             this.dgvShowVisitors.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvShowVisitors.Location = new System.Drawing.Point(8, 6);
+            this.dgvShowVisitors.Location = new System.Drawing.Point(42, 154);
             this.dgvShowVisitors.Name = "dgvShowVisitors";
             this.dgvShowVisitors.RowHeadersWidth = 51;
             this.dgvShowVisitors.RowTemplate.Height = 24;
-            this.dgvShowVisitors.Size = new System.Drawing.Size(466, 298);
+            this.dgvShowVisitors.Size = new System.Drawing.Size(691, 308);
             this.dgvShowVisitors.TabIndex = 16;
             // 
             // txtContactNumber
             // 
-            this.txtContactNumber.Location = new System.Drawing.Point(229, 484);
+            this.txtContactNumber.Location = new System.Drawing.Point(228, 614);
             this.txtContactNumber.Name = "txtContactNumber";
             this.txtContactNumber.Size = new System.Drawing.Size(100, 22);
             this.txtContactNumber.TabIndex = 21;
             // 
             // txtVName
             // 
-            this.txtVName.Location = new System.Drawing.Point(229, 411);
+            this.txtVName.Location = new System.Drawing.Point(228, 541);
             this.txtVName.Name = "txtVName";
             this.txtVName.Size = new System.Drawing.Size(100, 22);
             this.txtVName.TabIndex = 19;
             // 
             // txtVLName
             // 
-            this.txtVLName.Location = new System.Drawing.Point(229, 373);
+            this.txtVLName.Location = new System.Drawing.Point(228, 502);
             this.txtVLName.Name = "txtVLName";
             this.txtVLName.Size = new System.Drawing.Size(100, 22);
             this.txtVLName.TabIndex = 18;
@@ -418,7 +465,7 @@ namespace CMPG223_Group22_Project
             // lblContactNumber
             // 
             this.lblContactNumber.AutoSize = true;
-            this.lblContactNumber.Location = new System.Drawing.Point(40, 487);
+            this.lblContactNumber.Location = new System.Drawing.Point(39, 617);
             this.lblContactNumber.Name = "lblContactNumber";
             this.lblContactNumber.Size = new System.Drawing.Size(114, 17);
             this.lblContactNumber.TabIndex = 27;
@@ -427,17 +474,17 @@ namespace CMPG223_Group22_Project
             // lblVAge
             // 
             this.lblVAge.AutoSize = true;
-            this.lblVAge.Location = new System.Drawing.Point(40, 448);
+            this.lblVAge.Location = new System.Drawing.Point(39, 578);
             this.lblVAge.Name = "lblVAge";
-            this.lblVAge.Size = new System.Drawing.Size(37, 17);
+            this.lblVAge.Size = new System.Drawing.Size(129, 17);
             this.lblVAge.TabIndex = 26;
-            this.lblVAge.Text = "Age:";
+            this.lblVAge.Text = "Age: (Date of birth)";
             // 
             // btnVisitorAction
             // 
-            this.btnVisitorAction.Location = new System.Drawing.Point(187, 584);
+            this.btnVisitorAction.Location = new System.Drawing.Point(538, 490);
             this.btnVisitorAction.Name = "btnVisitorAction";
-            this.btnVisitorAction.Size = new System.Drawing.Size(95, 47);
+            this.btnVisitorAction.Size = new System.Drawing.Size(195, 158);
             this.btnVisitorAction.TabIndex = 22;
             this.btnVisitorAction.Text = "Add Visitor";
             this.btnVisitorAction.UseVisualStyleBackColor = true;
@@ -446,7 +493,7 @@ namespace CMPG223_Group22_Project
             // lblVLName
             // 
             this.lblVLName.AutoSize = true;
-            this.lblVLName.Location = new System.Drawing.Point(40, 376);
+            this.lblVLName.Location = new System.Drawing.Point(39, 505);
             this.lblVLName.Name = "lblVLName";
             this.lblVLName.Size = new System.Drawing.Size(80, 17);
             this.lblVLName.TabIndex = 24;
@@ -503,14 +550,16 @@ namespace CMPG223_Group22_Project
             this.tcAdmin.ResumeLayout(false);
             this.tpAnimals.ResumeLayout(false);
             this.tpAnimals.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.pnlAHeading.ResumeLayout(false);
+            this.pnlAHeading.PerformLayout();
             this.pnlYesNo.ResumeLayout(false);
             this.pnlYesNo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudAAge)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvShowAnimals)).EndInit();
             this.tpVisitors.ResumeLayout(false);
             this.tpVisitors.PerformLayout();
+            this.pnlVHeading.ResumeLayout(false);
+            this.pnlVHeading.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudVAge)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvShowVisitors)).EndInit();
             this.tpReports.ResumeLayout(false);
@@ -559,7 +608,11 @@ namespace CMPG223_Group22_Project
         private System.Windows.Forms.Button btnNumTickets;
         private System.Windows.Forms.Label lblActionChoose;
         private System.Windows.Forms.ComboBox cbxChooseAction;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnlAHeading;
         private System.Windows.Forms.Label lblAHeading;
+        private System.Windows.Forms.Panel pnlVHeading;
+        private System.Windows.Forms.Label lblVHeading;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
