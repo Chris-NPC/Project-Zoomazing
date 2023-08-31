@@ -78,21 +78,22 @@ namespace CMPG223_Group22_Project
         public void setDateOfBirth(DateTime dateOfBirth)
         {
             this.dateOfBirth = dateOfBirth;
-
         }
+
+        public string addAnimal()
+        {
+            string sql = "INSERT INTO ANIMALS VALUES";
+
+            return sql ;
+        }/// <summary>
+         /// add
+         /// </summary>
 
         public void changeAnimalDetail()
         {
             
         }/// <summary>
         /// update 
-        /// </summary>
-
-        public void addAnimal()
-        {
-
-        }/// <summary>
-        /// add
         /// </summary>
 
         public void deleteAnimal()
