@@ -24,6 +24,7 @@ namespace CMPG223_Group22_Project
         DataSet ds;
         SqlDataAdapter adapter;
         SqlDataReader reader;
+        int animalId;
 
         private void sql_showComponents(string sql)
         {
@@ -53,19 +54,6 @@ namespace CMPG223_Group22_Project
 
             dgvShowVisitors.DataSource = ds;
             dgvShowVisitors.DataMember = "VISITORS";
-        }
-
-        private void sql_add()
-        {
-
-        }
-        private void sql_update()
-        {
-
-        }
-        private void sql_delete()
-        {
-
         }
 
 
@@ -157,7 +145,7 @@ namespace CMPG223_Group22_Project
             {
                 case 0:                     //Adds animal
                     {
-                        sql = "SELECT * FROM ANIMALS";      //INSERT
+                        //sql = "SELECT * FROM ANIMALS";      //INSERT
                         cAnimals animalClass = new cAnimals();
 
                         ///////////////////////////////////////////////////////////////
@@ -182,20 +170,44 @@ namespace CMPG223_Group22_Project
                             animalClass.setVacc(rdbFalse.Text);
                         }
                         ///////////////////////////////////////////////////////////////
-
+                        animalClass.addAnimal();
                         break;
                     }
                 case 1:                     //Updates Animal
                     {
                         sql = "UPDATE FROM ANIMALS";
+
+                        cAnimals animalClass = new cAnimals();
+
+                        ///////////////////////////////////////////////////////////////
+                        animalId = int.Parse(cbxChooseAction.SelectedItem.ToString());
+                        animalClass.setName(txtAName.Text);
+                        //Do date of birth//----------------------------------------------------------------
+                        if (rdbMale.Checked)
+                        {
+                            animalClass.setGender(rdbMale.Text);
+                        }
+                        else if (rdbFemale.Checked)
+                        {
+                            animalClass.setGender(rdbFemale.Text);
+                        }
+                        //else dont proceed
+                        animalClass.setWeight(float.Parse(txtWeight.Text));
+                        if (rdbTrue.Checked)
+                        {
+                            animalClass.setVacc(rdbTrue.Text);
+                        }
+                        else if (rdbFalse.Checked)
+                        {
+                            animalClass.setVacc(rdbFalse.Text);
+                        }
+                        ///////////////////////////////////////////////////////////////
+                        animalClass.changeAnimalDetail(animalId);
                         break;
                     }
                 case 2:                     //Remove animal
                     {
-                        if (cbxID.SelectedIndex != null && cbxID.SelectedIndex.ToString() != null)  //?
-                        {
-                            sql = $"DELETE FROM ANIMALS WHERE {cbxID.SelectedItem.ToString()}";
-                        }
+                       
                         break;
                     }
                 default:

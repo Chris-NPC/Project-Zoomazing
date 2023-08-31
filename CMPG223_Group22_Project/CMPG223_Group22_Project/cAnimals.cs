@@ -82,23 +82,29 @@ namespace CMPG223_Group22_Project
 
         public string addAnimal()
         {
-            string sql = "INSERT INTO ANIMALS VALUES";
+            string sql = $"INSERT INTO ANIMALS VALUES({getName()}, {getDateOfBirth()}, {getGender()}, {getWeight()}, {getVacc()})";
 
             return sql ;
         }/// <summary>
          /// add
          /// </summary>
 
-        public void changeAnimalDetail()
+        public string changeAnimalDetail(int animalId)
         {
-            
+            string sql = $"UPDATE ANIMALS SET Animal_Name = {getName()}, Date_Of_Birth = {getDateOfBirth()}, Gender = {getGender()}, Weight = {getWeight()}, Vaccination = {getVacc()} WHERE Animal_ID = {animalId}";
+
+            return sql;
         }/// <summary>
         /// update 
         /// </summary>
 
-        public void deleteAnimal()
+        public string deleteAnimal(int animalId)
         {
+            string sql = $"DELETE FROM ANIMAL WHERE {animalId}";
 
-        }///delete
+            return sql;
+        }/// <summary>
+        /// delete
+        /// </summary>
     }
 }
