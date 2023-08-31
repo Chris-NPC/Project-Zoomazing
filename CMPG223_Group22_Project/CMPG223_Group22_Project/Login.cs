@@ -38,7 +38,7 @@ namespace CMPG223_Group22_Project
             try
             {
                 // SQL query to retrieve the user with the provided ID and password
-                string query = "SELECT COUNT(*) FROM login WHERE Username= @LoginName AND Password = @LoginPassword";
+                string query = "SELECT COUNT(*) FROM Users WHERE Username= @LoginName AND Password = @LoginPassword";
 
                 using (SqlConnection connect = new SqlConnection(connectString))
                 {
