@@ -26,6 +26,82 @@ namespace CMPG223_Group22_Project
         SqlDataReader reader;
         int animalId;
 
+        /// ----------------------------------------------------------------------------
+        private void show_animal_components()
+        {
+            lblAName.Visible = true;
+            lblADOB.Visible = true;
+            lblAGap1.Visible = true;
+            lblAGap2.Visible = true;
+            lblGender.Visible = true;
+            lblWeight.Visible = true;
+            lblVaccStatus.Visible = true;
+
+            txtAName.Visible = true;
+            nudADay.Visible = true;
+            nudAMonth.Visible = true;
+            nudAYear.Visible = true;
+            pnlAGender.Visible = true;
+            rdbMale.Visible = true;
+            rdbFemale.Visible = true;
+            txtWeight.Visible = true;
+            lblVaccStatus.Visible = true;
+            pnlYesNo.Visible = true;
+        }
+        private void hide_animal_components()
+        {
+            lblAName.Visible = false;
+            lblADOB.Visible = false;
+            lblAGap1.Visible = false;
+            lblAGap2.Visible = false;
+            lblGender.Visible = false;
+            lblWeight.Visible = false;
+            lblVaccStatus.Visible = false;
+
+            txtAName.Visible = false;
+            nudADay.Visible = false;
+            nudAMonth.Visible = false;
+            nudAYear.Visible = false;
+            pnlAGender.Visible = false;
+            rdbMale.Visible = false;
+            rdbFemale.Visible = false;
+            txtWeight.Visible = false;
+            pnlYesNo.Visible = false;
+        }
+        private void show_visitor_components()
+        {
+            lblVFName.Visible = true;
+            lblVLName.Visible = true;
+            lblVDob.Visible = true;
+            lblContactNumber.Visible = true;
+            lblVGap1.Visible = true;
+            lblVGap2.Visible = true;
+
+            txtVName.Visible = true;
+            txtVLName.Visible = true;
+            nudVDay.Visible = true;
+            nudVMonth.Visible = true;
+            nudVYear.Visible = true;
+            txtContactNumber.Visible = true;
+        }
+        private void hide_visitor_components()
+        {
+            lblVFName.Visible = false;
+            lblVLName.Visible = false;
+            lblVDob.Visible = false;
+            lblContactNumber.Visible = false;
+            lblVGap1.Visible = false;
+            lblVGap2.Visible = false;
+
+            txtVName.Visible = false;
+            txtVLName.Visible = false;
+            nudVDay.Visible = false;
+            nudVMonth.Visible = false;
+            nudVYear.Visible = false;
+            txtContactNumber.Visible = false;
+        }
+        /// -------------------------------------------------------------------------------
+
         private void sql_showComponents(string sql)
         {
             conn = new SqlConnection(connString);
@@ -33,6 +109,7 @@ namespace CMPG223_Group22_Project
             adapter = new SqlDataAdapter();
             ds = new DataSet();
         }
+
 
         private void sql_showAnimals()
         {
@@ -44,6 +121,31 @@ namespace CMPG223_Group22_Project
             dgvShowAnimals.DataSource = ds;
             dgvShowAnimals.DataMember = "ANIMALS";
         }
+        private void sql_AddAnimal()
+        {
+            cAnimals animalClass = new cAnimals();
+            sql_showComponents(animalClass.addAnimal());
+            conn.Open();
+            adapter.InsertCommand = command;
+            command.ExecuteNonQuery();
+        }
+        private void sql_UpdateAnimal(int animalId)
+        {
+            cAnimals animalClass = new cAnimals();
+            sql_showComponents(animalClass.changeAnimalDetail(animalId));
+            conn.Open();
+            adapter.UpdateCommand = command;
+            command.ExecuteNonQuery();
+        }
+        private void sql_DeleteAnimal(int animalId)
+        {
+            cAnimals animalClass = new cAnimals();
+            sql_showComponents(animalClass.changeAnimalDetail(animalId));
+            conn.Open();
+            adapter.DeleteCommand = command;
+            command.ExecuteNonQuery();
+        }
+
 
         private void sql_showVisitors()
         {
@@ -55,86 +157,60 @@ namespace CMPG223_Group22_Project
             dgvShowVisitors.DataSource = ds;
             dgvShowVisitors.DataMember = "VISITORS";
         }
-
-        private void sql_AddAnimal()
+        private void sql_AddVisitor()
         {
-            cAnimals animalClass = new cAnimals();
-            sql_showComponents(animalClass.addAnimal());
+            cVisitors visitorClass = new cVisitors();
+            sql_showComponents(visitorClass.newVisitor());      //receives sql to add visitor
             conn.Open();
             adapter.InsertCommand = command;
+            command.ExecuteNonQuery();
+        }
+        private void sql_UpdateVisitor(int visitorId)
+        {
+            cVisitors visitorClass = new cVisitors();
+
+            sql_showComponents(visitorClass.changeVisitorDetail(visitorId));
+            conn.Open();
+            adapter.UpdateCommand = command;
+            command.ExecuteNonQuery();
+        }
+        private void sql_DeleteVisitor(int visitorId)
+        {
+            cVisitors visitorClass = new cVisitors();
+            sql_showComponents(visitorClass.deleteVisitor(visitorId));
+            conn.Open();
+            adapter.DeleteCommand = command;
             command.ExecuteNonQuery();
         }
 
 
         private void cbxChooseAction_SelectedIndexChanged(object sender, EventArgs e)
         {
-            switch (cbxChooseAction.SelectedIndex)
+            switch (cbxAChooseAction.SelectedIndex)
             {
                 case 0:             //Adds animal
                     {
-                        lblID.Visible = false;
-                        cbxID.Visible = false;
-
-                        lblAName.Visible = true;
-                        lblADOB.Visible = true;
-                        lblGender.Visible = true;
-                        lblWeight.Visible = true;
-                        lblVaccStatus.Visible = true;
-
-                        txtAName.Visible = true;
-                        nudADay.Visible = true;
-                        pnlAGender.Visible = true;
-                        rdbMale.Visible = true;
-                        rdbFemale.Visible = true;
-                        txtWeight.Visible = true;
-                        lblVaccStatus.Visible = true;
-                        pnlYesNo.Visible = true;
+                        lblAID.Visible = false;
+                        cbxAId.Visible = false;
+                        show_animal_components();
 
                         btnAnimalAction.Text = "Add Animal";
                         break;
                     }
                 case 1:     //Updates Animal
                     {
-                        lblID.Visible = true;
-                        cbxID.Visible = true;
-
-                        lblAName.Visible = true;
-                        lblADOB.Visible = true;
-                        lblGender.Visible = true;
-                        lblWeight.Visible = true;
-                        lblVaccStatus.Visible = true;
-
-                        txtAName.Visible = true;
-                        nudADay.Visible = true;
-                        pnlAGender.Visible = true;
-                        rdbMale.Visible = true;
-                        rdbFemale.Visible = true;
-                        txtWeight.Visible = true;
-                        lblVaccStatus.Visible = true;
-                        pnlYesNo.Visible = true;
+                        lblAID.Visible = true;
+                        cbxAId.Visible = true;
+                        show_animal_components();
 
                         btnAnimalAction.Text = "Update Animal Details";
                         break;
                     }
                 case 2:
                     {
-                        lblID.Visible = true;
-                        cbxID.Visible = true;
-
-                        lblAName.Visible = false;
-                        lblADOB.Visible = false;
-                        lblGender.Visible = false;
-                        lblWeight.Visible = false;
-                        lblVaccStatus.Visible = false;
-
-                        txtAName.Visible = false;
-                        nudADay.Visible = false;
-                        pnlAGender.Visible = false;
-                        rdbMale.Visible = false;
-                        rdbFemale.Visible = false;
-                        txtWeight.Visible = false;
-                        lblVaccStatus.Visible = false;
-                        pnlYesNo.Visible = false;
+                        lblAID.Visible = true;
+                        cbxAId.Visible = true;
+                        hide_animal_components();
 
                         btnAnimalAction.Text = "Remove Animal";
                         break;
@@ -149,19 +225,16 @@ namespace CMPG223_Group22_Project
 
         private void btnAnimalAction_Click(object sender, EventArgs e)
         {
-            string sql;
-            switch (cbxChooseAction.SelectedIndex)
+            //Put declarations and assignings here
+            switch (cbxAChooseAction.SelectedIndex)
             {
                 case 0:                     //Adds animal
                     {
-                        //sql = "SELECT * FROM ANIMALS";      //INSERT
                         cAnimals animalClass = new cAnimals();
 
-                        ///////////////////////////////////////////////////////////////
                         animalClass.setName(txtAName.Text);
-                        //Do date of birth//----------------------------------------------------------------
                         animalClass.setDateOfBirth((int)(nudADay.Value), (int)(nudAMonth.Value), (int)nudAYear.Value);
-                        //----------------------------------------------------------------------------------
+
                         if (rdbMale.Checked)
                         {
                             animalClass.setGender(rdbMale.Text);
@@ -171,6 +244,7 @@ namespace CMPG223_Group22_Project
                             animalClass.setGender(rdbFemale.Text);
                         }
                         //else dont proceed
+
                         animalClass.setWeight(float.Parse(txtWeight.Text));
                         if (rdbTrue.Checked)
                         {
@@ -192,17 +266,12 @@ namespace CMPG223_Group22_Project
                     }
                 case 1:                     //Updates Animal
                     {
-                        sql = "UPDATE FROM ANIMALS";
-
                         cAnimals animalClass = new cAnimals();
 
-                        ///////////////////////////////////////////////////////////////
-                        animalId = int.Parse(cbxChooseAction.SelectedItem.ToString());
+                        animalId = int.Parse(cbxAId.SelectedItem.ToString());
                         animalClass.setName(txtAName.Text);
-                        string dateOfBirthString = nudADay.Value.ToString() + nudAMonth.Value.ToString() + nudAYear.Value.ToString();
-                        DateTime dob = DateTime.Parse(dateOfBirthString);
-                        animalClass.setDateOfBirth((int)nudADay.Value, (int)nudAMonth.Value, (int)nudAYear.Value);
-                        //Do date of birth//----------------------------------------------------------------
+                        animalClass.setDateOfBirth((int)(nudADay.Value), (int)(nudAMonth.Value), (int)nudAYear.Value);
+
                         if (rdbMale.Checked)
                         {
                             animalClass.setGender(rdbMale.Text);
@@ -212,6 +281,7 @@ namespace CMPG223_Group22_Project
                             animalClass.setGender(rdbFemale.Text);
                         }
                         //else dont proceed
+
                         animalClass.setWeight(float.Parse(txtWeight.Text));
                         if (rdbTrue.Checked)
                         {
@@ -221,13 +291,25 @@ namespace CMPG223_Group22_Project
                         {
                             animalClass.setVacc(rdbFalse.Text);
                         }
-                        ///////////////////////////////////////////////////////////////
-                        //animalClass.changeAnimalDetail(animalId);
+
+                        sql_UpdateAnimal(animalId);
+                        conn.Close();
+
+                        conn.Open();
+                        sql_showAnimals();
+                        conn.Close();
                         break;
                     }
                 case 2:                     //Remove animal
                     {
-                       
+                        animalId = int.Parse(cbxAId.SelectedItem.ToString());
+
+                        sql_DeleteAnimal(animalId);
+                        conn.Close();
+
+                        conn.Open();
+                        sql_showAnimals();
+                        conn.Close();
                         break;
                     }
                 default:
@@ -251,24 +333,98 @@ namespace CMPG223_Group22_Project
             lstbxVisitorLog.Items.Add(personClass.getSurname());
             lstbxVisitorLog.Items.Add(personClass.getContactNum());
 
-            switch (cbxChooseAction.SelectedIndex)
+
+            switch (cbxVChooseAction.SelectedIndex)
             {
-                case 0:                     //Adds animal
+                case 0:                     //Adds Visitor
                     {
-                        sql = "SELECT * FROM VISITORS ";
+                        sql_AddVisitor();
+                        conn.Close();
+
+                        conn.Open();
+                        sql_showVisitors();
+                        conn.Close();
                         break;
                     }
-                case 1:                     //Updates Animal
+                case 1:                     //Updates Visitor
                     {
-                        sql = "UPDATE FROM VISITORS";
+                        int visitorId = int.Parse(cbxVId.SelectedItem.ToString());
+                        sql_UpdateVisitor(visitorId);
+                        conn.Close();
+
+                        conn.Open();
+                        sql_showVisitors();
+                        conn.Close();
+
                         break;
                     }
-                case 2:                     //Remove animal
+                case 2:                     //Removes Visitor
                     {
-                        if (cbxID.SelectedIndex != null && cbxID.SelectedIndex.ToString() != null)  //?
-                        {
-                            sql = $"DELETE FROM VISITORS";
-                        }
+                        int visitorId = int.Parse(cbxVId.SelectedItem.ToString());
+                        sql_DeleteVisitor(visitorId);
+                        conn.Close();
+
+                        conn.Open();
+                        sql_showVisitors();
+                        conn.Close();
+                        break;
+                    }
+                default:
+                    {
+
+                        break;
+                    }
+
+            }
+        }
+
+        private void AdminForm_Load(object sender, EventArgs e)
+        {
+            lblAID.Visible = false;
+            cbxAId.Visible = false;
+            sql_showAnimals();
+            hide_animal_components();
+
+            lblVID.Visible = false;
+            cbxVId.Visible = false;
+            sql_showVisitors();
+            hide_visitor_components();
+        }
+
+        private void tpAnimals_Click(object sender, EventArgs e)
+        {
+            cbxAChooseAction.SelectedIndex = -1;
+        }
+
+        private void cbxVChooseAction_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (cbxVChooseAction.SelectedIndex)
+            {
+                case 0:                     //Adds Visitor
+                    {
+                        lblVID.Visible = false;
+                        cbxVId.Visible = false;
+                        show_visitor_components();
+
+                        btnVisitorAction.Text = "Add Visitor";
+                        break;
+                    }
+                case 1:                     //Updates Visitor
+                    {
+                        lblVID.Visible = true;
+                        cbxVId.Visible = true;
+                        show_visitor_components();
+
+                        btnVisitorAction.Text = "Update Visitor Details";
+                        break;
+                    }
+                case 2:                     //Remove Visitor
+                    {
+                        lblVID.Visible = true;
+                        cbxVId.Visible = true;
+                        hide_visitor_components();
+
+                        btnVisitorAction.Text = "Delete Visitor";
                         break;
                     }
                 default:
@@ -278,34 +434,5 @@ namespace CMPG223_Group22_Project
 
             }
         }
-
-        private void AdminForm_Load(object sender, EventArgs e)
-        {
-            sql_showAnimals();
-            sql_showVisitors();
-            lblID.Visible = false;
-            cbxID.Visible = false;
-
-            lblAName.Visible = false;
-            lblADOB.Visible = false;
-            lblGender.Visible = false;
-            lblWeight.Visible = false;
-            lblVaccStatus.Visible = false;
-
-            txtAName.Visible = false;
-            nudADay.Visible = false;
-            pnlAGender.Visible = false;
-            rdbMale.Visible = false;
-            rdbFemale.Visible = false;
-            txtWeight.Visible = false;
-            lblVaccStatus.Visible = false;
-            pnlYesNo.Visible = false;
-        }
-
-        private void tpAnimals_Click(object sender, EventArgs e)
-        {
-            cbxChooseAction.SelectedIndex = -1;
-        }
-
     }
 }

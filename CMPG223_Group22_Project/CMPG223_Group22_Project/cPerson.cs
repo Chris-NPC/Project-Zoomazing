@@ -46,16 +46,16 @@ namespace CMPG223_Group22_Project
             this.contactNum = contactNum;
         }
 
+        public void addPerson()
+        {
+            
+        }
+
         public void changePersonDetals()
         {
 
         }
-
-        public void addPerson()
-        {
-
-        }
-
+        
         public void deletePerson()
         {
 

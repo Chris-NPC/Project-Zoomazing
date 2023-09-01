@@ -95,18 +95,18 @@ namespace CMPG223_Group22_Project
          /// add
          /// </summary>
 
-        //public string changeAnimalDetail(int animalId)
-        //{
-          //  string sql = $"UPDATE ANIMALS SET Animal_Name = {getName()}, Date_Of_Birth = {getDateOfBirth()}, Gender = {getGender()}, Weight = {getWeight()}, Vaccination = {getVacc()} WHERE Animal_ID = {animalId}";
-
-         //   return sql;
-        //}/// <summary>
+        public string changeAnimalDetail(int animalId)
+        {
+            string sql = $"UPDATE ANIMALS SET Animal_Name = {getName()}, Date_Of_Birth = {getDateOfBirth()}, Gender = {getGender()}, Weight = {getWeight()}, Vaccination = {getVacc()} WHERE Animal_ID = {animalId}";
+            
+            return sql;
+        }/// <summary>
         /// update 
         /// </summary>
 
         public string deleteAnimal(int animalId)
         {
-            string sql = $"DELETE FROM ANIMAL WHERE {animalId}";
+            string sql = $"DELETE FROM ANIMAL WHERE Animal_ID{animalId}";
 
             return sql;
         }/// <summary>

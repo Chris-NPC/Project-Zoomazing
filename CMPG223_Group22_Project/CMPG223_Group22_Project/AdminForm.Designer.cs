@@ -31,19 +31,23 @@ namespace CMPG223_Group22_Project
         {
             this.tcAdmin = new System.Windows.Forms.TabControl();
             this.tpAnimals = new System.Windows.Forms.TabPage();
+            this.lblAGap2 = new System.Windows.Forms.Label();
+            this.lblAGap1 = new System.Windows.Forms.Label();
+            this.nudAYear = new System.Windows.Forms.NumericUpDown();
+            this.nudAMonth = new System.Windows.Forms.NumericUpDown();
             this.pnlAGender = new System.Windows.Forms.Panel();
             this.rdbFemale = new System.Windows.Forms.RadioButton();
             this.rdbMale = new System.Windows.Forms.RadioButton();
             this.pnlAHeading = new System.Windows.Forms.Panel();
             this.lblAHeading = new System.Windows.Forms.Label();
             this.lblActionChoose = new System.Windows.Forms.Label();
-            this.cbxChooseAction = new System.Windows.Forms.ComboBox();
+            this.cbxAChooseAction = new System.Windows.Forms.ComboBox();
             this.lstbxAnimalLog = new System.Windows.Forms.ListBox();
             this.pnlYesNo = new System.Windows.Forms.Panel();
             this.rdbFalse = new System.Windows.Forms.RadioButton();
             this.rdbTrue = new System.Windows.Forms.RadioButton();
             this.nudADay = new System.Windows.Forms.NumericUpDown();
-            this.cbxID = new System.Windows.Forms.ComboBox();
+            this.cbxAId = new System.Windows.Forms.ComboBox();
             this.dgvShowAnimals = new System.Windows.Forms.DataGridView();
             this.txtWeight = new System.Windows.Forms.TextBox();
             this.txtAName = new System.Windows.Forms.TextBox();
@@ -52,48 +56,50 @@ namespace CMPG223_Group22_Project
             this.lblADOB = new System.Windows.Forms.Label();
             this.lblGender = new System.Windows.Forms.Label();
             this.btnAnimalAction = new System.Windows.Forms.Button();
-            this.lblID = new System.Windows.Forms.Label();
+            this.lblAID = new System.Windows.Forms.Label();
             this.lblAName = new System.Windows.Forms.Label();
             this.tpVisitors = new System.Windows.Forms.TabPage();
+            this.lblVGap2 = new System.Windows.Forms.Label();
+            this.lblVGap1 = new System.Windows.Forms.Label();
+            this.nudVYear = new System.Windows.Forms.NumericUpDown();
+            this.nudVMonth = new System.Windows.Forms.NumericUpDown();
+            this.nudVDay = new System.Windows.Forms.NumericUpDown();
             this.pnlVHeading = new System.Windows.Forms.Panel();
             this.lblVHeading = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.nudVAge = new System.Windows.Forms.NumericUpDown();
+            this.lblVChooseAction = new System.Windows.Forms.Label();
+            this.cbxVChooseAction = new System.Windows.Forms.ComboBox();
             this.lblVID = new System.Windows.Forms.Label();
             this.lblVFName = new System.Windows.Forms.Label();
             this.lstbxVisitorLog = new System.Windows.Forms.ListBox();
-            this.cbxVID = new System.Windows.Forms.ComboBox();
+            this.cbxVId = new System.Windows.Forms.ComboBox();
             this.dgvShowVisitors = new System.Windows.Forms.DataGridView();
             this.txtContactNumber = new System.Windows.Forms.TextBox();
             this.txtVName = new System.Windows.Forms.TextBox();
             this.txtVLName = new System.Windows.Forms.TextBox();
             this.lblContactNumber = new System.Windows.Forms.Label();
-            this.lblVAge = new System.Windows.Forms.Label();
+            this.lblVDob = new System.Windows.Forms.Label();
             this.btnVisitorAction = new System.Windows.Forms.Button();
             this.lblVLName = new System.Windows.Forms.Label();
             this.tpReports = new System.Windows.Forms.TabPage();
             this.lstbxReport = new System.Windows.Forms.ListBox();
             this.btnTotalCost = new System.Windows.Forms.Button();
             this.btnNumTickets = new System.Windows.Forms.Button();
-            this.nudAMonth = new System.Windows.Forms.NumericUpDown();
-            this.nudAYear = new System.Windows.Forms.NumericUpDown();
-            this.lblAGap1 = new System.Windows.Forms.Label();
-            this.lblAGap2 = new System.Windows.Forms.Label();
             this.tcAdmin.SuspendLayout();
             this.tpAnimals.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudAYear)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudAMonth)).BeginInit();
             this.pnlAGender.SuspendLayout();
             this.pnlAHeading.SuspendLayout();
             this.pnlYesNo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudADay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvShowAnimals)).BeginInit();
             this.tpVisitors.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudVYear)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudVMonth)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudVDay)).BeginInit();
             this.pnlVHeading.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudVAge)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvShowVisitors)).BeginInit();
             this.tpReports.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudAMonth)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudAYear)).BeginInit();
             this.SuspendLayout();
             // 
             // tcAdmin
@@ -118,11 +124,11 @@ namespace CMPG223_Group22_Project
             this.tpAnimals.Controls.Add(this.pnlAGender);
             this.tpAnimals.Controls.Add(this.pnlAHeading);
             this.tpAnimals.Controls.Add(this.lblActionChoose);
-            this.tpAnimals.Controls.Add(this.cbxChooseAction);
+            this.tpAnimals.Controls.Add(this.cbxAChooseAction);
             this.tpAnimals.Controls.Add(this.lstbxAnimalLog);
             this.tpAnimals.Controls.Add(this.pnlYesNo);
             this.tpAnimals.Controls.Add(this.nudADay);
-            this.tpAnimals.Controls.Add(this.cbxID);
+            this.tpAnimals.Controls.Add(this.cbxAId);
             this.tpAnimals.Controls.Add(this.dgvShowAnimals);
             this.tpAnimals.Controls.Add(this.txtWeight);
             this.tpAnimals.Controls.Add(this.txtAName);
@@ -131,7 +137,7 @@ namespace CMPG223_Group22_Project
             this.tpAnimals.Controls.Add(this.lblADOB);
             this.tpAnimals.Controls.Add(this.lblGender);
             this.tpAnimals.Controls.Add(this.btnAnimalAction);
-            this.tpAnimals.Controls.Add(this.lblID);
+            this.tpAnimals.Controls.Add(this.lblAID);
             this.tpAnimals.Controls.Add(this.lblAName);
             this.tpAnimals.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tpAnimals.Location = new System.Drawing.Point(4, 29);
@@ -141,6 +147,40 @@ namespace CMPG223_Group22_Project
             this.tpAnimals.TabIndex = 0;
             this.tpAnimals.Text = "Animals";
             this.tpAnimals.Click += new System.EventHandler(this.tpAnimals_Click);
+            // 
+            // lblAGap2
+            // 
+            this.lblAGap2.AutoSize = true;
+            this.lblAGap2.Location = new System.Drawing.Point(362, 581);
+            this.lblAGap2.Name = "lblAGap2";
+            this.lblAGap2.Size = new System.Drawing.Size(17, 20);
+            this.lblAGap2.TabIndex = 26;
+            this.lblAGap2.Text = "/";
+            // 
+            // lblAGap1
+            // 
+            this.lblAGap1.AutoSize = true;
+            this.lblAGap1.Location = new System.Drawing.Point(291, 581);
+            this.lblAGap1.Name = "lblAGap1";
+            this.lblAGap1.Size = new System.Drawing.Size(17, 20);
+            this.lblAGap1.TabIndex = 25;
+            this.lblAGap1.Text = "/";
+            // 
+            // nudAYear
+            // 
+            this.nudAYear.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nudAYear.Location = new System.Drawing.Point(385, 579);
+            this.nudAYear.Name = "nudAYear";
+            this.nudAYear.Size = new System.Drawing.Size(66, 28);
+            this.nudAYear.TabIndex = 24;
+            // 
+            // nudAMonth
+            // 
+            this.nudAMonth.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nudAMonth.Location = new System.Drawing.Point(314, 579);
+            this.nudAMonth.Name = "nudAMonth";
+            this.nudAMonth.Size = new System.Drawing.Size(42, 28);
+            this.nudAMonth.TabIndex = 23;
             // 
             // pnlAGender
             // 
@@ -205,20 +245,20 @@ namespace CMPG223_Group22_Project
             this.lblActionChoose.TabIndex = 20;
             this.lblActionChoose.Text = "Choose Action:";
             // 
-            // cbxChooseAction
+            // cbxAChooseAction
             // 
-            this.cbxChooseAction.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxChooseAction.FormattingEnabled = true;
-            this.cbxChooseAction.Items.AddRange(new object[] {
+            this.cbxAChooseAction.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxAChooseAction.FormattingEnabled = true;
+            this.cbxAChooseAction.Items.AddRange(new object[] {
             "Add Animal",
             "Change Animal Details",
             "Remove Animal"});
-            this.cbxChooseAction.Location = new System.Drawing.Point(711, 104);
-            this.cbxChooseAction.Name = "cbxChooseAction";
-            this.cbxChooseAction.Size = new System.Drawing.Size(178, 28);
-            this.cbxChooseAction.TabIndex = 19;
-            this.cbxChooseAction.Text = "ACTION";
-            this.cbxChooseAction.SelectedIndexChanged += new System.EventHandler(this.cbxChooseAction_SelectedIndexChanged);
+            this.cbxAChooseAction.Location = new System.Drawing.Point(711, 104);
+            this.cbxAChooseAction.Name = "cbxAChooseAction";
+            this.cbxAChooseAction.Size = new System.Drawing.Size(178, 28);
+            this.cbxAChooseAction.TabIndex = 19;
+            this.cbxAChooseAction.Text = "ACTION";
+            this.cbxAChooseAction.SelectedIndexChanged += new System.EventHandler(this.cbxChooseAction_SelectedIndexChanged);
             // 
             // lstbxAnimalLog
             // 
@@ -272,14 +312,14 @@ namespace CMPG223_Group22_Project
             this.nudADay.Size = new System.Drawing.Size(42, 28);
             this.nudADay.TabIndex = 4;
             // 
-            // cbxID
+            // cbxAId
             // 
-            this.cbxID.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxID.FormattingEnabled = true;
-            this.cbxID.Location = new System.Drawing.Point(243, 472);
-            this.cbxID.Name = "cbxID";
-            this.cbxID.Size = new System.Drawing.Size(153, 28);
-            this.cbxID.TabIndex = 2;
+            this.cbxAId.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxAId.FormattingEnabled = true;
+            this.cbxAId.Location = new System.Drawing.Point(243, 472);
+            this.cbxAId.Name = "cbxAId";
+            this.cbxAId.Size = new System.Drawing.Size(153, 28);
+            this.cbxAId.TabIndex = 2;
             // 
             // dgvShowAnimals
             // 
@@ -362,16 +402,16 @@ namespace CMPG223_Group22_Project
             this.btnAnimalAction.UseVisualStyleBackColor = true;
             this.btnAnimalAction.Click += new System.EventHandler(this.btnAnimalAction_Click);
             // 
-            // lblID
+            // lblAID
             // 
-            this.lblID.AutoSize = true;
-            this.lblID.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblID.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblID.Location = new System.Drawing.Point(39, 471);
-            this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(44, 25);
-            this.lblID.TabIndex = 9;
-            this.lblID.Text = "ID:";
+            this.lblAID.AutoSize = true;
+            this.lblAID.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAID.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblAID.Location = new System.Drawing.Point(39, 471);
+            this.lblAID.Name = "lblAID";
+            this.lblAID.Size = new System.Drawing.Size(44, 25);
+            this.lblAID.TabIndex = 9;
+            this.lblAID.Text = "ID:";
             // 
             // lblAName
             // 
@@ -387,20 +427,24 @@ namespace CMPG223_Group22_Project
             // tpVisitors
             // 
             this.tpVisitors.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.tpVisitors.Controls.Add(this.lblVGap2);
+            this.tpVisitors.Controls.Add(this.lblVGap1);
+            this.tpVisitors.Controls.Add(this.nudVYear);
+            this.tpVisitors.Controls.Add(this.nudVMonth);
+            this.tpVisitors.Controls.Add(this.nudVDay);
             this.tpVisitors.Controls.Add(this.pnlVHeading);
-            this.tpVisitors.Controls.Add(this.label2);
-            this.tpVisitors.Controls.Add(this.comboBox1);
-            this.tpVisitors.Controls.Add(this.nudVAge);
+            this.tpVisitors.Controls.Add(this.lblVChooseAction);
+            this.tpVisitors.Controls.Add(this.cbxVChooseAction);
             this.tpVisitors.Controls.Add(this.lblVID);
             this.tpVisitors.Controls.Add(this.lblVFName);
             this.tpVisitors.Controls.Add(this.lstbxVisitorLog);
-            this.tpVisitors.Controls.Add(this.cbxVID);
+            this.tpVisitors.Controls.Add(this.cbxVId);
             this.tpVisitors.Controls.Add(this.dgvShowVisitors);
             this.tpVisitors.Controls.Add(this.txtContactNumber);
             this.tpVisitors.Controls.Add(this.txtVName);
             this.tpVisitors.Controls.Add(this.txtVLName);
             this.tpVisitors.Controls.Add(this.lblContactNumber);
-            this.tpVisitors.Controls.Add(this.lblVAge);
+            this.tpVisitors.Controls.Add(this.lblVDob);
             this.tpVisitors.Controls.Add(this.btnVisitorAction);
             this.tpVisitors.Controls.Add(this.lblVLName);
             this.tpVisitors.Location = new System.Drawing.Point(4, 29);
@@ -409,6 +453,48 @@ namespace CMPG223_Group22_Project
             this.tpVisitors.Size = new System.Drawing.Size(1487, 793);
             this.tpVisitors.TabIndex = 1;
             this.tpVisitors.Text = "Visitors";
+            // 
+            // lblVGap2
+            // 
+            this.lblVGap2.AutoSize = true;
+            this.lblVGap2.Location = new System.Drawing.Point(347, 578);
+            this.lblVGap2.Name = "lblVGap2";
+            this.lblVGap2.Size = new System.Drawing.Size(17, 20);
+            this.lblVGap2.TabIndex = 36;
+            this.lblVGap2.Text = "/";
+            // 
+            // lblVGap1
+            // 
+            this.lblVGap1.AutoSize = true;
+            this.lblVGap1.Location = new System.Drawing.Point(276, 578);
+            this.lblVGap1.Name = "lblVGap1";
+            this.lblVGap1.Size = new System.Drawing.Size(17, 20);
+            this.lblVGap1.TabIndex = 35;
+            this.lblVGap1.Text = "/";
+            // 
+            // nudVYear
+            // 
+            this.nudVYear.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nudVYear.Location = new System.Drawing.Point(370, 576);
+            this.nudVYear.Name = "nudVYear";
+            this.nudVYear.Size = new System.Drawing.Size(66, 28);
+            this.nudVYear.TabIndex = 34;
+            // 
+            // nudVMonth
+            // 
+            this.nudVMonth.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nudVMonth.Location = new System.Drawing.Point(299, 576);
+            this.nudVMonth.Name = "nudVMonth";
+            this.nudVMonth.Size = new System.Drawing.Size(42, 28);
+            this.nudVMonth.TabIndex = 33;
+            // 
+            // nudVDay
+            // 
+            this.nudVDay.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nudVDay.Location = new System.Drawing.Point(228, 576);
+            this.nudVDay.Name = "nudVDay";
+            this.nudVDay.Size = new System.Drawing.Size(42, 28);
+            this.nudVDay.TabIndex = 32;
             // 
             // pnlVHeading
             // 
@@ -427,34 +513,28 @@ namespace CMPG223_Group22_Project
             this.lblVHeading.TabIndex = 0;
             this.lblVHeading.Text = "Maintain Visitors";
             // 
-            // label2
+            // lblVChooseAction
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(39, 119);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(139, 20);
-            this.label2.TabIndex = 30;
-            this.label2.Text = "Choose Action:";
+            this.lblVChooseAction.AutoSize = true;
+            this.lblVChooseAction.Location = new System.Drawing.Point(39, 119);
+            this.lblVChooseAction.Name = "lblVChooseAction";
+            this.lblVChooseAction.Size = new System.Drawing.Size(139, 20);
+            this.lblVChooseAction.TabIndex = 30;
+            this.lblVChooseAction.Text = "Choose Action:";
             // 
-            // comboBox1
+            // cbxVChooseAction
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Add Animal",
-            "Change Animal Details",
-            "Remove Animal"});
-            this.comboBox1.Location = new System.Drawing.Point(576, 112);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 28);
-            this.comboBox1.TabIndex = 29;
-            this.comboBox1.Text = "ACTION";
-            // 
-            // nudVAge
-            // 
-            this.nudVAge.Location = new System.Drawing.Point(228, 578);
-            this.nudVAge.Name = "nudVAge";
-            this.nudVAge.Size = new System.Drawing.Size(100, 28);
-            this.nudVAge.TabIndex = 20;
+            this.cbxVChooseAction.FormattingEnabled = true;
+            this.cbxVChooseAction.Items.AddRange(new object[] {
+            "Add Visitor",
+            "Change Visitor Details",
+            "Remove Visitorl"});
+            this.cbxVChooseAction.Location = new System.Drawing.Point(576, 112);
+            this.cbxVChooseAction.Name = "cbxVChooseAction";
+            this.cbxVChooseAction.Size = new System.Drawing.Size(121, 28);
+            this.cbxVChooseAction.TabIndex = 29;
+            this.cbxVChooseAction.Text = "ACTION";
+            this.cbxVChooseAction.SelectedIndexChanged += new System.EventHandler(this.cbxVChooseAction_SelectedIndexChanged);
             // 
             // lblVID
             // 
@@ -483,13 +563,13 @@ namespace CMPG223_Group22_Project
             this.lstbxVisitorLog.Size = new System.Drawing.Size(392, 704);
             this.lstbxVisitorLog.TabIndex = 28;
             // 
-            // cbxVID
+            // cbxVId
             // 
-            this.cbxVID.FormattingEnabled = true;
-            this.cbxVID.Location = new System.Drawing.Point(228, 468);
-            this.cbxVID.Name = "cbxVID";
-            this.cbxVID.Size = new System.Drawing.Size(100, 28);
-            this.cbxVID.TabIndex = 17;
+            this.cbxVId.FormattingEnabled = true;
+            this.cbxVId.Location = new System.Drawing.Point(228, 468);
+            this.cbxVId.Name = "cbxVId";
+            this.cbxVId.Size = new System.Drawing.Size(168, 28);
+            this.cbxVId.TabIndex = 17;
             // 
             // dgvShowVisitors
             // 
@@ -505,21 +585,21 @@ namespace CMPG223_Group22_Project
             // 
             this.txtContactNumber.Location = new System.Drawing.Point(228, 614);
             this.txtContactNumber.Name = "txtContactNumber";
-            this.txtContactNumber.Size = new System.Drawing.Size(100, 28);
+            this.txtContactNumber.Size = new System.Drawing.Size(168, 28);
             this.txtContactNumber.TabIndex = 21;
             // 
             // txtVName
             // 
-            this.txtVName.Location = new System.Drawing.Point(228, 541);
+            this.txtVName.Location = new System.Drawing.Point(228, 540);
             this.txtVName.Name = "txtVName";
-            this.txtVName.Size = new System.Drawing.Size(100, 28);
+            this.txtVName.Size = new System.Drawing.Size(168, 28);
             this.txtVName.TabIndex = 19;
             // 
             // txtVLName
             // 
             this.txtVLName.Location = new System.Drawing.Point(228, 502);
             this.txtVLName.Name = "txtVLName";
-            this.txtVLName.Size = new System.Drawing.Size(100, 28);
+            this.txtVLName.Size = new System.Drawing.Size(168, 28);
             this.txtVLName.TabIndex = 18;
             // 
             // lblContactNumber
@@ -531,14 +611,14 @@ namespace CMPG223_Group22_Project
             this.lblContactNumber.TabIndex = 27;
             this.lblContactNumber.Text = "Contact Number:";
             // 
-            // lblVAge
+            // lblVDob
             // 
-            this.lblVAge.AutoSize = true;
-            this.lblVAge.Location = new System.Drawing.Point(39, 578);
-            this.lblVAge.Name = "lblVAge";
-            this.lblVAge.Size = new System.Drawing.Size(181, 20);
-            this.lblVAge.TabIndex = 26;
-            this.lblVAge.Text = "Age: (Date of birth)";
+            this.lblVDob.AutoSize = true;
+            this.lblVDob.Location = new System.Drawing.Point(39, 578);
+            this.lblVDob.Name = "lblVDob";
+            this.lblVDob.Size = new System.Drawing.Size(126, 20);
+            this.lblVDob.TabIndex = 26;
+            this.lblVDob.Text = "Date of birth:";
             // 
             // btnVisitorAction
             // 
@@ -598,40 +678,6 @@ namespace CMPG223_Group22_Project
             this.btnNumTickets.Text = "Report for number of tickets";
             this.btnNumTickets.UseVisualStyleBackColor = true;
             // 
-            // nudAMonth
-            // 
-            this.nudAMonth.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nudAMonth.Location = new System.Drawing.Point(314, 579);
-            this.nudAMonth.Name = "nudAMonth";
-            this.nudAMonth.Size = new System.Drawing.Size(42, 28);
-            this.nudAMonth.TabIndex = 23;
-            // 
-            // nudAYear
-            // 
-            this.nudAYear.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nudAYear.Location = new System.Drawing.Point(385, 579);
-            this.nudAYear.Name = "nudAYear";
-            this.nudAYear.Size = new System.Drawing.Size(66, 28);
-            this.nudAYear.TabIndex = 24;
-            // 
-            // lblAGap1
-            // 
-            this.lblAGap1.AutoSize = true;
-            this.lblAGap1.Location = new System.Drawing.Point(291, 581);
-            this.lblAGap1.Name = "lblAGap1";
-            this.lblAGap1.Size = new System.Drawing.Size(17, 20);
-            this.lblAGap1.TabIndex = 25;
-            this.lblAGap1.Text = "/";
-            // 
-            // lblAGap2
-            // 
-            this.lblAGap2.AutoSize = true;
-            this.lblAGap2.Location = new System.Drawing.Point(362, 581);
-            this.lblAGap2.Name = "lblAGap2";
-            this.lblAGap2.Size = new System.Drawing.Size(17, 20);
-            this.lblAGap2.TabIndex = 26;
-            this.lblAGap2.Text = "/";
-            // 
             // AdminForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -644,6 +690,8 @@ namespace CMPG223_Group22_Project
             this.tcAdmin.ResumeLayout(false);
             this.tpAnimals.ResumeLayout(false);
             this.tpAnimals.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudAYear)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudAMonth)).EndInit();
             this.pnlAGender.ResumeLayout(false);
             this.pnlAGender.PerformLayout();
             this.pnlAHeading.ResumeLayout(false);
@@ -654,13 +702,13 @@ namespace CMPG223_Group22_Project
             ((System.ComponentModel.ISupportInitialize)(this.dgvShowAnimals)).EndInit();
             this.tpVisitors.ResumeLayout(false);
             this.tpVisitors.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudVYear)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudVMonth)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudVDay)).EndInit();
             this.pnlVHeading.ResumeLayout(false);
             this.pnlVHeading.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudVAge)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvShowVisitors)).EndInit();
             this.tpReports.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.nudAMonth)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudAYear)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -671,7 +719,7 @@ namespace CMPG223_Group22_Project
         private System.Windows.Forms.TabPage tpAnimals;
         private System.Windows.Forms.TabPage tpVisitors;
         private System.Windows.Forms.TabPage tpReports;
-        private System.Windows.Forms.Label lblID;
+        private System.Windows.Forms.Label lblAID;
         private System.Windows.Forms.Label lblAName;
         private System.Windows.Forms.Button btnAnimalAction;
         private System.Windows.Forms.TextBox txtWeight;
@@ -680,37 +728,36 @@ namespace CMPG223_Group22_Project
         private System.Windows.Forms.Label lblVaccStatus;
         private System.Windows.Forms.Label lblADOB;
         private System.Windows.Forms.Label lblGender;
-        private System.Windows.Forms.ComboBox cbxID;
+        private System.Windows.Forms.ComboBox cbxAId;
         private System.Windows.Forms.DataGridView dgvShowAnimals;
         private System.Windows.Forms.NumericUpDown nudADay;
         private System.Windows.Forms.Panel pnlYesNo;
         private System.Windows.Forms.RadioButton rdbFalse;
         private System.Windows.Forms.RadioButton rdbTrue;
         private System.Windows.Forms.ListBox lstbxAnimalLog;
-        private System.Windows.Forms.NumericUpDown nudVAge;
         private System.Windows.Forms.Label lblVID;
         private System.Windows.Forms.Label lblVFName;
         private System.Windows.Forms.ListBox lstbxVisitorLog;
-        private System.Windows.Forms.ComboBox cbxVID;
+        private System.Windows.Forms.ComboBox cbxVId;
         private System.Windows.Forms.DataGridView dgvShowVisitors;
         private System.Windows.Forms.TextBox txtContactNumber;
         private System.Windows.Forms.TextBox txtVName;
         private System.Windows.Forms.TextBox txtVLName;
         private System.Windows.Forms.Label lblContactNumber;
-        private System.Windows.Forms.Label lblVAge;
+        private System.Windows.Forms.Label lblVDob;
         private System.Windows.Forms.Button btnVisitorAction;
         private System.Windows.Forms.Label lblVLName;
         private System.Windows.Forms.ListBox lstbxReport;
         private System.Windows.Forms.Button btnTotalCost;
         private System.Windows.Forms.Button btnNumTickets;
         private System.Windows.Forms.Label lblActionChoose;
-        private System.Windows.Forms.ComboBox cbxChooseAction;
+        private System.Windows.Forms.ComboBox cbxAChooseAction;
         private System.Windows.Forms.Panel pnlAHeading;
         private System.Windows.Forms.Label lblAHeading;
         private System.Windows.Forms.Panel pnlVHeading;
         private System.Windows.Forms.Label lblVHeading;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label lblVChooseAction;
+        private System.Windows.Forms.ComboBox cbxVChooseAction;
         private System.Windows.Forms.Panel pnlAGender;
         private System.Windows.Forms.RadioButton rdbFemale;
         private System.Windows.Forms.RadioButton rdbMale;
@@ -718,5 +765,10 @@ namespace CMPG223_Group22_Project
         private System.Windows.Forms.NumericUpDown nudAMonth;
         private System.Windows.Forms.Label lblAGap2;
         private System.Windows.Forms.Label lblAGap1;
+        private System.Windows.Forms.Label lblVGap2;
+        private System.Windows.Forms.Label lblVGap1;
+        private System.Windows.Forms.NumericUpDown nudVYear;
+        private System.Windows.Forms.NumericUpDown nudVMonth;
+        private System.Windows.Forms.NumericUpDown nudVDay;
     }
 }
