@@ -9,14 +9,13 @@ namespace CMPG223_Group22_Project
     class cVisitors
     {
         public DateTime dateOfBirth;
-        public string msg;
 
         public DateTime getDateOfBirth()
         {
             return dateOfBirth;
         }
 
-        public void setDateOfBirth(int day, int month, int year, int receiveId)
+        public void setDateOfBirth(int day, int month, int year)
         {
             string correctDay, correctMonth;
 
@@ -39,9 +38,6 @@ namespace CMPG223_Group22_Project
             }
             string dateVar = year.ToString() + "/" + correctMonth + "/" + correctDay;
            
-            msg = year.ToString() + "/" + correctMonth + "/" + correctDay;
-
-            //string date_birth = "5";
             DateTime dob = DateTime.ParseExact(dateVar, "yyyy/MM/dd", null);
 
             dateOfBirth = dob;
@@ -57,22 +53,27 @@ namespace CMPG223_Group22_Project
             return false;
         }
 
-        public string newVisitor(int visitorId, string surname, string name, string contactNum)
+        public string newVisitor(int visitorId, string surname, string name, string contactNum, int day, int month, int year)
         {
             cPerson vPerson = new cPerson();
             vPerson.setSurname(surname);
             vPerson.setName(name);
             vPerson.setContactNum(contactNum);
-
+            setDateOfBirth(day, month, year);
             string sql = $"INSERT INTO VISITORS VALUES({visitorId+1},'{vPerson.getSurname()}', '{vPerson.getName()}', '{getDateOfBirth()}', '{vPerson.getContactNum()}')";
 
             return sql;
         }
 
-        public string changeVisitorDetail(string visitorId)
+        public string changeVisitorDetail(string visitorId, string surname, string name, string contactNum, int day, int month, int year)
         {
             cPerson vPerson = new cPerson();
-            string sql = $"UPDATE VISITORS SET Visitors_LName = '{vPerson.getSurname()}', Visitors_Name = '{vPerson.getName()}', Date_Of_Birth = {getDateOfBirth()}, ContactNumber = '{vPerson.getContactNum()}' WHERE VisitorsID = '{visitorId}'";
+            vPerson.setSurname(surname);
+            vPerson.setName(name);
+            vPerson.setContactNum(contactNum);
+            setDateOfBirth(day, month, year);
+
+            string sql = $"UPDATE VISITORS SET Visitors_LName = '{vPerson.getSurname()}', Visitors_Name = '{vPerson.getName()}', Date_Of_Birth = '{getDateOfBirth()}', ContactNumber = '{vPerson.getContactNum()}' WHERE Visitors_ID = '{visitorId}'";
 
             return sql;
         }

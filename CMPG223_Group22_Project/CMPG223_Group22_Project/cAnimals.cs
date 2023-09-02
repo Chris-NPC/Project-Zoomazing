@@ -9,10 +9,8 @@ namespace CMPG223_Group22_Project
     class cAnimals
     {
         public string name;
-        public string fullGender; //or char?
         public char gender;
         public float weight;
-        public string vaccination;
         public bool isVacc;
         public DateTime dateOfBirth;
 
@@ -78,39 +76,67 @@ namespace CMPG223_Group22_Project
 
         public void setDateOfBirth(int day, int month, int year)
         {
-            string dateOfBirthString = day.ToString() + month.ToString() + year.ToString();
-            DateTime dob = DateTime.Parse(day + "/" + month + "/" + year);
+            string correctDay, correctMonth;
+
+            if ((day < 10) && (day >= 1))
+            {
+                correctDay = "0" + day.ToString();
+            }
+            else
+            {
+                correctDay = day.ToString();
+            }
+
+            if ((month < 10) && (month >= 1))
+            {
+                correctMonth = "0" + month.ToString();
+            }
+            else
+            {
+                correctMonth = month.ToString();
+            }
+            string dateVar = year.ToString() + "/" + correctMonth + "/" + correctDay;
+
+            DateTime dob = DateTime.ParseExact(dateVar, "yyyy/MM/dd", null);
 
             dateOfBirth = dob;
-
         }
 
-        public string addAnimal()
+        public string addAnimal(int animalId, string name, string gender, float weight, string vacc, int day, int month, int year)
         {
-            string sql = $"INSERT INTO ANIMALS VALUES({getName()}, {getDateOfBirth()}, {getGender()}, {getWeight()}, {getVacc()})";
+            setName(name);
+            setGender(gender);
+            setWeight(weight);
+            setVacc(vacc);
+            setDateOfBirth(day, month, year);
+
+            string sql = $"INSERT INTO ANIMALS VALUES({animalId + 1}, '{getName()}', '{getDateOfBirth()}', '{getGender()}', {getWeight()}, '{getVacc()}')";
 
 
             return sql ;
-        }/// <summary>
-         /// add
-         /// </summary>
+        }
+        /// Add Animal
 
-        public string changeAnimalDetail(int animalId)
+        public string changeAnimalDetail(string animalId, string name, string gender, float weight, string vacc, int day, int month, int year)
         {
-            string sql = $"UPDATE ANIMALS SET Animal_Name = {getName()}, Date_Of_Birth = {getDateOfBirth()}, Gender = {getGender()}, Weight = {getWeight()}, Vaccination = {getVacc()} WHERE Animal_ID = {animalId}";
+            setName(name);
+            setGender(gender);
+            setWeight(weight);
+            setVacc(vacc);
+            setDateOfBirth(day, month, year);
+
+            string sql = $"UPDATE ANIMALS SET Animal_Name = '{getName()}', Date_Of_Birth = '{getDateOfBirth()}', Gender = '{getGender()}', Weight = {getWeight()}, Vaccination = '{getVacc()}' WHERE Animal_ID = '{animalId}'";
             
             return sql;
-        }/// <summary>
-        /// update 
-        /// </summary>
+        }
+        /// update animal
 
-        public string deleteAnimal(int animalId)
+        public string deleteAnimal(string animalId)
         {
-            string sql = $"DELETE FROM ANIMAL WHERE Animal_ID{animalId}";
+            string sql = $"DELETE FROM ANIMALS WHERE Animal_ID = '{animalId}'";
 
             return sql;
-        }/// <summary>
-        /// delete
-        /// </summary>
+        }
+        /// delete animal
     }
 }

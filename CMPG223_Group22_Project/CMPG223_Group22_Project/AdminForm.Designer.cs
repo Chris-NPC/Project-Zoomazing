@@ -170,17 +170,47 @@ namespace CMPG223_Group22_Project
             // 
             this.nudAYear.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nudAYear.Location = new System.Drawing.Point(385, 579);
+            this.nudAYear.Maximum = new decimal(new int[] {
+            2023,
+            0,
+            0,
+            0});
+            this.nudAYear.Minimum = new decimal(new int[] {
+            1900,
+            0,
+            0,
+            0});
             this.nudAYear.Name = "nudAYear";
             this.nudAYear.Size = new System.Drawing.Size(66, 28);
             this.nudAYear.TabIndex = 24;
+            this.nudAYear.Value = new decimal(new int[] {
+            1900,
+            0,
+            0,
+            0});
             // 
             // nudAMonth
             // 
             this.nudAMonth.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nudAMonth.Location = new System.Drawing.Point(314, 579);
+            this.nudAMonth.Maximum = new decimal(new int[] {
+            12,
+            0,
+            0,
+            0});
+            this.nudAMonth.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.nudAMonth.Name = "nudAMonth";
             this.nudAMonth.Size = new System.Drawing.Size(42, 28);
             this.nudAMonth.TabIndex = 23;
+            this.nudAMonth.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // pnlAGender
             // 
@@ -258,7 +288,7 @@ namespace CMPG223_Group22_Project
             this.cbxAChooseAction.Size = new System.Drawing.Size(178, 28);
             this.cbxAChooseAction.TabIndex = 19;
             this.cbxAChooseAction.Text = "ACTION";
-            this.cbxAChooseAction.SelectedIndexChanged += new System.EventHandler(this.cbxChooseAction_SelectedIndexChanged);
+            this.cbxAChooseAction.SelectedIndexChanged += new System.EventHandler(this.cbxAChooseAction_SelectedIndexChanged);
             // 
             // lstbxAnimalLog
             // 
@@ -308,9 +338,24 @@ namespace CMPG223_Group22_Project
             // 
             this.nudADay.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nudADay.Location = new System.Drawing.Point(243, 579);
+            this.nudADay.Maximum = new decimal(new int[] {
+            12,
+            0,
+            0,
+            0});
+            this.nudADay.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.nudADay.Name = "nudADay";
             this.nudADay.Size = new System.Drawing.Size(42, 28);
             this.nudADay.TabIndex = 4;
+            this.nudADay.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // cbxAId
             // 
