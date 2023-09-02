@@ -476,25 +476,70 @@ namespace CMPG223_Group22_Project
             // 
             this.nudVYear.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nudVYear.Location = new System.Drawing.Point(370, 576);
+            this.nudVYear.Maximum = new decimal(new int[] {
+            2023,
+            0,
+            0,
+            0});
+            this.nudVYear.Minimum = new decimal(new int[] {
+            1900,
+            0,
+            0,
+            0});
             this.nudVYear.Name = "nudVYear";
             this.nudVYear.Size = new System.Drawing.Size(66, 28);
             this.nudVYear.TabIndex = 34;
+            this.nudVYear.Value = new decimal(new int[] {
+            1900,
+            0,
+            0,
+            0});
             // 
             // nudVMonth
             // 
             this.nudVMonth.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nudVMonth.Location = new System.Drawing.Point(299, 576);
+            this.nudVMonth.Maximum = new decimal(new int[] {
+            12,
+            0,
+            0,
+            0});
+            this.nudVMonth.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.nudVMonth.Name = "nudVMonth";
             this.nudVMonth.Size = new System.Drawing.Size(42, 28);
             this.nudVMonth.TabIndex = 33;
+            this.nudVMonth.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // nudVDay
             // 
             this.nudVDay.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nudVDay.Location = new System.Drawing.Point(228, 576);
+            this.nudVDay.Maximum = new decimal(new int[] {
+            31,
+            0,
+            0,
+            0});
+            this.nudVDay.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.nudVDay.Name = "nudVDay";
             this.nudVDay.Size = new System.Drawing.Size(42, 28);
             this.nudVDay.TabIndex = 32;
+            this.nudVDay.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // pnlVHeading
             // 

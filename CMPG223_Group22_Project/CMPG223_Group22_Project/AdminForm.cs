@@ -25,6 +25,8 @@ namespace CMPG223_Group22_Project
         SqlDataAdapter adapter;
         SqlDataReader reader;
         int animalId;
+        int receive_id; //read visitor and or animal id?
+        cVisitors cMainV = new cVisitors();
 
         /// ----------------------------------------------------------------------------
         private void show_animal_components()
@@ -110,6 +112,39 @@ namespace CMPG223_Group22_Project
             ds = new DataSet();
         }
 
+        private int read_visitor_id()
+        {
+            string sql_id = "SELECT Visitors_Id FROM VISITORS";
+            sql_showComponents(sql_id);
+            conn.Open();
+            adapter.SelectCommand = command;
+            adapter.Fill(ds, "VISITORS");
+            reader = command.ExecuteReader();
+
+            while(reader.Read())
+            {
+                receive_id = reader.GetInt32(0);
+            }
+
+            conn.Close();
+            return receive_id;
+        }
+
+        private void pop_Vcbx()
+        {
+            string sql_pop = "SELECT Visitors_Id FROM VISITORS";
+            sql_showComponents(sql_pop);
+
+            conn.Open();
+
+            adapter.SelectCommand = command;
+            adapter.Fill(ds, "VISITORS");
+
+            cbxVId.DataSource = ds.Tables["VISITORS"];
+            cbxVId.DisplayMember = "Visitors_Id";
+            cbxVId.ValueMember = "Visitors_Id";
+        }
+
 
         private void sql_showAnimals()
         {
@@ -151,21 +186,23 @@ namespace CMPG223_Group22_Project
         {
             string sql = "SELECT * FROM VISITORS";
             sql_showComponents(sql);
+            conn.Open();
             adapter.SelectCommand = command;
             adapter.Fill(ds, "VISITORS");
 
             dgvShowVisitors.DataSource = ds;
             dgvShowVisitors.DataMember = "VISITORS";
         }
-        private void sql_AddVisitor()
+        private void sql_AddVisitor(string surname, string name, string contactNum)
         {
-            cVisitors visitorClass = new cVisitors();
-            sql_showComponents(visitorClass.newVisitor());      //receives sql to add visitor
+            sql_showComponents(cMainV.newVisitor(read_visitor_id(), surname, name, contactNum));      //receives sql to add visitor
+            //MessageBox.Show(cMainV.newVisitor(read_visitor_id(), surname, name, contactNum));
             conn.Open();
             adapter.InsertCommand = command;
             command.ExecuteNonQuery();
+
         }
-        private void sql_UpdateVisitor(int visitorId)
+        private void sql_UpdateVisitor(string visitorId)
         {
             cVisitors visitorClass = new cVisitors();
 
@@ -174,13 +211,13 @@ namespace CMPG223_Group22_Project
             adapter.UpdateCommand = command;
             command.ExecuteNonQuery();
         }
-        private void sql_DeleteVisitor(int visitorId)
+        private void sql_DeleteVisitor(string visitorId)
         {
             cVisitors visitorClass = new cVisitors();
             sql_showComponents(visitorClass.deleteVisitor(visitorId));
             conn.Open();
             adapter.DeleteCommand = command;
-            command.ExecuteNonQuery();
+            adapter.DeleteCommand.ExecuteNonQuery();
         }
 
 
@@ -322,50 +359,47 @@ namespace CMPG223_Group22_Project
 
         private void btnVisitorAction_Click(object sender, EventArgs e)
         {
-            string sql;
-
-            cPerson personClass = new cPerson();
-            personClass.setName(txtVName.Text);
-            personClass.setSurname(txtVLName.Text);
-            personClass.setContactNum(txtContactNumber.Text);
-
-            lstbxVisitorLog.Items.Add(personClass.getName());
-            lstbxVisitorLog.Items.Add(personClass.getSurname());
-            lstbxVisitorLog.Items.Add(personClass.getContactNum());
-
 
             switch (cbxVChooseAction.SelectedIndex)
             {
-                case 0:                     //Adds Visitor
+                case 0:                     //Adds Visitor      //WORKS//
                     {
-                        sql_AddVisitor();
+                        cPerson personClass = new cPerson();
+
+                        cMainV.setDateOfBirth((int)nudVDay.Value, (int)nudVMonth.Value, (int)nudVYear.Value, read_visitor_id());
+
+                        sql_AddVisitor(txtVName.Text, txtVLName.Text, txtContactNumber.Text);
                         conn.Close();
 
-                        conn.Open();
+                        //conn.Open();
                         sql_showVisitors();
+                        pop_Vcbx();
                         conn.Close();
                         break;
                     }
                 case 1:                     //Updates Visitor
                     {
-                        int visitorId = int.Parse(cbxVId.SelectedItem.ToString());
+                        string visitorId = cbxVId.Text;
                         sql_UpdateVisitor(visitorId);
                         conn.Close();
 
-                        conn.Open();
+                        //conn.Open();
                         sql_showVisitors();
+                        pop_Vcbx();
                         conn.Close();
 
                         break;
                     }
-                case 2:                     //Removes Visitor
+                case 2:                     //Removes Visitor   //WORKS//
                     {
-                        int visitorId = int.Parse(cbxVId.SelectedItem.ToString());
+                        string visitorId = cbxVId.Text;
+                        MessageBox.Show(visitorId);
                         sql_DeleteVisitor(visitorId);
                         conn.Close();
 
-                        conn.Open();
+                        //conn.Open();
                         sql_showVisitors();
+                        pop_Vcbx();
                         conn.Close();
                         break;
                     }
@@ -411,6 +445,7 @@ namespace CMPG223_Group22_Project
                     }
                 case 1:                     //Updates Visitor
                     {
+                        pop_Vcbx();
                         lblVID.Visible = true;
                         cbxVId.Visible = true;
                         show_visitor_components();
@@ -420,6 +455,7 @@ namespace CMPG223_Group22_Project
                     }
                 case 2:                     //Remove Visitor
                     {
+                        pop_Vcbx();
                         lblVID.Visible = true;
                         cbxVId.Visible = true;
                         hide_visitor_components();
