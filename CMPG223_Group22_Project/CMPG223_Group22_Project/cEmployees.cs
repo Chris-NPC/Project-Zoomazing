@@ -10,68 +10,96 @@ namespace CMPG223_Group22_Project
     {
         public string username;
         public string password;
+        public string employeeType;
 
-        public void getUsername(string userName)
-        {
-            this.username = userName;
-        }
-
-        public void getPassword(string password)
-        {
-            this.password = password;
-        }
-
-        public string setUsername()
+        public string getUsername()
         {
             return username;
         }
 
-        public string setPassword()
+        public string getPassword()
         {
             return password;
         }
 
-        public bool isAdmin()
+        public void setUsername(string userName)
         {
-            if ()
+            this.username = userName;
+        }
+
+        public void setPassword(string password)
+        {
+            this.password = password;
+        }
+
+        public void isAdmin(string empType)
+        {
+            if (empType == "Admin")
+            {
+                employeeType = "Administrator";
+            }
+            else
+            {
+                employeeType = "Employee";
+            }
+        }   //tells if admin or not
+
+        ///
+        public bool loggedIn(bool entered)
+        {
+            if (entered == true)
             {
                 return true;
             }
-
             return false;
         }
-
-        public bool loggedIn()
+        public bool loggedOut(bool entered)
         {
-            if ()
+            if (entered == false)
             {
                 return true;
             }
             return false;
         }
+        ///
 
-        public bool loggedOut()
+        public string addEmployee(int employeeId, string surname, string name, string contactNum, string username, string password, string empType)
         {
-            if ()
-            {
-                return true;
-            }
-            return false;
+            
+            cPerson ePerson = new cPerson();
+            ePerson.setSurname(surname);
+            ePerson.setName(name);
+            ePerson.setContactNum(contactNum);
+            setUsername(username);
+            setPassword(password);
+            isAdmin(empType);
+
+            //string sql = $"INSERT INTO Users VALUES({},{},{},{},{},{},{})";
+            string sql = "";
+            return sql;
         }
 
-        public void addEmployee()
+        public string changeEmployeeDetails(string employeeId, string surname, string name, string contactNum, string username, string password, string empType)
         {
+            cPerson ePerson = new cPerson();
+            ePerson.setSurname(surname);
+            ePerson.setName(name);
+            ePerson.setContactNum(contactNum);
+            setUsername(username);
+            setPassword(password);
+            isAdmin(empType);
 
+            string sql = $"UPDATE Users SET ... ";
+
+            return sql;
         }
 
-        public void deleteEmployee()
+        public string deleteEmployee(string employeeId)
         {
+            string sql = $"DELETE FROM Users WHERE Id = '{employeeId}'";
 
+            return sql;
         }
 
-        public void changeEmployeeDetails()
-        {
-
-        }
     }
 }

@@ -31,10 +31,13 @@ namespace CMPG223_Group22_Project
         /// variable and classes declared for use in this form's coding
         /// </summary>
         int receive_id;
-        cVisitors cAddV = new cVisitors();
-        cVisitors cUpdateV = new cVisitors();
-        cAnimals cAddA = new cAnimals();
-        cAnimals cUpdateA = new cAnimals();
+        //cAnimals cAddA = new cAnimals();
+        //cAnimals cUpdateA = new cAnimals();
+        //cVisitors cAddV = new cVisitors();
+        //cVisitors cUpdateV = new cVisitors();
+        //cEmployees cAddE = new cEmployees();
+        //cEmployees cUpdateE = new cEmployees();
+
 
         /// <summary>
         /// Resets the relevant components and shows relevant components when called.
@@ -69,6 +72,49 @@ namespace CMPG223_Group22_Project
             rdbTrue.Checked = false;
             rdbFalse.Checked = false;
         }
+        private void show_visitor_components()
+        {
+            lblVFName.Visible = true;
+            lblVLName.Visible = true;
+            lblVDob.Visible = true;
+            lblContactNumber.Visible = true;
+            lblVGap1.Visible = true;
+            lblVGap2.Visible = true;
+
+            txtVName.Visible = true;
+            txtVLName.Visible = true;
+            nudVDay.Visible = true;
+            nudVMonth.Visible = true;
+            nudVYear.Visible = true;
+            txtContactNumber.Visible = true;
+
+            txtVName.Text = "";
+            txtVLName.Text = "";
+            nudVDay.Value = 1;
+            nudVMonth.Value = 1;
+            nudVYear.Value = 1900;
+            txtContactNumber.Text = "";
+        }
+        private void show_employee_components()
+        {
+            lblEFName.Visible = true;
+            lblELName.Visible = true;
+            lblEContactNumber.Visible = true;
+            lblUsername.Visible = true;
+            lblPassword.Visible = true;
+
+            txtEName.Visible = true;
+            txtELName.Visible = true;
+            txtEContactNumber.Visible = true;
+            txtUsername.Visible = true;
+            txtPassword.Visible = true;
+
+            txtEName.Text = "";
+            txtELName.Text = "";
+            txtEContactNumber.Text = "";
+            txtUsername.Text = "";
+            txtPassword.Text = "";
+        }
 
 
         /// <summary>
@@ -94,39 +140,6 @@ namespace CMPG223_Group22_Project
             txtWeight.Visible = false;
             pnlYesNo.Visible = false;
         }
-
-
-        /// <summary>
-        /// Resets the relevant components and shows relevant components when called.
-        /// </summary>
-        private void show_visitor_components()
-        {
-            lblVFName.Visible = true;
-            lblVLName.Visible = true;
-            lblVDob.Visible = true;
-            lblContactNumber.Visible = true;
-            lblVGap1.Visible = true;
-            lblVGap2.Visible = true;
-
-            txtVName.Visible = true;
-            txtVLName.Visible = true;
-            nudVDay.Visible = true;
-            nudVMonth.Visible = true;
-            nudVYear.Visible = true;
-            txtContactNumber.Visible = true;
-
-            txtVName.Text = "";
-            txtVLName.Text = "";
-            nudVDay.Value = 1;
-            nudVMonth.Value = 1;
-            nudVYear.Value = 1900;
-            txtContactNumber.Text = "";
-        }
-
-
-        /// <summary>
-        /// Hides relevant(unnecessary) components when called
-        /// </summary>
         private void hide_visitor_components()
         {
             lblVFName.Visible = false;
@@ -142,6 +155,20 @@ namespace CMPG223_Group22_Project
             nudVMonth.Visible = false;
             nudVYear.Visible = false;
             txtContactNumber.Visible = false;
+        }
+        private void hide_employee_components()
+        {
+            lblEFName.Visible = false;
+            lblELName.Visible = false;
+            lblEContactNumber.Visible = false;
+            lblUsername.Visible = false;
+            lblPassword.Visible = false;
+
+            txtEName.Visible = false;
+            txtELName.Visible = false;
+            txtEContactNumber.Visible = false;
+            txtUsername.Visible = false;
+            txtPassword.Visible = false;
         }
 
 
@@ -200,6 +227,23 @@ namespace CMPG223_Group22_Project
             conn.Close();
             return receive_id;
         }
+        private int read_employee_id()
+        {
+            string sql_id = "SELECT Id FROM Users";
+            sql_showComponents(sql_id);
+            conn.Open();
+            adapter.SelectCommand = command;
+            adapter.Fill(ds, "Users");
+            reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                receive_id = reader.GetInt32(0);
+            }
+
+            conn.Close();
+            return receive_id;
+        }
 
 
         /// <summary>
@@ -236,10 +280,24 @@ namespace CMPG223_Group22_Project
             cbxVId.DisplayMember = "Visitors_Id";
             cbxVId.ValueMember = "Visitors_Id";
         }
+        private void pop_Ecbx()
+        {
+            string sql_pop = "SELECT Id FROM Users";
+            sql_showComponents(sql_pop);
+
+            conn.Open();
+
+            adapter.SelectCommand = command;
+            adapter.Fill(ds, "Users");
+
+            cbxVId.DataSource = ds.Tables["Users"];
+            cbxVId.DisplayMember = "Id";
+            cbxVId.ValueMember = "Id";
+        }
 
 
         /// <summary>
-        /// (For procedures "sql_showAnimals()" and "sql_showVisitors")
+        /// (For procedures "sql_showAnimals()" and "sql_showVisitors" and "sql_showEmployees")
         /// SELECT SQL statement declared to select all the records from the relevant database to show the database to the user through the 'dataGridView' component.
         /// Also called after a new record has been inserted, record updated or record deleted.
         /// </summary>
@@ -265,6 +323,17 @@ namespace CMPG223_Group22_Project
             dgvShowVisitors.DataSource = ds;
             dgvShowVisitors.DataMember = "VISITORS";
         }
+        private void sql_showEmployees()
+        {
+            string sql = "SELECT * FROM Users";
+            sql_showComponents(sql);
+            conn.Open();
+            adapter.SelectCommand = command;
+            adapter.Fill(ds, "Users");
+
+            dgvShowEmployees.DataSource = ds;
+            dgvShowEmployees.DataMember = "Users";
+        }
 
 
         /// <summary>
@@ -281,6 +350,7 @@ namespace CMPG223_Group22_Project
         /// <param name="year"></param>
         private void sql_AddAnimal(string name, string gender, float weight, string vacc, int day, int month, int year)
         {
+            cAnimals cAddA = new cAnimals();
             sql_showComponents(cAddA.addAnimal(read_animal_id(), name, gender, weight, vacc, day, month, year));
             
             conn.Open();
@@ -303,6 +373,7 @@ namespace CMPG223_Group22_Project
         /// <param name="year"></param>
         private void sql_UpdateAnimal(string animalId, string name, string gender, float weight, string vacc, int day, int month, int year)
         {
+            cAnimals cUpdateA = new cAnimals();
             sql_showComponents(cUpdateA.changeAnimalDetail(animalId, name, gender, weight, vacc, day, month, year));
 
             conn.Open();
@@ -318,8 +389,8 @@ namespace CMPG223_Group22_Project
         /// <param name="animalId"></param>
         private void sql_DeleteAnimal(string animalId)
         {
-            cAnimals animalClass = new cAnimals();
-            sql_showComponents(animalClass.deleteAnimal(animalId));
+            cAnimals cDeleteA = new cAnimals();
+            sql_showComponents(cDeleteA.deleteAnimal(animalId));
             conn.Open();
             adapter.DeleteCommand = command;
             adapter.DeleteCommand.ExecuteNonQuery();
@@ -340,12 +411,12 @@ namespace CMPG223_Group22_Project
         /// <param name="year"></param>
         private void sql_AddVisitor(string surname, string name, string contactNum, int day, int month, int year)
         {
+            cVisitors cAddV = new cVisitors();
             sql_showComponents(cAddV.newVisitor(read_visitor_id(), surname, name, contactNum, day, month, year));      
            
             conn.Open();
             adapter.InsertCommand = command;
             command.ExecuteNonQuery();
-
         }
 
         /// <summary>
@@ -362,7 +433,9 @@ namespace CMPG223_Group22_Project
         /// <param name="year"></param>
         private void sql_UpdateVisitor(string visitorId, string surname, string name, string contactNum, int day, int month, int year)
         {
+            cVisitors cUpdateV = new cVisitors();
             sql_showComponents(cUpdateV.changeVisitorDetail(visitorId, surname, name, contactNum, day, month, year));
+
             conn.Open();
             adapter.UpdateCommand = command;
             adapter.UpdateCommand.ExecuteNonQuery();
@@ -376,8 +449,38 @@ namespace CMPG223_Group22_Project
         /// <param name="visitorId"></param>
         private void sql_DeleteVisitor(string visitorId)
         {
-            cVisitors visitorClass = new cVisitors();
-            sql_showComponents(visitorClass.deleteVisitor(visitorId));
+            cVisitors cDeleteV = new cVisitors();
+            sql_showComponents(cDeleteV.deleteVisitor(visitorId));
+
+            conn.Open();
+            adapter.DeleteCommand = command;
+            adapter.DeleteCommand.ExecuteNonQuery();
+        }
+
+
+        private void sql_AddEmployee(string surname, string name, string contactNum, string username, string password)
+        {
+            cEmployees cAddE = new cEmployees();
+            sql_showComponents(cAddE.addEmployee(read_employee_id(), surname, name, contactNum, username, password));//empType
+
+            conn.Open();
+            adapter.InsertCommand = command;
+            command.ExecuteNonQuery();
+        }
+        private void sql_UpdateEmployee(string employeeId, string surname, string name, string contactNum, string username, string password)
+        {
+            cEmployees cUpdateE = new cEmployees();
+            sql_showComponents(cUpdateE.changeEmployeeDetails(employeeId, surname, name, contactNum, username, password));//empType
+
+            conn.Open();
+            adapter.UpdateCommand = command;
+            adapter.UpdateCommand.ExecuteNonQuery();
+        }
+        private void sql_DeleteEmployee(string employeeId)
+        {
+            cEmployees cDeleteE = new cEmployees();
+            sql_showComponents(cDeleteE.deleteEmployee(employeeId));//empType
+
             conn.Open();
             adapter.DeleteCommand = command;
             adapter.DeleteCommand.ExecuteNonQuery();
@@ -419,6 +522,7 @@ namespace CMPG223_Group22_Project
                     }
                 case 1:             //Updates Animal
                     {
+                        pop_Acbx();
                         lblAID.Visible = true;
                         cbxAId.Visible = true;
                         show_animal_components();
@@ -428,6 +532,7 @@ namespace CMPG223_Group22_Project
                     }
                 case 2:             //Deletes Animal
                     {
+                        pop_Acbx();
                         lblAID.Visible = true;
                         cbxAId.Visible = true;
                         hide_animal_components();
@@ -482,6 +587,46 @@ namespace CMPG223_Group22_Project
 
             }
         }
+        private void cbxEChooseAction_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (cbxEChooseAction.SelectedIndex)
+            {
+                case 0:                     //Adds Employee
+                    {
+                        lblEID.Visible = false;
+                        cbxEId.Visible = false;
+                        show_employee_components();
+
+                        btnEmployeeAction.Text = "Add Employee";
+                        break;
+                    }
+                case 1:                     //Updates Employee
+                    {
+                        pop_Ecbx();
+                        lblEID.Visible = true;
+                        cbxEId.Visible = true;
+                        show_employee_components();
+
+                        btnEmployeeAction.Text = "Update Employee Details";
+                        break;
+                    }
+                case 2:                     //Removes Employee
+                    {
+                        pop_Ecbx();
+                        lblEID.Visible = true;
+                        cbxEId.Visible = true;
+                        hide_employee_components();
+
+                        btnEmployeeAction.Text = "Delete Employee";
+                        break;
+                    }
+                default:
+                    {
+                        break;
+                    }
+
+            }
+        }
 
 
         /// <summary>
@@ -527,12 +672,10 @@ namespace CMPG223_Group22_Project
                             vacci = rdbFalse.Text;
                         }
 
-
                         sql_AddAnimal(txtAName.Text, gender, float.Parse(txtWeight.Text), vacci, (int)nudADay.Value, (int)nudAMonth.Value, (int)nudAYear.Value);
                         conn.Close();
 
                         sql_showAnimals();
-                        pop_Acbx();
                         conn.Close();
                         break;
                     }
@@ -558,11 +701,12 @@ namespace CMPG223_Group22_Project
                             vacci = rdbFalse.Text;
                         }
 
-
                         sql_UpdateAnimal(animalId, txtAName.Text, gender, float.Parse(txtWeight.Text), vacci, (int)nudADay.Value, (int)nudAMonth.Value, (int)nudAYear.Value);
                         conn.Close();
 
                         sql_showAnimals();
+                        conn.Close();
+
                         pop_Acbx();
                         conn.Close();
                         break;
@@ -570,11 +714,13 @@ namespace CMPG223_Group22_Project
                 case 2:                     //Remove animal
                     {
                         string animalId = cbxAId.Text;
+
                         sql_DeleteAnimal(animalId);
                         conn.Close();
 
-                        //conn.Open();
                         sql_showAnimals();
+                        conn.Close();
+
                         pop_Acbx();
                         conn.Close();
                         break;
@@ -605,7 +751,6 @@ namespace CMPG223_Group22_Project
         /// <param name="e"></param>
         private void btnVisitorAction_Click(object sender, EventArgs e)
         {
-
             switch (cbxVChooseAction.SelectedIndex)
             {
                 case 0:                     //Adds Visitor      
@@ -614,7 +759,6 @@ namespace CMPG223_Group22_Project
                         conn.Close();
 
                         sql_showVisitors();
-                        pop_Vcbx();
                         conn.Close();
                         break;
                     }
@@ -625,8 +769,9 @@ namespace CMPG223_Group22_Project
                         sql_UpdateVisitor(visitorId, txtVLName.Text, txtVName.Text, txtContactNumber.Text, (int)nudVDay.Value, (int)nudVMonth.Value, (int)nudVYear.Value);
                         conn.Close();
 
-                        //conn.Open();
                         sql_showVisitors();
+                        conn.Close();
+
                         pop_Vcbx();
                         conn.Close();
 
@@ -645,12 +790,67 @@ namespace CMPG223_Group22_Project
                     }
                 default:
                     {
-
                         break;
                     }
 
             }
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnEmployeeAction_Click(object sender, EventArgs e)
+        {
+            switch (cbxVChooseAction.SelectedIndex)
+            {
+                case 0:                     //Adds Visitor      
+                    {
+                        sql_AddEmployee(txtEName.Text, txtELName.Text, txtEContactNumber.Text, txtUsername.Text, txtPassword.Text); //empType?
+                        conn.Close();
+
+                        sql_showEmployees();
+                        conn.Close();
+                        break;
+                    }
+                case 1:                     //Updates Visitor         
+                    {
+                        string employeeId = cbxVId.Text;
+
+                        sql_UpdateEmployee(employeeId, txtELName.Text, txtEName.Text, txtEContactNumber.Text, txtUsername.Text, txtPassword.Text); //empType
+                        conn.Close();
+
+                        sql_showEmployees();
+                        conn.Close();
+
+                        pop_Ecbx();
+                        conn.Close();
+
+                        break;
+                    }
+                case 2:                     //Removes Visitor  
+                    {
+                        string employeeId = cbxEId.Text;
+
+                        sql_DeleteEmployee(employeeId);
+                        conn.Close();
+
+                        sql_showEmployees();
+                        conn.Close();
+
+                        pop_Ecbx();
+                        conn.Close();
+                        break;
+                    }
+                default:
+                    {
+                        break;
+                    }
+
+            }
+        }
+
 
         /// <summary>
         /// Initiates form by hiding almost all [but relevant] components.
@@ -668,6 +868,11 @@ namespace CMPG223_Group22_Project
             cbxVId.Visible = false;
             sql_showVisitors();
             hide_visitor_components();
+
+            lblEID.Visible = false;
+            cbxEId.Visible = false;
+            sql_showEmployees();
+            hide_employee_components();
         }
 
     }

@@ -80,17 +80,11 @@ namespace CMPG223_Group22_Project
             this.lblVDob = new System.Windows.Forms.Label();
             this.btnVisitorAction = new System.Windows.Forms.Button();
             this.lblVLName = new System.Windows.Forms.Label();
-            this.tpReports = new System.Windows.Forms.TabPage();
-            this.lstbxReport = new System.Windows.Forms.ListBox();
-            this.btnTotalCost = new System.Windows.Forms.Button();
-            this.btnNumTickets = new System.Windows.Forms.Button();
             this.tpEmployees = new System.Windows.Forms.TabPage();
-            this.pnlEHeading = new System.Windows.Forms.Panel();
-            this.lblEHeading = new System.Windows.Forms.Label();
-            this.lblEChooseAction = new System.Windows.Forms.Label();
-            this.cbxEChooseAction = new System.Windows.Forms.ComboBox();
-            this.lstbxEmployeeLog = new System.Windows.Forms.ListBox();
-            this.dgvShowEmployees = new System.Windows.Forms.DataGridView();
+            this.lblPassword = new System.Windows.Forms.Label();
+            this.lblUsername = new System.Windows.Forms.Label();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.txtUsername = new System.Windows.Forms.TextBox();
             this.lblEID = new System.Windows.Forms.Label();
             this.lblEFName = new System.Windows.Forms.Label();
             this.cbxEId = new System.Windows.Forms.ComboBox();
@@ -99,11 +93,17 @@ namespace CMPG223_Group22_Project
             this.txtELName = new System.Windows.Forms.TextBox();
             this.lblEContactNumber = new System.Windows.Forms.Label();
             this.btnEmployeeAction = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtUsername = new System.Windows.Forms.TextBox();
-            this.txtPassword = new System.Windows.Forms.TextBox();
-            this.lblUsername = new System.Windows.Forms.Label();
-            this.lblPassword = new System.Windows.Forms.Label();
+            this.lblELName = new System.Windows.Forms.Label();
+            this.pnlEHeading = new System.Windows.Forms.Panel();
+            this.lblEHeading = new System.Windows.Forms.Label();
+            this.lblEChooseAction = new System.Windows.Forms.Label();
+            this.cbxEChooseAction = new System.Windows.Forms.ComboBox();
+            this.lstbxEmployeeLog = new System.Windows.Forms.ListBox();
+            this.dgvShowEmployees = new System.Windows.Forms.DataGridView();
+            this.tpReports = new System.Windows.Forms.TabPage();
+            this.lstbxReport = new System.Windows.Forms.ListBox();
+            this.btnTotalCost = new System.Windows.Forms.Button();
+            this.btnNumTickets = new System.Windows.Forms.Button();
             this.tcAdmin.SuspendLayout();
             this.tpAnimals.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudAYear)).BeginInit();
@@ -119,10 +119,10 @@ namespace CMPG223_Group22_Project
             ((System.ComponentModel.ISupportInitialize)(this.nudVDay)).BeginInit();
             this.pnlVHeading.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvShowVisitors)).BeginInit();
-            this.tpReports.SuspendLayout();
             this.tpEmployees.SuspendLayout();
             this.pnlEHeading.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvShowEmployees)).BeginInit();
+            this.tpReports.SuspendLayout();
             this.SuspendLayout();
             // 
             // tcAdmin
@@ -752,47 +752,9 @@ namespace CMPG223_Group22_Project
             this.lblVLName.TabIndex = 24;
             this.lblVLName.Text = "Last Name:";
             // 
-            // tpReports
-            // 
-            this.tpReports.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.tpReports.Controls.Add(this.lstbxReport);
-            this.tpReports.Controls.Add(this.btnTotalCost);
-            this.tpReports.Controls.Add(this.btnNumTickets);
-            this.tpReports.Location = new System.Drawing.Point(4, 29);
-            this.tpReports.Name = "tpReports";
-            this.tpReports.Size = new System.Drawing.Size(1487, 793);
-            this.tpReports.TabIndex = 2;
-            this.tpReports.Text = "Reports";
-            // 
-            // lstbxReport
-            // 
-            this.lstbxReport.FormattingEnabled = true;
-            this.lstbxReport.ItemHeight = 20;
-            this.lstbxReport.Location = new System.Drawing.Point(17, 134);
-            this.lstbxReport.Name = "lstbxReport";
-            this.lstbxReport.Size = new System.Drawing.Size(489, 404);
-            this.lstbxReport.TabIndex = 2;
-            // 
-            // btnTotalCost
-            // 
-            this.btnTotalCost.Location = new System.Drawing.Point(17, 65);
-            this.btnTotalCost.Name = "btnTotalCost";
-            this.btnTotalCost.Size = new System.Drawing.Size(372, 41);
-            this.btnTotalCost.TabIndex = 1;
-            this.btnTotalCost.Text = "Report for total ticket cost";
-            this.btnTotalCost.UseVisualStyleBackColor = true;
-            // 
-            // btnNumTickets
-            // 
-            this.btnNumTickets.Location = new System.Drawing.Point(17, 23);
-            this.btnNumTickets.Name = "btnNumTickets";
-            this.btnNumTickets.Size = new System.Drawing.Size(372, 36);
-            this.btnNumTickets.TabIndex = 0;
-            this.btnNumTickets.Text = "Report for number of tickets";
-            this.btnNumTickets.UseVisualStyleBackColor = true;
-            // 
             // tpEmployees
             // 
+            this.tpEmployees.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.tpEmployees.Controls.Add(this.lblPassword);
             this.tpEmployees.Controls.Add(this.lblUsername);
             this.tpEmployees.Controls.Add(this.txtPassword);
@@ -805,7 +767,7 @@ namespace CMPG223_Group22_Project
             this.tpEmployees.Controls.Add(this.txtELName);
             this.tpEmployees.Controls.Add(this.lblEContactNumber);
             this.tpEmployees.Controls.Add(this.btnEmployeeAction);
-            this.tpEmployees.Controls.Add(this.label7);
+            this.tpEmployees.Controls.Add(this.lblELName);
             this.tpEmployees.Controls.Add(this.pnlEHeading);
             this.tpEmployees.Controls.Add(this.lblEChooseAction);
             this.tpEmployees.Controls.Add(this.cbxEChooseAction);
@@ -816,7 +778,113 @@ namespace CMPG223_Group22_Project
             this.tpEmployees.Size = new System.Drawing.Size(1487, 793);
             this.tpEmployees.TabIndex = 3;
             this.tpEmployees.Text = "Employees";
-            this.tpEmployees.UseVisualStyleBackColor = true;
+            // 
+            // lblPassword
+            // 
+            this.lblPassword.AutoSize = true;
+            this.lblPassword.Location = new System.Drawing.Point(64, 711);
+            this.lblPassword.Name = "lblPassword";
+            this.lblPassword.Size = new System.Drawing.Size(97, 20);
+            this.lblPassword.TabIndex = 57;
+            this.lblPassword.Text = "Password:";
+            // 
+            // lblUsername
+            // 
+            this.lblUsername.AutoSize = true;
+            this.lblUsername.Location = new System.Drawing.Point(64, 661);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(103, 20);
+            this.lblUsername.TabIndex = 56;
+            this.lblUsername.Text = "Username:";
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.Location = new System.Drawing.Point(254, 708);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(168, 28);
+            this.txtPassword.TabIndex = 55;
+            // 
+            // txtUsername
+            // 
+            this.txtUsername.Location = new System.Drawing.Point(254, 661);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(168, 28);
+            this.txtUsername.TabIndex = 54;
+            // 
+            // lblEID
+            // 
+            this.lblEID.AutoSize = true;
+            this.lblEID.Location = new System.Drawing.Point(65, 509);
+            this.lblEID.Name = "lblEID";
+            this.lblEID.Size = new System.Drawing.Size(38, 20);
+            this.lblEID.TabIndex = 49;
+            this.lblEID.Text = "ID:";
+            // 
+            // lblEFName
+            // 
+            this.lblEFName.AutoSize = true;
+            this.lblEFName.Location = new System.Drawing.Point(65, 581);
+            this.lblEFName.Name = "lblEFName";
+            this.lblEFName.Size = new System.Drawing.Size(111, 20);
+            this.lblEFName.TabIndex = 51;
+            this.lblEFName.Text = "First Name:";
+            // 
+            // cbxEId
+            // 
+            this.cbxEId.FormattingEnabled = true;
+            this.cbxEId.Location = new System.Drawing.Point(254, 506);
+            this.cbxEId.Name = "cbxEId";
+            this.cbxEId.Size = new System.Drawing.Size(168, 28);
+            this.cbxEId.TabIndex = 44;
+            // 
+            // txtEContactNumber
+            // 
+            this.txtEContactNumber.Location = new System.Drawing.Point(254, 619);
+            this.txtEContactNumber.Name = "txtEContactNumber";
+            this.txtEContactNumber.Size = new System.Drawing.Size(168, 28);
+            this.txtEContactNumber.TabIndex = 47;
+            // 
+            // txtEName
+            // 
+            this.txtEName.Location = new System.Drawing.Point(254, 578);
+            this.txtEName.Name = "txtEName";
+            this.txtEName.Size = new System.Drawing.Size(168, 28);
+            this.txtEName.TabIndex = 46;
+            // 
+            // txtELName
+            // 
+            this.txtELName.Location = new System.Drawing.Point(254, 540);
+            this.txtELName.Name = "txtELName";
+            this.txtELName.Size = new System.Drawing.Size(168, 28);
+            this.txtELName.TabIndex = 45;
+            // 
+            // lblEContactNumber
+            // 
+            this.lblEContactNumber.AutoSize = true;
+            this.lblEContactNumber.Location = new System.Drawing.Point(65, 622);
+            this.lblEContactNumber.Name = "lblEContactNumber";
+            this.lblEContactNumber.Size = new System.Drawing.Size(158, 20);
+            this.lblEContactNumber.TabIndex = 53;
+            this.lblEContactNumber.Text = "Contact Number:";
+            // 
+            // btnEmployeeAction
+            // 
+            this.btnEmployeeAction.Location = new System.Drawing.Point(520, 668);
+            this.btnEmployeeAction.Name = "btnEmployeeAction";
+            this.btnEmployeeAction.Size = new System.Drawing.Size(324, 85);
+            this.btnEmployeeAction.TabIndex = 48;
+            this.btnEmployeeAction.Text = "ACTION";
+            this.btnEmployeeAction.UseVisualStyleBackColor = true;
+            this.btnEmployeeAction.Click += new System.EventHandler(this.btnEmployeeAction_Click);
+            // 
+            // lblELName
+            // 
+            this.lblELName.AutoSize = true;
+            this.lblELName.Location = new System.Drawing.Point(65, 543);
+            this.lblELName.Name = "lblELName";
+            this.lblELName.Size = new System.Drawing.Size(108, 20);
+            this.lblELName.TabIndex = 50;
+            this.lblELName.Text = "Last Name:";
             // 
             // pnlEHeading
             // 
@@ -860,6 +928,7 @@ namespace CMPG223_Group22_Project
             this.cbxEChooseAction.Size = new System.Drawing.Size(178, 28);
             this.cbxEChooseAction.TabIndex = 41;
             this.cbxEChooseAction.Text = "ACTION";
+            this.cbxEChooseAction.SelectedIndexChanged += new System.EventHandler(this.cbxEChooseAction_SelectedIndexChanged);
             // 
             // lstbxEmployeeLog
             // 
@@ -881,111 +950,44 @@ namespace CMPG223_Group22_Project
             this.dgvShowEmployees.Size = new System.Drawing.Size(847, 308);
             this.dgvShowEmployees.TabIndex = 27;
             // 
-            // lblEID
+            // tpReports
             // 
-            this.lblEID.AutoSize = true;
-            this.lblEID.Location = new System.Drawing.Point(61, 531);
-            this.lblEID.Name = "lblEID";
-            this.lblEID.Size = new System.Drawing.Size(38, 20);
-            this.lblEID.TabIndex = 49;
-            this.lblEID.Text = "ID:";
+            this.tpReports.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.tpReports.Controls.Add(this.lstbxReport);
+            this.tpReports.Controls.Add(this.btnTotalCost);
+            this.tpReports.Controls.Add(this.btnNumTickets);
+            this.tpReports.Location = new System.Drawing.Point(4, 29);
+            this.tpReports.Name = "tpReports";
+            this.tpReports.Size = new System.Drawing.Size(1487, 793);
+            this.tpReports.TabIndex = 2;
+            this.tpReports.Text = "Reports";
             // 
-            // lblEFName
+            // lstbxReport
             // 
-            this.lblEFName.AutoSize = true;
-            this.lblEFName.Location = new System.Drawing.Point(61, 603);
-            this.lblEFName.Name = "lblEFName";
-            this.lblEFName.Size = new System.Drawing.Size(111, 20);
-            this.lblEFName.TabIndex = 51;
-            this.lblEFName.Text = "First Name:";
+            this.lstbxReport.FormattingEnabled = true;
+            this.lstbxReport.ItemHeight = 20;
+            this.lstbxReport.Location = new System.Drawing.Point(17, 134);
+            this.lstbxReport.Name = "lstbxReport";
+            this.lstbxReport.Size = new System.Drawing.Size(489, 404);
+            this.lstbxReport.TabIndex = 2;
             // 
-            // cbxEId
+            // btnTotalCost
             // 
-            this.cbxEId.FormattingEnabled = true;
-            this.cbxEId.Location = new System.Drawing.Point(250, 528);
-            this.cbxEId.Name = "cbxEId";
-            this.cbxEId.Size = new System.Drawing.Size(168, 28);
-            this.cbxEId.TabIndex = 44;
+            this.btnTotalCost.Location = new System.Drawing.Point(17, 65);
+            this.btnTotalCost.Name = "btnTotalCost";
+            this.btnTotalCost.Size = new System.Drawing.Size(372, 41);
+            this.btnTotalCost.TabIndex = 1;
+            this.btnTotalCost.Text = "Report for total ticket cost";
+            this.btnTotalCost.UseVisualStyleBackColor = true;
             // 
-            // txtEContactNumber
+            // btnNumTickets
             // 
-            this.txtEContactNumber.Location = new System.Drawing.Point(250, 641);
-            this.txtEContactNumber.Name = "txtEContactNumber";
-            this.txtEContactNumber.Size = new System.Drawing.Size(168, 28);
-            this.txtEContactNumber.TabIndex = 47;
-            // 
-            // txtEName
-            // 
-            this.txtEName.Location = new System.Drawing.Point(250, 600);
-            this.txtEName.Name = "txtEName";
-            this.txtEName.Size = new System.Drawing.Size(168, 28);
-            this.txtEName.TabIndex = 46;
-            // 
-            // txtELName
-            // 
-            this.txtELName.Location = new System.Drawing.Point(250, 562);
-            this.txtELName.Name = "txtELName";
-            this.txtELName.Size = new System.Drawing.Size(168, 28);
-            this.txtELName.TabIndex = 45;
-            // 
-            // lblEContactNumber
-            // 
-            this.lblEContactNumber.AutoSize = true;
-            this.lblEContactNumber.Location = new System.Drawing.Point(61, 644);
-            this.lblEContactNumber.Name = "lblEContactNumber";
-            this.lblEContactNumber.Size = new System.Drawing.Size(158, 20);
-            this.lblEContactNumber.TabIndex = 53;
-            this.lblEContactNumber.Text = "Contact Number:";
-            // 
-            // btnEmployeeAction
-            // 
-            this.btnEmployeeAction.Location = new System.Drawing.Point(520, 668);
-            this.btnEmployeeAction.Name = "btnEmployeeAction";
-            this.btnEmployeeAction.Size = new System.Drawing.Size(324, 85);
-            this.btnEmployeeAction.TabIndex = 48;
-            this.btnEmployeeAction.Text = "ACTION";
-            this.btnEmployeeAction.UseVisualStyleBackColor = true;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(61, 565);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(108, 20);
-            this.label7.TabIndex = 50;
-            this.label7.Text = "Last Name:";
-            // 
-            // txtUsername
-            // 
-            this.txtUsername.Location = new System.Drawing.Point(250, 683);
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(168, 28);
-            this.txtUsername.TabIndex = 54;
-            // 
-            // txtPassword
-            // 
-            this.txtPassword.Location = new System.Drawing.Point(250, 730);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(168, 28);
-            this.txtPassword.TabIndex = 55;
-            // 
-            // lblUsername
-            // 
-            this.lblUsername.AutoSize = true;
-            this.lblUsername.Location = new System.Drawing.Point(60, 683);
-            this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(103, 20);
-            this.lblUsername.TabIndex = 56;
-            this.lblUsername.Text = "Username:";
-            // 
-            // lblPassword
-            // 
-            this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(60, 733);
-            this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(97, 20);
-            this.lblPassword.TabIndex = 57;
-            this.lblPassword.Text = "Password:";
+            this.btnNumTickets.Location = new System.Drawing.Point(17, 23);
+            this.btnNumTickets.Name = "btnNumTickets";
+            this.btnNumTickets.Size = new System.Drawing.Size(372, 36);
+            this.btnNumTickets.TabIndex = 0;
+            this.btnNumTickets.Text = "Report for number of tickets";
+            this.btnNumTickets.UseVisualStyleBackColor = true;
             // 
             // AdminForm
             // 
@@ -1017,12 +1019,12 @@ namespace CMPG223_Group22_Project
             this.pnlVHeading.ResumeLayout(false);
             this.pnlVHeading.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvShowVisitors)).EndInit();
-            this.tpReports.ResumeLayout(false);
             this.tpEmployees.ResumeLayout(false);
             this.tpEmployees.PerformLayout();
             this.pnlEHeading.ResumeLayout(false);
             this.pnlEHeading.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvShowEmployees)).EndInit();
+            this.tpReports.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1099,7 +1101,7 @@ namespace CMPG223_Group22_Project
         private System.Windows.Forms.TextBox txtELName;
         private System.Windows.Forms.Label lblEContactNumber;
         private System.Windows.Forms.Button btnEmployeeAction;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblELName;
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.TextBox txtPassword;
