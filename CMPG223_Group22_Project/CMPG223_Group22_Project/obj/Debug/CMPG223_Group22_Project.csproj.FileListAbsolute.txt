@@ -2,3 +2,7 @@ C:\Users\Angelina Ramsunar\OneDrive\Documents\GitHub\Project-Zoomazing\CMPG223_G
 C:\Users\Angelina Ramsunar\OneDrive\Documents\GitHub\Project-Zoomazing\CMPG223_Group22_Project\CMPG223_Group22_Project\obj\Debug\CMPG223_Group22_Project.Form1.resources
 C:\Users\Angelina Ramsunar\OneDrive\Documents\GitHub\Project-Zoomazing\CMPG223_Group22_Project\CMPG223_Group22_Project\obj\Debug\CMPG223_Group22_Project.Login.resources
 C:\Users\Angelina Ramsunar\OneDrive\Documents\GitHub\Project-Zoomazing\CMPG223_Group22_Project\CMPG223_Group22_Project\obj\Debug\CMPG223_Group22_Project.csproj.GenerateResource.cache
+C:\Users\chris\OneDrive\Documents\CMPG 223 - Project\Zoomazing Demo\Project-Zoomazing\CMPG223_Group22_Project\CMPG223_Group22_Project\obj\Debug\CMPG223_Group22_Project.csproj.AssemblyReference.cache
+C:\Users\chris\OneDrive\Documents\CMPG 223 - Project\Zoomazing Demo\Project-Zoomazing\CMPG223_Group22_Project\CMPG223_Group22_Project\obj\Debug\CMPG223_Group22_Project.Form1.resources
+C:\Users\chris\OneDrive\Documents\CMPG 223 - Project\Zoomazing Demo\Project-Zoomazing\CMPG223_Group22_Project\CMPG223_Group22_Project\obj\Debug\CMPG223_Group22_Project.Login.resources
+C:\Users\chris\OneDrive\Documents\CMPG 223 - Project\Zoomazing Demo\Project-Zoomazing\CMPG223_Group22_Project\CMPG223_Group22_Project\obj\Debug\CMPG223_Group22_Project.csproj.GenerateResource.cache
