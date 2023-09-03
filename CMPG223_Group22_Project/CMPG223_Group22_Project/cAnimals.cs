@@ -163,8 +163,8 @@ namespace CMPG223_Group22_Project
             setVacc(vacc);
             setDateOfBirth(day, month, year);
 
-            string sql = $"INSERT INTO ANIMALS VALUES({animalId + 1}, '{getName()}', '{getDateOfBirth()}', '{getGender()}', {getWeight()}, '{getVacc()}')";
-
+            //string sql = $"INSERT INTO ANIMALS(Animal_ID, Animal_Name, Date_Of_Birth, Gender, Weight, Vaccination) VALUES({animalId + 1}, '{getName()}', '{getDateOfBirth()}', '{getGender()}', {getWeight()}, '{getVacc()}')";
+            string sql = $"INSERT INTO ANIMALS VALUES({animalId+1}, '{getName()}', '{getDateOfBirth()}', '{getGender()}', {getWeight()}, '{getVacc()}')";
 
             return sql ;
         }
