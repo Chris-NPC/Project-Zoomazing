@@ -104,6 +104,8 @@ namespace CMPG223_Group22_Project
             this.lstbxReport = new System.Windows.Forms.ListBox();
             this.btnTotalCost = new System.Windows.Forms.Button();
             this.btnNumTickets = new System.Windows.Forms.Button();
+            this.cbxEmpType = new System.Windows.Forms.ComboBox();
+            this.lblEmpType = new System.Windows.Forms.Label();
             this.tcAdmin.SuspendLayout();
             this.tpAnimals.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudAYear)).BeginInit();
@@ -755,6 +757,8 @@ namespace CMPG223_Group22_Project
             // tpEmployees
             // 
             this.tpEmployees.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.tpEmployees.Controls.Add(this.lblEmpType);
+            this.tpEmployees.Controls.Add(this.cbxEmpType);
             this.tpEmployees.Controls.Add(this.lblPassword);
             this.tpEmployees.Controls.Add(this.lblUsername);
             this.tpEmployees.Controls.Add(this.txtPassword);
@@ -989,6 +993,26 @@ namespace CMPG223_Group22_Project
             this.btnNumTickets.Text = "Report for number of tickets";
             this.btnNumTickets.UseVisualStyleBackColor = true;
             // 
+            // cbxEmpType
+            // 
+            this.cbxEmpType.FormattingEnabled = true;
+            this.cbxEmpType.Items.AddRange(new object[] {
+            "Administrator",
+            "Employee"});
+            this.cbxEmpType.Location = new System.Drawing.Point(790, 506);
+            this.cbxEmpType.Name = "cbxEmpType";
+            this.cbxEmpType.Size = new System.Drawing.Size(121, 28);
+            this.cbxEmpType.TabIndex = 58;
+            // 
+            // lblEmpType
+            // 
+            this.lblEmpType.AutoSize = true;
+            this.lblEmpType.Location = new System.Drawing.Point(516, 509);
+            this.lblEmpType.Name = "lblEmpType";
+            this.lblEmpType.Size = new System.Drawing.Size(146, 20);
+            this.lblEmpType.TabIndex = 59;
+            this.lblEmpType.Text = "Employee Type:";
+            // 
             // AdminForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1106,5 +1130,7 @@ namespace CMPG223_Group22_Project
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.TextBox txtUsername;
+        private System.Windows.Forms.Label lblEmpType;
+        private System.Windows.Forms.ComboBox cbxEmpType;
     }
 }

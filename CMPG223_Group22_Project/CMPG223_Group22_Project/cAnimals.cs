@@ -14,6 +14,7 @@ namespace CMPG223_Group22_Project
         public string name;
         public char gender;
         public float weight;
+        //public string weight;
         public bool isVacc;
         public DateTime dateOfBirth;
 

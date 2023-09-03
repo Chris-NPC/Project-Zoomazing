@@ -17,6 +17,7 @@ namespace CMPG223_Group22_Project
         {
             InitializeComponent();
         }
+
         /// <summary>
         /// SQL components and relevant classes to access and work with databases, connection string also declared
         /// </summary>
@@ -262,9 +263,9 @@ namespace CMPG223_Group22_Project
             adapter.SelectCommand = command;
             adapter.Fill(ds, "ANIMALS");
 
-            cbxVId.DataSource = ds.Tables["ANIMALS"];
-            cbxVId.DisplayMember = "Animal_Id";
-            cbxVId.ValueMember = "Animal_Id";
+            cbxAId.DataSource = ds.Tables["ANIMALS"];
+            cbxAId.DisplayMember = "Animal_Id";
+            cbxAId.ValueMember = "Animal_Id";
         }
         private void pop_Vcbx()
         {
@@ -290,9 +291,9 @@ namespace CMPG223_Group22_Project
             adapter.SelectCommand = command;
             adapter.Fill(ds, "Users");
 
-            cbxVId.DataSource = ds.Tables["Users"];
-            cbxVId.DisplayMember = "Id";
-            cbxVId.ValueMember = "Id";
+            cbxEId.DataSource = ds.Tables["Users"];
+            cbxEId.DisplayMember = "Id";
+            cbxEId.ValueMember = "Id";
         }
 
 
@@ -458,19 +459,19 @@ namespace CMPG223_Group22_Project
         }
 
 
-        private void sql_AddEmployee(string surname, string name, string contactNum, string username, string password)
+        private void sql_AddEmployee(string surname, string name, string contactNum, string username, string password, string empType)
         {
             cEmployees cAddE = new cEmployees();
-            sql_showComponents(cAddE.addEmployee(read_employee_id(), surname, name, contactNum, username, password));//empType
+            sql_showComponents(cAddE.addEmployee(read_employee_id(), surname, name, contactNum, username, password, empType));//empType
 
             conn.Open();
             adapter.InsertCommand = command;
             command.ExecuteNonQuery();
         }
-        private void sql_UpdateEmployee(string employeeId, string surname, string name, string contactNum, string username, string password)
+        private void sql_UpdateEmployee(string employeeId, string surname, string name, string contactNum, string username, string password, string empType)
         {
             cEmployees cUpdateE = new cEmployees();
-            sql_showComponents(cUpdateE.changeEmployeeDetails(employeeId, surname, name, contactNum, username, password));//empType
+            sql_showComponents(cUpdateE.changeEmployeeDetails(employeeId, surname, name, contactNum, username, password, empType));//empType
 
             conn.Open();
             adapter.UpdateCommand = command;
@@ -513,6 +514,7 @@ namespace CMPG223_Group22_Project
             {
                 case 0:             //Adds animal
                     {
+                        pop_Acbx();
                         lblAID.Visible = false;
                         cbxAId.Visible = false;
                         show_animal_components();
@@ -553,6 +555,7 @@ namespace CMPG223_Group22_Project
             {
                 case 0:                     //Adds Visitor
                     {
+                        pop_Vcbx();
                         lblVID.Visible = false;
                         cbxVId.Visible = false;
                         show_visitor_components();
@@ -593,6 +596,7 @@ namespace CMPG223_Group22_Project
             {
                 case 0:                     //Adds Employee
                     {
+                        pop_Ecbx();
                         lblEID.Visible = false;
                         cbxEId.Visible = false;
                         show_employee_components();
@@ -672,6 +676,8 @@ namespace CMPG223_Group22_Project
                             vacci = rdbFalse.Text;
                         }
 
+                        MessageBox.Show(txtWeight.Text);
+                        MessageBox.Show((float.Parse(txtWeight.Text)).ToString());
                         sql_AddAnimal(txtAName.Text, gender, float.Parse(txtWeight.Text), vacci, (int)nudADay.Value, (int)nudAMonth.Value, (int)nudAYear.Value);
                         conn.Close();
 
@@ -807,7 +813,9 @@ namespace CMPG223_Group22_Project
             {
                 case 0:                     //Adds Visitor      
                     {
-                        sql_AddEmployee(txtEName.Text, txtELName.Text, txtEContactNumber.Text, txtUsername.Text, txtPassword.Text); //empType?
+                        string empType = cbxEmpType.Text;
+
+                        sql_AddEmployee(txtEName.Text, txtELName.Text, txtEContactNumber.Text, txtUsername.Text, txtPassword.Text, empType); //empType?
                         conn.Close();
 
                         sql_showEmployees();
@@ -817,8 +825,9 @@ namespace CMPG223_Group22_Project
                 case 1:                     //Updates Visitor         
                     {
                         string employeeId = cbxVId.Text;
+                        string empType = cbxEmpType.Text;
 
-                        sql_UpdateEmployee(employeeId, txtELName.Text, txtEName.Text, txtEContactNumber.Text, txtUsername.Text, txtPassword.Text); //empType
+                        sql_UpdateEmployee(employeeId, txtELName.Text, txtEName.Text, txtEContactNumber.Text, txtUsername.Text, txtPassword.Text, empType); //empType
                         conn.Close();
 
                         sql_showEmployees();
