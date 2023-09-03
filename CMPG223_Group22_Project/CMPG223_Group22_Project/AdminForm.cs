@@ -103,18 +103,21 @@ namespace CMPG223_Group22_Project
             lblEContactNumber.Visible = true;
             lblUsername.Visible = true;
             lblPassword.Visible = true;
+            lblEmpType.Visible = true;
 
             txtEName.Visible = true;
             txtELName.Visible = true;
             txtEContactNumber.Visible = true;
             txtUsername.Visible = true;
             txtPassword.Visible = true;
+            cbxEmpType.Visible = true;
 
             txtEName.Text = "";
             txtELName.Text = "";
             txtEContactNumber.Text = "";
             txtUsername.Text = "";
             txtPassword.Text = "";
+            cbxEmpType.SelectedIndex = -1;
         }
 
 
@@ -164,12 +167,14 @@ namespace CMPG223_Group22_Project
             lblEContactNumber.Visible = false;
             lblUsername.Visible = false;
             lblPassword.Visible = false;
+            lblEmpType.Visible = false;
 
             txtEName.Visible = false;
             txtELName.Visible = false;
             txtEContactNumber.Visible = false;
             txtUsername.Visible = false;
             txtPassword.Visible = false;
+            cbxEmpType.Visible = false;
         }
 
 
@@ -349,14 +354,14 @@ namespace CMPG223_Group22_Project
         /// <param name="day"></param>
         /// <param name="month"></param>
         /// <param name="year"></param>
-        private void sql_AddAnimal(string name, string gender, float weight, string vacc, int day, int month, int year)
+        private void sql_AddAnimal(string name, string gender, decimal weight, string vacc, int day, int month, int year)
         {
             cAnimals cAddA = new cAnimals();
             sql_showComponents(cAddA.addAnimal(read_animal_id(), name, gender, weight, vacc, day, month, year));
             
             conn.Open();
             adapter.InsertCommand = command;
-            command.ExecuteNonQuery();
+            adapter.InsertCommand.ExecuteNonQuery();
         }
 
         /// <summary>
@@ -372,14 +377,14 @@ namespace CMPG223_Group22_Project
         /// <param name="day"></param>
         /// <param name="month"></param>
         /// <param name="year"></param>
-        private void sql_UpdateAnimal(string animalId, string name, string gender, float weight, string vacc, int day, int month, int year)
+        private void sql_UpdateAnimal(string animalId, string name, string gender, decimal weight, string vacc, int day, int month, int year)
         {
             cAnimals cUpdateA = new cAnimals();
             sql_showComponents(cUpdateA.changeAnimalDetail(animalId, name, gender, weight, vacc, day, month, year));
 
             conn.Open();
             adapter.UpdateCommand = command;
-            command.ExecuteNonQuery();
+            adapter.UpdateCommand.ExecuteNonQuery();
         }
 
         /// <summary>
@@ -417,7 +422,7 @@ namespace CMPG223_Group22_Project
            
             conn.Open();
             adapter.InsertCommand = command;
-            command.ExecuteNonQuery();
+            adapter.InsertCommand.ExecuteNonQuery();
         }
 
         /// <summary>
@@ -466,7 +471,7 @@ namespace CMPG223_Group22_Project
 
             conn.Open();
             adapter.InsertCommand = command;
-            command.ExecuteNonQuery();
+            adapter.InsertCommand.ExecuteNonQuery();
         }
         private void sql_UpdateEmployee(string employeeId, string surname, string name, string contactNum, string username, string password, string empType)
         {
@@ -677,8 +682,8 @@ namespace CMPG223_Group22_Project
                         }
 
                         MessageBox.Show(txtWeight.Text);
-                        MessageBox.Show((float.Parse(txtWeight.Text)).ToString());
-                        sql_AddAnimal(txtAName.Text, gender, float.Parse(txtWeight.Text), vacci, (int)nudADay.Value, (int)nudAMonth.Value, (int)nudAYear.Value);
+                        MessageBox.Show((decimal.Parse(txtWeight.Text)).ToString());
+                        sql_AddAnimal(txtAName.Text, gender, decimal.Parse(txtWeight.Text), vacci, (int)nudADay.Value, (int)nudAMonth.Value, (int)nudAYear.Value);
                         conn.Close();
 
                         sql_showAnimals();
@@ -707,7 +712,7 @@ namespace CMPG223_Group22_Project
                             vacci = rdbFalse.Text;
                         }
 
-                        sql_UpdateAnimal(animalId, txtAName.Text, gender, float.Parse(txtWeight.Text), vacci, (int)nudADay.Value, (int)nudAMonth.Value, (int)nudAYear.Value);
+                        sql_UpdateAnimal(animalId, txtAName.Text, gender, decimal.Parse(txtWeight.Text), vacci, (int)nudADay.Value, (int)nudAMonth.Value, (int)nudAYear.Value);
                         conn.Close();
 
                         sql_showAnimals();
@@ -809,7 +814,7 @@ namespace CMPG223_Group22_Project
         /// <param name="e"></param>
         private void btnEmployeeAction_Click(object sender, EventArgs e)
         {
-            switch (cbxVChooseAction.SelectedIndex)
+            switch (cbxEChooseAction.SelectedIndex)
             {
                 case 0:                     //Adds Visitor      
                     {

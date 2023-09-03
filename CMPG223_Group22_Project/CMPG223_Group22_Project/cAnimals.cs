@@ -13,7 +13,7 @@ namespace CMPG223_Group22_Project
         /// </summary>
         public string name;
         public char gender;
-        public float weight;
+        public decimal weight;
         //public string weight;
         public bool isVacc;
         public DateTime dateOfBirth;
@@ -33,7 +33,7 @@ namespace CMPG223_Group22_Project
         {
             return gender;
         }
-        public float getWeight()
+        public decimal getWeight()
         {
             return weight;
         }
@@ -76,7 +76,7 @@ namespace CMPG223_Group22_Project
         /// Assigns called variable("weight") to local variable("weight")
         /// </summary>
         /// <param name="weight"></param>
-        public void setWeight(float weight)
+        public void setWeight(decimal weight)
         {
             this.weight = weight;
         }
@@ -155,7 +155,7 @@ namespace CMPG223_Group22_Project
         /// <param name="month"></param>
         /// <param name="year"></param>
         /// <returns></returns>
-        public string addAnimal(int animalId, string name, string gender, float weight, string vacc, int day, int month, int year)
+        public string addAnimal(int animalId, string name, string gender, decimal weight, string vacc, int day, int month, int year)
         {
             setName(name);
             setGender(gender);
@@ -186,7 +186,7 @@ namespace CMPG223_Group22_Project
         /// <param name="month"></param>
         /// <param name="year"></param>
         /// <returns></returns>
-        public string changeAnimalDetail(string animalId, string name, string gender, float weight, string vacc, int day, int month, int year)
+        public string changeAnimalDetail(string animalId, string name, string gender, decimal weight, string vacc, int day, int month, int year)
         {
             setName(name);
             setGender(gender);

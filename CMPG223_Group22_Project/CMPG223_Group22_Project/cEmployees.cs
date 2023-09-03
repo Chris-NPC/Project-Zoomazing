@@ -74,8 +74,8 @@ namespace CMPG223_Group22_Project
             setPassword(password);
             isAdmin(empType);
 
-            //string sql = $"INSERT INTO Users VALUES({},{},{},{},{},{},{})";
-            string sql = "";
+            string sql = $"INSERT INTO Users VALUES({employeeId+1}, '{surname}', '{name}', '{contactNum}', '{username}', '{password}' ,'{empType}')";
+            //string sql = "";
             return sql;
         }
 
@@ -89,7 +89,7 @@ namespace CMPG223_Group22_Project
             setPassword(password);
             isAdmin(empType);
 
-            string sql = $"UPDATE Users SET ... ";
+            string sql = $"UPDATE Users SET Last_Name = '{surname}', Name = '{name}', ContactNumber = '{contactNum}', Username = '{username}', Password = '{password}', EmployeeType = '{empType}' WHERE Id = '{employeeId}'";
 
             return sql;
         }
