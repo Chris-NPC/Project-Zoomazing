@@ -90,6 +90,7 @@ namespace CMPG223_Group22_Project
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Image = global::CMPG223_Group22_Project.Properties.Resources.login_button_png_24;
             this.pictureBox1.Location = new System.Drawing.Point(226, 48);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(185, 74);
