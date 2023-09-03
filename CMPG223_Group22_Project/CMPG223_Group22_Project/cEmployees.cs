@@ -11,14 +11,14 @@ namespace CMPG223_Group22_Project
         public string username;
         public string password;
 
-        public void getUsername()
+        public void getUsername(string userName)
         {
-
+            this.username = userName;
         }
 
-        public void getPassword()
+        public void getPassword(string password)
         {
-
+            this.password = password;
         }
 
         public string setUsername()
@@ -33,16 +33,29 @@ namespace CMPG223_Group22_Project
 
         public bool isAdmin()
         {
+            if ()
+            {
+                return true;
+            }
+
             return false;
         }
 
         public bool loggedIn()
         {
+            if ()
+            {
+                return true;
+            }
             return false;
         }
 
         public bool loggedOut()
         {
+            if ()
+            {
+                return true;
+            }
             return false;
         }
 

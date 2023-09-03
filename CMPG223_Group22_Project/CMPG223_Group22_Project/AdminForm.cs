@@ -17,15 +17,19 @@ namespace CMPG223_Group22_Project
         {
             InitializeComponent();
         }
-
-/// SQL components and relevant classes to access and work with databases, connection string also declared
+        /// <summary>
+        /// SQL components and relevant classes to access and work with databases, connection string also declared
+        /// </summary>
         string connString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\chris\OneDrive\Documents\CMPG 223 - Project\Zoomazing Demo\Project-Zoomazing\CMPG223_Group22_Project\CMPG223_Group22_Project\Database1.mdf;Integrated Security=True";
         SqlConnection conn;
         SqlCommand command;
         DataSet ds;
         SqlDataAdapter adapter;
         SqlDataReader reader;
-///variable and classes declared for use in this form's coding
+
+        /// <summary>
+        /// variable and classes declared for use in this form's coding
+        /// </summary>
         int receive_id;
         cVisitors cAddV = new cVisitors();
         cVisitors cUpdateV = new cVisitors();

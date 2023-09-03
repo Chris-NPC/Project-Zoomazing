@@ -84,6 +84,26 @@ namespace CMPG223_Group22_Project
             this.lstbxReport = new System.Windows.Forms.ListBox();
             this.btnTotalCost = new System.Windows.Forms.Button();
             this.btnNumTickets = new System.Windows.Forms.Button();
+            this.tpEmployees = new System.Windows.Forms.TabPage();
+            this.pnlEHeading = new System.Windows.Forms.Panel();
+            this.lblEHeading = new System.Windows.Forms.Label();
+            this.lblEChooseAction = new System.Windows.Forms.Label();
+            this.cbxEChooseAction = new System.Windows.Forms.ComboBox();
+            this.lstbxEmployeeLog = new System.Windows.Forms.ListBox();
+            this.dgvShowEmployees = new System.Windows.Forms.DataGridView();
+            this.lblEID = new System.Windows.Forms.Label();
+            this.lblEFName = new System.Windows.Forms.Label();
+            this.cbxEId = new System.Windows.Forms.ComboBox();
+            this.txtEContactNumber = new System.Windows.Forms.TextBox();
+            this.txtEName = new System.Windows.Forms.TextBox();
+            this.txtELName = new System.Windows.Forms.TextBox();
+            this.lblEContactNumber = new System.Windows.Forms.Label();
+            this.btnEmployeeAction = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtUsername = new System.Windows.Forms.TextBox();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.lblUsername = new System.Windows.Forms.Label();
+            this.lblPassword = new System.Windows.Forms.Label();
             this.tcAdmin.SuspendLayout();
             this.tpAnimals.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudAYear)).BeginInit();
@@ -100,12 +120,16 @@ namespace CMPG223_Group22_Project
             this.pnlVHeading.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvShowVisitors)).BeginInit();
             this.tpReports.SuspendLayout();
+            this.tpEmployees.SuspendLayout();
+            this.pnlEHeading.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvShowEmployees)).BeginInit();
             this.SuspendLayout();
             // 
             // tcAdmin
             // 
             this.tcAdmin.Controls.Add(this.tpAnimals);
             this.tcAdmin.Controls.Add(this.tpVisitors);
+            this.tcAdmin.Controls.Add(this.tpEmployees);
             this.tcAdmin.Controls.Add(this.tpReports);
             this.tcAdmin.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tcAdmin.Location = new System.Drawing.Point(0, 0);
@@ -767,6 +791,202 @@ namespace CMPG223_Group22_Project
             this.btnNumTickets.Text = "Report for number of tickets";
             this.btnNumTickets.UseVisualStyleBackColor = true;
             // 
+            // tpEmployees
+            // 
+            this.tpEmployees.Controls.Add(this.lblPassword);
+            this.tpEmployees.Controls.Add(this.lblUsername);
+            this.tpEmployees.Controls.Add(this.txtPassword);
+            this.tpEmployees.Controls.Add(this.txtUsername);
+            this.tpEmployees.Controls.Add(this.lblEID);
+            this.tpEmployees.Controls.Add(this.lblEFName);
+            this.tpEmployees.Controls.Add(this.cbxEId);
+            this.tpEmployees.Controls.Add(this.txtEContactNumber);
+            this.tpEmployees.Controls.Add(this.txtEName);
+            this.tpEmployees.Controls.Add(this.txtELName);
+            this.tpEmployees.Controls.Add(this.lblEContactNumber);
+            this.tpEmployees.Controls.Add(this.btnEmployeeAction);
+            this.tpEmployees.Controls.Add(this.label7);
+            this.tpEmployees.Controls.Add(this.pnlEHeading);
+            this.tpEmployees.Controls.Add(this.lblEChooseAction);
+            this.tpEmployees.Controls.Add(this.cbxEChooseAction);
+            this.tpEmployees.Controls.Add(this.lstbxEmployeeLog);
+            this.tpEmployees.Controls.Add(this.dgvShowEmployees);
+            this.tpEmployees.Location = new System.Drawing.Point(4, 29);
+            this.tpEmployees.Name = "tpEmployees";
+            this.tpEmployees.Size = new System.Drawing.Size(1487, 793);
+            this.tpEmployees.TabIndex = 3;
+            this.tpEmployees.Text = "Employees";
+            this.tpEmployees.UseVisualStyleBackColor = true;
+            // 
+            // pnlEHeading
+            // 
+            this.pnlEHeading.Controls.Add(this.lblEHeading);
+            this.pnlEHeading.Font = new System.Drawing.Font("Verdana", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnlEHeading.Location = new System.Drawing.Point(64, 34);
+            this.pnlEHeading.Name = "pnlEHeading";
+            this.pnlEHeading.Size = new System.Drawing.Size(847, 75);
+            this.pnlEHeading.TabIndex = 43;
+            // 
+            // lblEHeading
+            // 
+            this.lblEHeading.AutoSize = true;
+            this.lblEHeading.Font = new System.Drawing.Font("Verdana", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEHeading.Location = new System.Drawing.Point(301, 20);
+            this.lblEHeading.Name = "lblEHeading";
+            this.lblEHeading.Size = new System.Drawing.Size(302, 34);
+            this.lblEHeading.TabIndex = 0;
+            this.lblEHeading.Text = "Maintain Employees";
+            // 
+            // lblEChooseAction
+            // 
+            this.lblEChooseAction.AutoSize = true;
+            this.lblEChooseAction.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEChooseAction.Location = new System.Drawing.Point(61, 125);
+            this.lblEChooseAction.Name = "lblEChooseAction";
+            this.lblEChooseAction.Size = new System.Drawing.Size(139, 20);
+            this.lblEChooseAction.TabIndex = 42;
+            this.lblEChooseAction.Text = "Choose Action:";
+            // 
+            // cbxEChooseAction
+            // 
+            this.cbxEChooseAction.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxEChooseAction.FormattingEnabled = true;
+            this.cbxEChooseAction.Items.AddRange(new object[] {
+            "Add Employee",
+            "Change Employee Details",
+            "Remove Employee"});
+            this.cbxEChooseAction.Location = new System.Drawing.Point(733, 122);
+            this.cbxEChooseAction.Name = "cbxEChooseAction";
+            this.cbxEChooseAction.Size = new System.Drawing.Size(178, 28);
+            this.cbxEChooseAction.TabIndex = 41;
+            this.cbxEChooseAction.Text = "ACTION";
+            // 
+            // lstbxEmployeeLog
+            // 
+            this.lstbxEmployeeLog.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstbxEmployeeLog.FormattingEnabled = true;
+            this.lstbxEmployeeLog.ItemHeight = 20;
+            this.lstbxEmployeeLog.Location = new System.Drawing.Point(992, 34);
+            this.lstbxEmployeeLog.Name = "lstbxEmployeeLog";
+            this.lstbxEmployeeLog.Size = new System.Drawing.Size(435, 724);
+            this.lstbxEmployeeLog.TabIndex = 40;
+            // 
+            // dgvShowEmployees
+            // 
+            this.dgvShowEmployees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvShowEmployees.Location = new System.Drawing.Point(64, 172);
+            this.dgvShowEmployees.Name = "dgvShowEmployees";
+            this.dgvShowEmployees.RowHeadersWidth = 51;
+            this.dgvShowEmployees.RowTemplate.Height = 24;
+            this.dgvShowEmployees.Size = new System.Drawing.Size(847, 308);
+            this.dgvShowEmployees.TabIndex = 27;
+            // 
+            // lblEID
+            // 
+            this.lblEID.AutoSize = true;
+            this.lblEID.Location = new System.Drawing.Point(61, 531);
+            this.lblEID.Name = "lblEID";
+            this.lblEID.Size = new System.Drawing.Size(38, 20);
+            this.lblEID.TabIndex = 49;
+            this.lblEID.Text = "ID:";
+            // 
+            // lblEFName
+            // 
+            this.lblEFName.AutoSize = true;
+            this.lblEFName.Location = new System.Drawing.Point(61, 603);
+            this.lblEFName.Name = "lblEFName";
+            this.lblEFName.Size = new System.Drawing.Size(111, 20);
+            this.lblEFName.TabIndex = 51;
+            this.lblEFName.Text = "First Name:";
+            // 
+            // cbxEId
+            // 
+            this.cbxEId.FormattingEnabled = true;
+            this.cbxEId.Location = new System.Drawing.Point(250, 528);
+            this.cbxEId.Name = "cbxEId";
+            this.cbxEId.Size = new System.Drawing.Size(168, 28);
+            this.cbxEId.TabIndex = 44;
+            // 
+            // txtEContactNumber
+            // 
+            this.txtEContactNumber.Location = new System.Drawing.Point(250, 641);
+            this.txtEContactNumber.Name = "txtEContactNumber";
+            this.txtEContactNumber.Size = new System.Drawing.Size(168, 28);
+            this.txtEContactNumber.TabIndex = 47;
+            // 
+            // txtEName
+            // 
+            this.txtEName.Location = new System.Drawing.Point(250, 600);
+            this.txtEName.Name = "txtEName";
+            this.txtEName.Size = new System.Drawing.Size(168, 28);
+            this.txtEName.TabIndex = 46;
+            // 
+            // txtELName
+            // 
+            this.txtELName.Location = new System.Drawing.Point(250, 562);
+            this.txtELName.Name = "txtELName";
+            this.txtELName.Size = new System.Drawing.Size(168, 28);
+            this.txtELName.TabIndex = 45;
+            // 
+            // lblEContactNumber
+            // 
+            this.lblEContactNumber.AutoSize = true;
+            this.lblEContactNumber.Location = new System.Drawing.Point(61, 644);
+            this.lblEContactNumber.Name = "lblEContactNumber";
+            this.lblEContactNumber.Size = new System.Drawing.Size(158, 20);
+            this.lblEContactNumber.TabIndex = 53;
+            this.lblEContactNumber.Text = "Contact Number:";
+            // 
+            // btnEmployeeAction
+            // 
+            this.btnEmployeeAction.Location = new System.Drawing.Point(520, 668);
+            this.btnEmployeeAction.Name = "btnEmployeeAction";
+            this.btnEmployeeAction.Size = new System.Drawing.Size(324, 85);
+            this.btnEmployeeAction.TabIndex = 48;
+            this.btnEmployeeAction.Text = "ACTION";
+            this.btnEmployeeAction.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(61, 565);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(108, 20);
+            this.label7.TabIndex = 50;
+            this.label7.Text = "Last Name:";
+            // 
+            // txtUsername
+            // 
+            this.txtUsername.Location = new System.Drawing.Point(250, 683);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(168, 28);
+            this.txtUsername.TabIndex = 54;
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.Location = new System.Drawing.Point(250, 730);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(168, 28);
+            this.txtPassword.TabIndex = 55;
+            // 
+            // lblUsername
+            // 
+            this.lblUsername.AutoSize = true;
+            this.lblUsername.Location = new System.Drawing.Point(60, 683);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(103, 20);
+            this.lblUsername.TabIndex = 56;
+            this.lblUsername.Text = "Username:";
+            // 
+            // lblPassword
+            // 
+            this.lblPassword.AutoSize = true;
+            this.lblPassword.Location = new System.Drawing.Point(60, 733);
+            this.lblPassword.Name = "lblPassword";
+            this.lblPassword.Size = new System.Drawing.Size(97, 20);
+            this.lblPassword.TabIndex = 57;
+            this.lblPassword.Text = "Password:";
+            // 
             // AdminForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -798,6 +1018,11 @@ namespace CMPG223_Group22_Project
             this.pnlVHeading.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvShowVisitors)).EndInit();
             this.tpReports.ResumeLayout(false);
+            this.tpEmployees.ResumeLayout(false);
+            this.tpEmployees.PerformLayout();
+            this.pnlEHeading.ResumeLayout(false);
+            this.pnlEHeading.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvShowEmployees)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -859,5 +1084,25 @@ namespace CMPG223_Group22_Project
         private System.Windows.Forms.NumericUpDown nudVYear;
         private System.Windows.Forms.NumericUpDown nudVMonth;
         private System.Windows.Forms.NumericUpDown nudVDay;
+        private System.Windows.Forms.TabPage tpEmployees;
+        private System.Windows.Forms.Panel pnlEHeading;
+        private System.Windows.Forms.Label lblEHeading;
+        private System.Windows.Forms.Label lblEChooseAction;
+        private System.Windows.Forms.ComboBox cbxEChooseAction;
+        private System.Windows.Forms.ListBox lstbxEmployeeLog;
+        private System.Windows.Forms.DataGridView dgvShowEmployees;
+        private System.Windows.Forms.Label lblEID;
+        private System.Windows.Forms.Label lblEFName;
+        private System.Windows.Forms.ComboBox cbxEId;
+        private System.Windows.Forms.TextBox txtEContactNumber;
+        private System.Windows.Forms.TextBox txtEName;
+        private System.Windows.Forms.TextBox txtELName;
+        private System.Windows.Forms.Label lblEContactNumber;
+        private System.Windows.Forms.Button btnEmployeeAction;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblPassword;
+        private System.Windows.Forms.Label lblUsername;
+        private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.TextBox txtUsername;
     }
 }
