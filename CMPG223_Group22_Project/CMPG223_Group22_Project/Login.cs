@@ -104,5 +104,10 @@ namespace CMPG223_Group22_Project
 
             txtPassword.PasswordChar = '*';//does not show what the user is typing
         }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
