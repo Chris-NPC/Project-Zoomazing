@@ -18,20 +18,23 @@ namespace CMPG223_Group22_Project
             InitializeComponent();
         }
 
+/// SQL components and relevant classes to access and work with databases, connection string also declared
         string connString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\chris\OneDrive\Documents\CMPG 223 - Project\Zoomazing Demo\Project-Zoomazing\CMPG223_Group22_Project\CMPG223_Group22_Project\Database1.mdf;Integrated Security=True";
         SqlConnection conn;
         SqlCommand command;
         DataSet ds;
         SqlDataAdapter adapter;
         SqlDataReader reader;
-        string animalId;
-        int receive_id; //read visitor and or animal id?
+///variable and classes declared for use in this form's coding
+        int receive_id;
         cVisitors cAddV = new cVisitors();
         cVisitors cUpdateV = new cVisitors();
         cAnimals cAddA = new cAnimals();
         cAnimals cUpdateA = new cAnimals();
 
-        /// ----------------------------------------------------------------------------
+        /// <summary>
+        /// Resets the relevant components and shows relevant components when called.
+        /// </summary>
         private void show_animal_components()
         {
             lblAName.Visible = true;
@@ -62,6 +65,11 @@ namespace CMPG223_Group22_Project
             rdbTrue.Checked = false;
             rdbFalse.Checked = false;
         }
+
+
+        /// <summary>
+        /// Hides relevant(unnecessary) components when called
+        /// </summary>
         private void hide_animal_components()
         {
             lblAName.Visible = false;
@@ -82,6 +90,11 @@ namespace CMPG223_Group22_Project
             txtWeight.Visible = false;
             pnlYesNo.Visible = false;
         }
+
+
+        /// <summary>
+        /// Resets the relevant components and shows relevant components when called.
+        /// </summary>
         private void show_visitor_components()
         {
             lblVFName.Visible = true;
@@ -105,6 +118,11 @@ namespace CMPG223_Group22_Project
             nudVYear.Value = 1900;
             txtContactNumber.Text = "";
         }
+
+
+        /// <summary>
+        /// Hides relevant(unnecessary) components when called
+        /// </summary>
         private void hide_visitor_components()
         {
             lblVFName.Visible = false;
@@ -121,8 +139,12 @@ namespace CMPG223_Group22_Project
             nudVYear.Visible = false;
             txtContactNumber.Visible = false;
         }
-        /// -------------------------------------------------------------------------------
 
+
+        /// <summary>
+        /// Creates new SQL components when called with an sql statement as parameter to use the command component with
+        /// </summary>
+        /// <param name="sql"></param>
         private void sql_showComponents(string sql)
         {
             conn = new SqlConnection(connString);
@@ -131,6 +153,15 @@ namespace CMPG223_Group22_Project
             ds = new DataSet();
         }
 
+
+        /// <summary>
+        /// (for procedures "read_animal_id()" and "read_visitor_id()")
+        /// (Used for the insert statement [to ensure [sequential addition?]])
+        /// The SELECT SQL statement is declared using the received id [from the relevant database].
+        /// The statement is then executed and read from the database.
+        /// The id read, is then returned.
+        /// </summary>
+        /// <returns></returns>
         private int read_animal_id()
         {
             string sql_id = "SELECT Animal_Id FROM ANIMALS";
@@ -166,6 +197,13 @@ namespace CMPG223_Group22_Project
             return receive_id;
         }
 
+
+        /// <summary>
+        /// (for procedures "pop_Acbx" and "pop_Vcbx")
+        /// SELECT SQL statement is declared with id field of relevant database to update relevant comboBoxes.
+        /// This statment is then put into the "sql_showComponents()" procedure to initiate the relevant SQL components and create the correct demand.
+        /// A comboBox is then populated with the records' id's for updating/ deleting records
+        /// </summary>
         private void pop_Acbx()
         {
             string sql_pop = "SELECT Animal_Id FROM ANIMALS";
@@ -196,6 +234,11 @@ namespace CMPG223_Group22_Project
         }
 
 
+        /// <summary>
+        /// (For procedures "sql_showAnimals()" and "sql_showVisitors")
+        /// SELECT SQL statement declared to select all the records from the relevant database to show the database to the user through the 'dataGridView' component.
+        /// Also called after a new record has been inserted, record updated or record deleted.
+        /// </summary>
         private void sql_showAnimals()
         {
             string sql = "SELECT * FROM ANIMALS";
@@ -207,32 +250,6 @@ namespace CMPG223_Group22_Project
             dgvShowAnimals.DataSource = ds;
             dgvShowAnimals.DataMember = "ANIMALS";
         }
-        private void sql_AddAnimal(string name, string gender, float weight, string vacc, int day, int month, int year)
-        {
-            sql_showComponents(cAddA.addAnimal(read_animal_id(), name, gender, weight, vacc, day, month, year));
-            
-            conn.Open();
-            adapter.InsertCommand = command;
-            command.ExecuteNonQuery();
-        }
-        private void sql_UpdateAnimal(string animalId, string name, string gender, float weight, string vacc, int day, int month, int year)
-        {
-            cAnimals animalClass = new cAnimals();
-            sql_showComponents(animalClass.changeAnimalDetail(animalId, name, gender, weight, vacc, day, month, year));
-            conn.Open();
-            adapter.UpdateCommand = command;
-            command.ExecuteNonQuery();
-        }
-        private void sql_DeleteAnimal(string animalId)
-        {
-            cAnimals animalClass = new cAnimals();
-            sql_showComponents(animalClass.deleteAnimal(animalId));
-            conn.Open();
-            adapter.DeleteCommand = command;
-            adapter.DeleteCommand.ExecuteNonQuery();
-        }
-
-
         private void sql_showVisitors()
         {
             string sql = "SELECT * FROM VISITORS";
@@ -244,16 +261,101 @@ namespace CMPG223_Group22_Project
             dgvShowVisitors.DataSource = ds;
             dgvShowVisitors.DataMember = "VISITORS";
         }
+
+
+        /// <summary>
+        /// Procedure to add an animal to the database(ANIMALS) and takes all the data/ values needed, as parameters.
+        /// "sql_showComponents()" takes an sql statement as a parameter, thus the animal class with an "addAnimal" procedure is called because it returns an SQL statement with values received.
+        /// The command is then executed and a new animal is added to the database.
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="gender"></param>
+        /// <param name="weight"></param>
+        /// <param name="vacc"></param>
+        /// <param name="day"></param>
+        /// <param name="month"></param>
+        /// <param name="year"></param>
+        private void sql_AddAnimal(string name, string gender, float weight, string vacc, int day, int month, int year)
+        {
+            sql_showComponents(cAddA.addAnimal(read_animal_id(), name, gender, weight, vacc, day, month, year));
+            
+            conn.Open();
+            adapter.InsertCommand = command;
+            command.ExecuteNonQuery();
+        }
+
+        /// <summary>
+        /// Procedure to update an animal to the database(ANIMALS) and takes all the data/ values needed, as parameters.
+        /// "sql_showComponents()" takes an sql statement as a parameter, thus the animal class with an "changeAnimalDetail" procedure is called because it returns an SQL statement with values received.
+        /// The command is then executed and an animal's details are updated and posted on the database.
+        /// </summary>
+        /// <param name="animalId"></param>
+        /// <param name="name"></param>
+        /// <param name="gender"></param>
+        /// <param name="weight"></param>
+        /// <param name="vacc"></param>
+        /// <param name="day"></param>
+        /// <param name="month"></param>
+        /// <param name="year"></param>
+        private void sql_UpdateAnimal(string animalId, string name, string gender, float weight, string vacc, int day, int month, int year)
+        {
+            sql_showComponents(cUpdateA.changeAnimalDetail(animalId, name, gender, weight, vacc, day, month, year));
+
+            conn.Open();
+            adapter.UpdateCommand = command;
+            command.ExecuteNonQuery();
+        }
+
+        /// <summary>
+        /// Procedure to delete an animal from the database(ANIMALS) and takes all the data/ values needed, as parameters.
+        /// "sql_showComponents()" takes an sql statement as a parameter, thus the animal class with an "deleteAnimal" procedure is called because it returns an SQL statement with values received.
+        /// The command is then executed and an animal is deleted from the database.
+        /// </summary>
+        /// <param name="animalId"></param>
+        private void sql_DeleteAnimal(string animalId)
+        {
+            cAnimals animalClass = new cAnimals();
+            sql_showComponents(animalClass.deleteAnimal(animalId));
+            conn.Open();
+            adapter.DeleteCommand = command;
+            adapter.DeleteCommand.ExecuteNonQuery();
+        }
+
+
+
+        /// <summary>
+        /// Procedure to add a Visitor to the database(VISITORS) and takes all the data/ values needed, as parameters.
+        /// "sql_showComponents()" takes an sql statement as a parameter, thus the visitor class with an "newVisitor" procedure is called because it returns an SQL statement with values received.
+        /// The command is then executed and a new visitor is added to the database.
+        /// </summary>
+        /// <param name="surname"></param>
+        /// <param name="name"></param>
+        /// <param name="contactNum"></param>
+        /// <param name="day"></param>
+        /// <param name="month"></param>
+        /// <param name="year"></param>
         private void sql_AddVisitor(string surname, string name, string contactNum, int day, int month, int year)
         {
-            sql_showComponents(cAddV.newVisitor(read_visitor_id(), surname, name, contactNum, day, month, year));      //receives sql to add visitor
+            sql_showComponents(cAddV.newVisitor(read_visitor_id(), surname, name, contactNum, day, month, year));      
            
-            //MessageBox.Show(cMainV.newVisitor(read_visitor_id(), surname, name, contactNum));
             conn.Open();
             adapter.InsertCommand = command;
             command.ExecuteNonQuery();
 
         }
+
+        /// <summary>
+        /// Procedure to update a visitor to the database(VISITORS) and takes all the data/ values needed, as parameters.
+        /// "sql_showComponents()" takes an sql statement as a parameter, thus the visitor class with an "changeVisitorDetail" procedure is called because it returns an SQL statement with values received.
+        /// The command is then executed and a visitor's details are updated and posted on the database.
+        /// </summary>
+        /// <param name="visitorId"></param>
+        /// <param name="surname"></param>
+        /// <param name="name"></param>
+        /// <param name="contactNum"></param>
+        /// <param name="day"></param>
+        /// <param name="month"></param>
+        /// <param name="year"></param>
         private void sql_UpdateVisitor(string visitorId, string surname, string name, string contactNum, int day, int month, int year)
         {
             sql_showComponents(cUpdateV.changeVisitorDetail(visitorId, surname, name, contactNum, day, month, year));
@@ -261,6 +363,13 @@ namespace CMPG223_Group22_Project
             adapter.UpdateCommand = command;
             adapter.UpdateCommand.ExecuteNonQuery();
         }
+
+        /// <summary>
+        /// Procedure to delete a visitor from the database(VISITORS) and takes all the data/ values needed, as parameters.
+        /// "sql_showComponents()" takes an sql statement as a parameter, thus the visitor class with an "deleteVisitor" procedure is called because it returns an SQL statement with values received.
+        /// The command is then executed and a visitor is deleted from the database.
+        /// </summary>
+        /// <param name="visitorId"></param>
         private void sql_DeleteVisitor(string visitorId)
         {
             cVisitors visitorClass = new cVisitors();
@@ -271,6 +380,26 @@ namespace CMPG223_Group22_Project
         }
 
 
+
+        /// <summary>
+        /// (Same for "cbxAChooseAction_SelectedIndexChanged" and "bxVChooseAction_SelectedIndexChanged" with exceptions being animal = visitor in terminolgy sense)
+        /// The actions that will occur when the index changes of the comboBox (comboBox asking what action would be taken), includes:
+        /// ** A switch statement containing what would happen when a certain index is chosen:
+        ///     * if 0 is chosen(which is for adding the animal): 
+        ///         ~ The label and comboBox for ID, is hidden.
+        ///         ~ "show_animal_components()" called, shows relevant components.
+        ///         ~ Button that would execute the SQL statements, is renamed for appropriate action. ("Add..." in this case).
+        ///     * If 1 is chosen(which is for updating the animal): 
+        ///         ~ The label and comboBox for ID, is shown.
+        ///         ~ "show_animal_components()" called, shows relevant components.
+        ///         ~ Button that would execute the SQL statements, is renamed for appropriate action. ("Update..." in this case).
+        ///     * If 2 is chosen(which is for deleting the animal): 
+        ///         ~ The label and comboBox for ID, is shown.
+        ///         ~ "show_animal_components()" called, shows relevant components.
+        ///         ~ Button that would execute the SQL statements, is renamed for appropriate action. ("Delete..." in this case).
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cbxAChooseAction_SelectedIndexChanged(object sender, EventArgs e)
         {
             switch (cbxAChooseAction.SelectedIndex)
@@ -309,10 +438,68 @@ namespace CMPG223_Group22_Project
 
             }
         }
+        private void cbxVChooseAction_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (cbxVChooseAction.SelectedIndex)
+            {
+                case 0:                     //Adds Visitor
+                    {
+                        lblVID.Visible = false;
+                        cbxVId.Visible = false;
+                        show_visitor_components();
 
+                        btnVisitorAction.Text = "Add Visitor";
+                        break;
+                    }
+                case 1:                     //Updates Visitor
+                    {
+                        pop_Vcbx();
+                        lblVID.Visible = true;
+                        cbxVId.Visible = true;
+                        show_visitor_components();
+
+                        btnVisitorAction.Text = "Update Visitor Details";
+                        break;
+                    }
+                case 2:                     //Removes Visitor
+                    {
+                        pop_Vcbx();
+                        lblVID.Visible = true;
+                        cbxVId.Visible = true;
+                        hide_visitor_components();
+
+                        btnVisitorAction.Text = "Delete Visitor";
+                        break;
+                    }
+                default:
+                    {
+                        break;
+                    }
+
+            }
+        }
+
+
+        /// <summary>
+        /// The actions that will occur when the index changes of the comboBox (comboBox asking what action would be taken) and "action" button being clicked, includes:
+        /// ** A switch statement containing what would happen when a certain index is chosen:
+        ///     * if 0 is chosen(which is for adding the animal): 
+        ///         ~ gender and vaccination variable declared and initialized. Validation and declarations also occurs for them as they have binary('2') availabilties.
+        ///         ~ "sql_AddAnimal" called to get the values needed for the SQL statement and thus would be executed when button is pressed(Add/Insert).
+        ///         ~ Connection is then closed. The connection would open again to show database after updating ("refresh").
+        ///     * If 1 is chosen(which is for updating the animal): 
+        ///         ~ gender and vaccination variable declared and initialized. Validation and declarations also occurs for them as they have binary('2') availabilties.
+        ///         ~ "sql_UpdateAnimal" called to get the values needed for the SQL statement and thus would be executed when button is pressed(Update).
+        ///         ~ Connection is then closed. The connection would open again to populate the comboBox (containing id's) and show database after updating ("refresh").
+        ///     * If 2 is chosen(which is for deleting the animal):
+        ///         ~ Animal record Id chosen through comboBox (populated, as described earlier, with id's of the records) and declared into variable.
+        ///         ~ Variable is then called in the "sql_DeleteAnimal" procedure to be used in SQL statement, it would then be executed as button is pressed (Delete)
+        ///         ~ Connection is then closed. The connection would open again to populate the comboBox (containing id's) and show database after deleting ("refresh").
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAnimalAction_Click(object sender, EventArgs e)
         {
-            //Put declarations and assignings here
             switch (cbxAChooseAction.SelectedIndex)
             {
                 case 0:                     //Adds animal
@@ -340,7 +527,6 @@ namespace CMPG223_Group22_Project
                         sql_AddAnimal(txtAName.Text, gender, float.Parse(txtWeight.Text), vacci, (int)nudADay.Value, (int)nudAMonth.Value, (int)nudAYear.Value);
                         conn.Close();
 
-                        //conn.Open();
                         sql_showAnimals();
                         pop_Acbx();
                         conn.Close();
@@ -372,7 +558,6 @@ namespace CMPG223_Group22_Project
                         sql_UpdateAnimal(animalId, txtAName.Text, gender, float.Parse(txtWeight.Text), vacci, (int)nudADay.Value, (int)nudAMonth.Value, (int)nudAYear.Value);
                         conn.Close();
 
-                        //conn.Open();
                         sql_showAnimals();
                         pop_Acbx();
                         conn.Close();
@@ -398,23 +583,38 @@ namespace CMPG223_Group22_Project
             }
         }
 
+        /// <summary>
+        /// The actions that will occur when the index changes of the comboBox (comboBox asking what action would be taken) and "action" button being clicked, includes:
+        /// ** A switch statement containing what would happen when a certain index is chosen:
+        ///     * if 0 is chosen(which is for adding the visitor): 
+        ///         ~ "sql_AddVisitor" called to get the values needed for the SQL statement and thus would be executed when button is pressed(Add/Insert).
+        ///         ~ Connection is then closed. The connection would open again to show database after adding ("refresh").
+        ///     * If 1 is chosen(which is for updating the visitor): 
+        ///         ~ "sql_UpdateVisitor" called to get the values needed for the SQL statement and thus would be executed when button is pressed(Update).
+        ///         ~ Connection is then closed. The connection would open again to populate the comboBox (containing id's) and show database after updating ("refresh").
+        ///     * If 2 is chosen(which is for deleting the visitor):
+        ///         ~ Visitor record Id chosen through comboBox (populated, as described earlier, with id's of the records) and declared into variable.
+        ///         ~ "sql_DeleteVisitor" called to get the values needed for the SQL statement and thus would be executed when button is pressed(Delete).
+        ///         ~ Connection is then closed. The connection would open again to populate the comboBox (containing id's) and show database after deleting ("refresh").
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnVisitorAction_Click(object sender, EventArgs e)
         {
 
             switch (cbxVChooseAction.SelectedIndex)
             {
-                case 0:                     //Adds Visitor      //WORKS//
+                case 0:                     //Adds Visitor      
                     {
                         sql_AddVisitor(txtVName.Text, txtVLName.Text, txtContactNumber.Text, (int)nudVDay.Value, (int)nudVMonth.Value, (int)nudVYear.Value);
                         conn.Close();
 
-                        //conn.Open();
                         sql_showVisitors();
                         pop_Vcbx();
                         conn.Close();
                         break;
                     }
-                case 1:                     //Updates Visitor   //WORKS//       
+                case 1:                     //Updates Visitor         
                     {
                         string visitorId = cbxVId.Text;
 
@@ -428,13 +628,12 @@ namespace CMPG223_Group22_Project
 
                         break;
                     }
-                case 2:                     //Removes Visitor   //WORKS//
+                case 2:                     //Removes Visitor  
                     {
                         string visitorId = cbxVId.Text;
                         sql_DeleteVisitor(visitorId);
                         conn.Close();
 
-                        //conn.Open();
                         sql_showVisitors();
                         pop_Vcbx();
                         conn.Close();
@@ -449,6 +648,11 @@ namespace CMPG223_Group22_Project
             }
         }
 
+        /// <summary>
+        /// Initiates form by hiding almost all [but relevant] components.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AdminForm_Load(object sender, EventArgs e)
         {
             lblAID.Visible = false;
@@ -462,50 +666,5 @@ namespace CMPG223_Group22_Project
             hide_visitor_components();
         }
 
-        private void tpAnimals_Click(object sender, EventArgs e)
-        {
-            cbxAChooseAction.SelectedIndex = -1;
-        }
-
-        private void cbxVChooseAction_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            switch (cbxVChooseAction.SelectedIndex)
-            {
-                case 0:                     //Adds Visitor
-                    {
-                        lblVID.Visible = false;
-                        cbxVId.Visible = false;
-                        show_visitor_components();
-
-                        btnVisitorAction.Text = "Add Visitor";
-                        break;
-                    }
-                case 1:                     //Updates Visitor
-                    {
-                        pop_Vcbx();
-                        lblVID.Visible = true;
-                        cbxVId.Visible = true;
-                        show_visitor_components();
-
-                        btnVisitorAction.Text = "Update Visitor Details";
-                        break;
-                    }
-                case 2:                     //Remove Visitor
-                    {
-                        pop_Vcbx();
-                        lblVID.Visible = true;
-                        cbxVId.Visible = true;
-                        hide_visitor_components();
-
-                        btnVisitorAction.Text = "Delete Visitor";
-                        break;
-                    }
-                default:
-                    {
-                        break;
-                    }
-
-            }
-        }
     }
 }

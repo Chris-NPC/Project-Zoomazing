@@ -146,7 +146,6 @@ namespace CMPG223_Group22_Project
             this.tpAnimals.Size = new System.Drawing.Size(1487, 793);
             this.tpAnimals.TabIndex = 0;
             this.tpAnimals.Text = "Animals";
-            this.tpAnimals.Click += new System.EventHandler(this.tpAnimals_Click);
             // 
             // lblAGap2
             // 
