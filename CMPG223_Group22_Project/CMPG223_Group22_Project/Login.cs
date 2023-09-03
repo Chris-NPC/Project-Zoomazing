@@ -73,6 +73,8 @@ namespace CMPG223_Group22_Project
                                     // User is staff, perform staff actions
                                     // For example, open staff dashboard/form
                                     // You can create a different Form for staff and show it here
+                                    //Staff form4 = new Staff();
+                                    //Staff.show();
                                 }
                                 else
                                 {
