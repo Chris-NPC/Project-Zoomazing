@@ -18,5 +18,7 @@ namespace CMPG223_Group22_Project
         public string Description { get; set; }
         public Nullable<decimal> Price { get; set; }
         public Nullable<bool> isTicketValid { get; set; }
+    
+        public virtual VISITORS_ON_TICKET VISITORS_ON_TICKET { get; set; }
     }
 }

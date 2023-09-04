@@ -19,5 +19,7 @@ namespace CMPG223_Group22_Project
         public string Visitors_Name { get; set; }
         public Nullable<System.DateTime> Date_Of_Birth { get; set; }
         public string ContactNumber { get; set; }
+    
+        public virtual VISITORS_ON_TICKET VISITORS_ON_TICKET { get; set; }
     }
 }
