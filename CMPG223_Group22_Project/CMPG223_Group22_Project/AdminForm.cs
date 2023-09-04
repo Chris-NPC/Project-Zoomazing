@@ -301,6 +301,20 @@ namespace CMPG223_Group22_Project
             cbxEId.ValueMember = "Id";
         }
 
+        private void pop_textBox(string sql_pop_comp)
+        {
+            //string sql_pop = "SELECT Animal_Id FROM ANIMALS";
+            sql_showComponents(sql_pop_comp);
+
+            conn.Open();
+
+            adapter.SelectCommand = command;
+            adapter.Fill(ds, "Users");
+
+
+        }
+
+
 
         /// <summary>
         /// (For procedures "sql_showAnimals()" and "sql_showVisitors" and "sql_showEmployees")
@@ -464,6 +478,18 @@ namespace CMPG223_Group22_Project
         }
 
 
+
+        /// <summary>
+        /// Procedure to add an Employee to the database(Users) and takes all the data/ values needed, as parameters.
+        /// "sql_showComponents()" takes an sql statement as a parameter, thus the employee class with an "addEmployee" procedure is called because it returns an SQL statement with values received.
+        /// The command is then executed and a new employee is added to the database.
+        /// </summary>
+        /// <param name="surname"></param>
+        /// <param name="name"></param>
+        /// <param name="contactNum"></param>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <param name="empType"></param>
         private void sql_AddEmployee(string surname, string name, string contactNum, string username, string password, string empType)
         {
             cEmployees cAddE = new cEmployees();
@@ -473,6 +499,19 @@ namespace CMPG223_Group22_Project
             adapter.InsertCommand = command;
             adapter.InsertCommand.ExecuteNonQuery();
         }
+
+        /// <summary>
+        /// Procedure to update an employee on the database(Users) and takes all the data/ values needed, as parameters.
+        /// "sql_showComponents()" takes an sql statement as a parameter, thus the employee class with an "changeEmployeeDetails" procedure is called because it returns an SQL statement with values received.
+        /// The command is then executed and an employee's details are updated and posted on the database.
+        /// </summary>
+        /// <param name="employeeId"></param>
+        /// <param name="surname"></param>
+        /// <param name="name"></param>
+        /// <param name="contactNum"></param>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <param name="empType"></param>
         private void sql_UpdateEmployee(string employeeId, string surname, string name, string contactNum, string username, string password, string empType)
         {
             cEmployees cUpdateE = new cEmployees();
@@ -482,6 +521,13 @@ namespace CMPG223_Group22_Project
             adapter.UpdateCommand = command;
             adapter.UpdateCommand.ExecuteNonQuery();
         }
+
+        /// <summary>
+        /// Procedure to delete an employee from the database(Users) and takes all the data/ values needed, as parameters.
+        /// "sql_showComponents()" takes an sql statement as a parameter, thus the employee class with an "deleteEmployee" procedure is called because it returns an SQL statement with values received.
+        /// The command is then executed and an employee is deleted from the database.
+        /// </summary>
+        /// <param name="employeeId"></param>
         private void sql_DeleteEmployee(string employeeId)
         {
             cEmployees cDeleteE = new cEmployees();
@@ -636,6 +682,7 @@ namespace CMPG223_Group22_Project
 
             }
         }
+
 
 
         /// <summary>
