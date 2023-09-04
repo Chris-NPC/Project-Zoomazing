@@ -30,6 +30,11 @@ namespace CMPG223_Group22_Project
 
         private void button1_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
             Login form2 = new Login();
             form2.Show();
         }
