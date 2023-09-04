@@ -62,10 +62,10 @@ namespace CMPG223_Group22_Project
             // 
             // txtUsername
             // 
-            this.txtUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.txtUsername.Location = new System.Drawing.Point(324, 184);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(170, 27);
+            this.txtUsername.Size = new System.Drawing.Size(170, 26);
             this.txtUsername.TabIndex = 2;
             // 
             // txtPassword
