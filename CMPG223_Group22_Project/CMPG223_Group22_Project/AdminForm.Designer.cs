@@ -267,10 +267,10 @@ namespace CMPG223_Group22_Project
             // lblActionChoose
             // 
             this.lblActionChoose.AutoSize = true;
-            this.lblActionChoose.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblActionChoose.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblActionChoose.Location = new System.Drawing.Point(39, 107);
             this.lblActionChoose.Name = "lblActionChoose";
-            this.lblActionChoose.Size = new System.Drawing.Size(139, 20);
+            this.lblActionChoose.Size = new System.Drawing.Size(164, 25);
             this.lblActionChoose.TabIndex = 20;
             this.lblActionChoose.Text = "Choose Action:";
             // 
@@ -338,7 +338,7 @@ namespace CMPG223_Group22_Project
             this.nudADay.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nudADay.Location = new System.Drawing.Point(243, 579);
             this.nudADay.Maximum = new decimal(new int[] {
-            12,
+            31,
             0,
             0,
             0});
@@ -501,7 +501,7 @@ namespace CMPG223_Group22_Project
             // lblVGap2
             // 
             this.lblVGap2.AutoSize = true;
-            this.lblVGap2.Location = new System.Drawing.Point(347, 578);
+            this.lblVGap2.Location = new System.Drawing.Point(363, 642);
             this.lblVGap2.Name = "lblVGap2";
             this.lblVGap2.Size = new System.Drawing.Size(17, 20);
             this.lblVGap2.TabIndex = 36;
@@ -510,7 +510,7 @@ namespace CMPG223_Group22_Project
             // lblVGap1
             // 
             this.lblVGap1.AutoSize = true;
-            this.lblVGap1.Location = new System.Drawing.Point(276, 578);
+            this.lblVGap1.Location = new System.Drawing.Point(292, 642);
             this.lblVGap1.Name = "lblVGap1";
             this.lblVGap1.Size = new System.Drawing.Size(17, 20);
             this.lblVGap1.TabIndex = 35;
@@ -519,7 +519,7 @@ namespace CMPG223_Group22_Project
             // nudVYear
             // 
             this.nudVYear.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nudVYear.Location = new System.Drawing.Point(370, 576);
+            this.nudVYear.Location = new System.Drawing.Point(386, 640);
             this.nudVYear.Maximum = new decimal(new int[] {
             2023,
             0,
@@ -542,7 +542,7 @@ namespace CMPG223_Group22_Project
             // nudVMonth
             // 
             this.nudVMonth.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nudVMonth.Location = new System.Drawing.Point(299, 576);
+            this.nudVMonth.Location = new System.Drawing.Point(315, 640);
             this.nudVMonth.Maximum = new decimal(new int[] {
             12,
             0,
@@ -565,7 +565,7 @@ namespace CMPG223_Group22_Project
             // nudVDay
             // 
             this.nudVDay.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nudVDay.Location = new System.Drawing.Point(228, 576);
+            this.nudVDay.Location = new System.Drawing.Point(244, 640);
             this.nudVDay.Maximum = new decimal(new int[] {
             31,
             0,
@@ -590,24 +590,26 @@ namespace CMPG223_Group22_Project
             this.pnlVHeading.Controls.Add(this.lblVHeading);
             this.pnlVHeading.Location = new System.Drawing.Point(42, 16);
             this.pnlVHeading.Name = "pnlVHeading";
-            this.pnlVHeading.Size = new System.Drawing.Size(655, 75);
+            this.pnlVHeading.Size = new System.Drawing.Size(847, 75);
             this.pnlVHeading.TabIndex = 31;
             // 
             // lblVHeading
             // 
             this.lblVHeading.AutoSize = true;
-            this.lblVHeading.Location = new System.Drawing.Point(246, 25);
+            this.lblVHeading.Font = new System.Drawing.Font("Verdana", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVHeading.Location = new System.Drawing.Point(301, 20);
             this.lblVHeading.Name = "lblVHeading";
-            this.lblVHeading.Size = new System.Drawing.Size(152, 20);
+            this.lblVHeading.Size = new System.Drawing.Size(255, 34);
             this.lblVHeading.TabIndex = 0;
             this.lblVHeading.Text = "Maintain Visitors";
             // 
             // lblVChooseAction
             // 
             this.lblVChooseAction.AutoSize = true;
-            this.lblVChooseAction.Location = new System.Drawing.Point(39, 119);
+            this.lblVChooseAction.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVChooseAction.Location = new System.Drawing.Point(39, 107);
             this.lblVChooseAction.Name = "lblVChooseAction";
-            this.lblVChooseAction.Size = new System.Drawing.Size(139, 20);
+            this.lblVChooseAction.Size = new System.Drawing.Size(164, 25);
             this.lblVChooseAction.TabIndex = 30;
             this.lblVChooseAction.Text = "Choose Action:";
             // 
@@ -617,10 +619,10 @@ namespace CMPG223_Group22_Project
             this.cbxVChooseAction.Items.AddRange(new object[] {
             "Add Visitor",
             "Change Visitor Details",
-            "Remove Visitorl"});
-            this.cbxVChooseAction.Location = new System.Drawing.Point(576, 112);
+            "Remove Visitor"});
+            this.cbxVChooseAction.Location = new System.Drawing.Point(711, 104);
             this.cbxVChooseAction.Name = "cbxVChooseAction";
-            this.cbxVChooseAction.Size = new System.Drawing.Size(121, 28);
+            this.cbxVChooseAction.Size = new System.Drawing.Size(178, 28);
             this.cbxVChooseAction.TabIndex = 29;
             this.cbxVChooseAction.Text = "ACTION";
             this.cbxVChooseAction.SelectedIndexChanged += new System.EventHandler(this.cbxVChooseAction_SelectedIndexChanged);
@@ -628,18 +630,20 @@ namespace CMPG223_Group22_Project
             // lblVID
             // 
             this.lblVID.AutoSize = true;
-            this.lblVID.Location = new System.Drawing.Point(39, 471);
+            this.lblVID.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVID.Location = new System.Drawing.Point(39, 472);
             this.lblVID.Name = "lblVID";
-            this.lblVID.Size = new System.Drawing.Size(38, 20);
+            this.lblVID.Size = new System.Drawing.Size(44, 25);
             this.lblVID.TabIndex = 23;
             this.lblVID.Text = "ID:";
             // 
             // lblVFName
             // 
             this.lblVFName.AutoSize = true;
-            this.lblVFName.Location = new System.Drawing.Point(39, 543);
+            this.lblVFName.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVFName.Location = new System.Drawing.Point(39, 577);
             this.lblVFName.Name = "lblVFName";
-            this.lblVFName.Size = new System.Drawing.Size(111, 20);
+            this.lblVFName.Size = new System.Drawing.Size(131, 25);
             this.lblVFName.TabIndex = 25;
             this.lblVFName.Text = "First Name:";
             // 
@@ -647,17 +651,17 @@ namespace CMPG223_Group22_Project
             // 
             this.lstbxVisitorLog.FormattingEnabled = true;
             this.lstbxVisitorLog.ItemHeight = 20;
-            this.lstbxVisitorLog.Location = new System.Drawing.Point(796, 16);
+            this.lstbxVisitorLog.Location = new System.Drawing.Point(970, 16);
             this.lstbxVisitorLog.Name = "lstbxVisitorLog";
-            this.lstbxVisitorLog.Size = new System.Drawing.Size(392, 704);
+            this.lstbxVisitorLog.Size = new System.Drawing.Size(435, 724);
             this.lstbxVisitorLog.TabIndex = 28;
             // 
             // cbxVId
             // 
             this.cbxVId.FormattingEnabled = true;
-            this.cbxVId.Location = new System.Drawing.Point(228, 468);
+            this.cbxVId.Location = new System.Drawing.Point(243, 473);
             this.cbxVId.Name = "cbxVId";
-            this.cbxVId.Size = new System.Drawing.Size(168, 28);
+            this.cbxVId.Size = new System.Drawing.Size(153, 28);
             this.cbxVId.TabIndex = 17;
             // 
             // dgvShowVisitors
@@ -667,53 +671,56 @@ namespace CMPG223_Group22_Project
             this.dgvShowVisitors.Name = "dgvShowVisitors";
             this.dgvShowVisitors.RowHeadersWidth = 51;
             this.dgvShowVisitors.RowTemplate.Height = 24;
-            this.dgvShowVisitors.Size = new System.Drawing.Size(691, 308);
+            this.dgvShowVisitors.Size = new System.Drawing.Size(847, 308);
             this.dgvShowVisitors.TabIndex = 16;
             // 
             // txtContactNumber
             // 
-            this.txtContactNumber.Location = new System.Drawing.Point(228, 614);
+            this.txtContactNumber.Location = new System.Drawing.Point(243, 697);
             this.txtContactNumber.Name = "txtContactNumber";
             this.txtContactNumber.Size = new System.Drawing.Size(168, 28);
             this.txtContactNumber.TabIndex = 21;
             // 
             // txtVName
             // 
-            this.txtVName.Location = new System.Drawing.Point(228, 540);
+            this.txtVName.Location = new System.Drawing.Point(243, 579);
             this.txtVName.Name = "txtVName";
-            this.txtVName.Size = new System.Drawing.Size(168, 28);
+            this.txtVName.Size = new System.Drawing.Size(153, 28);
             this.txtVName.TabIndex = 19;
             // 
             // txtVLName
             // 
-            this.txtVLName.Location = new System.Drawing.Point(228, 502);
+            this.txtVLName.Location = new System.Drawing.Point(243, 523);
             this.txtVLName.Name = "txtVLName";
-            this.txtVLName.Size = new System.Drawing.Size(168, 28);
+            this.txtVLName.Size = new System.Drawing.Size(153, 28);
             this.txtVLName.TabIndex = 18;
             // 
             // lblContactNumber
             // 
             this.lblContactNumber.AutoSize = true;
-            this.lblContactNumber.Location = new System.Drawing.Point(39, 617);
+            this.lblContactNumber.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblContactNumber.Location = new System.Drawing.Point(39, 700);
             this.lblContactNumber.Name = "lblContactNumber";
-            this.lblContactNumber.Size = new System.Drawing.Size(158, 20);
+            this.lblContactNumber.Size = new System.Drawing.Size(185, 25);
             this.lblContactNumber.TabIndex = 27;
             this.lblContactNumber.Text = "Contact Number:";
             // 
             // lblVDob
             // 
             this.lblVDob.AutoSize = true;
-            this.lblVDob.Location = new System.Drawing.Point(39, 578);
+            this.lblVDob.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVDob.Location = new System.Drawing.Point(39, 637);
             this.lblVDob.Name = "lblVDob";
-            this.lblVDob.Size = new System.Drawing.Size(126, 20);
+            this.lblVDob.Size = new System.Drawing.Size(149, 25);
             this.lblVDob.TabIndex = 26;
             this.lblVDob.Text = "Date of birth:";
             // 
             // btnVisitorAction
             // 
-            this.btnVisitorAction.Location = new System.Drawing.Point(538, 490);
+            this.btnVisitorAction.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVisitorAction.Location = new System.Drawing.Point(695, 667);
             this.btnVisitorAction.Name = "btnVisitorAction";
-            this.btnVisitorAction.Size = new System.Drawing.Size(195, 158);
+            this.btnVisitorAction.Size = new System.Drawing.Size(194, 73);
             this.btnVisitorAction.TabIndex = 22;
             this.btnVisitorAction.Text = "ACTION";
             this.btnVisitorAction.UseVisualStyleBackColor = true;
@@ -722,9 +729,10 @@ namespace CMPG223_Group22_Project
             // lblVLName
             // 
             this.lblVLName.AutoSize = true;
-            this.lblVLName.Location = new System.Drawing.Point(39, 505);
+            this.lblVLName.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVLName.Location = new System.Drawing.Point(39, 522);
             this.lblVLName.Name = "lblVLName";
-            this.lblVLName.Size = new System.Drawing.Size(108, 20);
+            this.lblVLName.Size = new System.Drawing.Size(127, 25);
             this.lblVLName.TabIndex = 24;
             this.lblVLName.Text = "Last Name:";
             // 
