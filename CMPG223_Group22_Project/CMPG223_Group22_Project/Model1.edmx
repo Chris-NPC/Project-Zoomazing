@@ -88,6 +88,7 @@
           <Property Name="Description" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
           <Property Name="Price" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="isTicketValid" Type="Boolean" />
+          <NavigationProperty Name="VISITORS_ON_TICKET" Relationship="Database1Model.VISITORS_ON_TICKETTICKET" FromRole="TICKET" ToRole="VISITORS_ON_TICKET" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -110,6 +111,7 @@
           <Property Name="Visitors_Name" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
           <Property Name="Date_Of_Birth" Type="DateTime" Precision="0" />
           <Property Name="ContactNumber" Type="String" MaxLength="13" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="VISITORS_ON_TICKET" Relationship="Database1Model.VISITORS_ON_TICKETVISITOR" FromRole="VISITOR" ToRole="VISITORS_ON_TICKET" />
         </EntityType>
         <EntityType Name="VISITORS_ON_TICKET">
           <Key>
@@ -120,6 +122,8 @@
           <Property Name="Ticket_ID" Type="Int32" />
           <Property Name="Ticket_Date" Type="DateTime" Precision="0" />
           <Property Name="Ticket_Amount" Type="Int32" />
+          <NavigationProperty Name="VISITORs" Relationship="Database1Model.VISITORS_ON_TICKETVISITOR" FromRole="VISITORS_ON_TICKET" ToRole="VISITOR" />
+          <NavigationProperty Name="TICKETs" Relationship="Database1Model.VISITORS_ON_TICKETTICKET" FromRole="VISITORS_ON_TICKET" ToRole="TICKET" />
         </EntityType>
         <EntityContainer Name="Database1Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="ANIMALS" EntityType="Self.ANIMAL" />
@@ -127,7 +131,23 @@
           <EntitySet Name="Users" EntityType="Self.User" />
           <EntitySet Name="VISITORS" EntityType="Self.VISITOR" />
           <EntitySet Name="VISITORS_ON_TICKET" EntityType="Self.VISITORS_ON_TICKET" />
+          <AssociationSet Name="VISITORS_ON_TICKETVISITOR" Association="Database1Model.VISITORS_ON_TICKETVISITOR">
+            <End Role="VISITORS_ON_TICKET" EntitySet="VISITORS_ON_TICKET" />
+            <End Role="VISITOR" EntitySet="VISITORS" />
+          </AssociationSet>
+          <AssociationSet Name="VISITORS_ON_TICKETTICKET" Association="Database1Model.VISITORS_ON_TICKETTICKET">
+            <End Role="VISITORS_ON_TICKET" EntitySet="VISITORS_ON_TICKET" />
+            <End Role="TICKET" EntitySet="TICKETS" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="VISITORS_ON_TICKETVISITOR">
+          <End Type="Database1Model.VISITORS_ON_TICKET" Role="VISITORS_ON_TICKET" Multiplicity="1" />
+          <End Type="Database1Model.VISITOR" Role="VISITOR" Multiplicity="*" />
+        </Association>
+        <Association Name="VISITORS_ON_TICKETTICKET">
+          <End Type="Database1Model.VISITORS_ON_TICKET" Role="VISITORS_ON_TICKET" Multiplicity="1" />
+          <End Type="Database1Model.TICKET" Role="TICKET" Multiplicity="*" />
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->

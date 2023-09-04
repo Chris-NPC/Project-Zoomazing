@@ -9,7 +9,9 @@
         <EntityTypeShape EntityType="Database1Model.TICKET" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Database1Model.User" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Database1Model.VISITOR" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Database1Model.VISITORS_ON_TICKET" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.VISITORS_ON_TICKET" Width="1.5" PointX="4.75" PointY="0.875" IsExpanded="true" />
+        <AssociationConnector Association="Database1Model.VISITORS_ON_TICKETVISITOR" />
+        <AssociationConnector Association="Database1Model.VISITORS_ON_TICKETTICKET" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
