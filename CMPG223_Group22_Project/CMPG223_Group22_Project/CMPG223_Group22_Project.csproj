@@ -68,7 +68,6 @@
       <DependentUpon>AdminForm.cs</DependentUpon>
     </Compile>
     <Compile Include="cAnimals.cs" />
-    <Compile Include="cEmployees.cs" />
     <Compile Include="cPerson.cs" />
     <Compile Include="cTickets.cs" />
     <Compile Include="cVisitors.cs" />
