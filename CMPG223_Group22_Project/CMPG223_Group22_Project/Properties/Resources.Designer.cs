@@ -63,19 +63,9 @@ namespace CMPG223_Group22_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap login_button_png_24 {
+        internal static System.Drawing.Bitmap wallpaper {
             get {
-                object obj = ResourceManager.GetObject("login-button-png-24", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap login_button_png_241 {
-            get {
-                object obj = ResourceManager.GetObject("login-button-png-241", resourceCulture);
+                object obj = ResourceManager.GetObject("wallpaper", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
