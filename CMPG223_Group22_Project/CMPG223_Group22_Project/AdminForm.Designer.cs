@@ -358,12 +358,14 @@ namespace CMPG223_Group22_Project
             // 
             // cbxAId
             // 
+            this.cbxAId.Cursor = System.Windows.Forms.Cursors.Default;
             this.cbxAId.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxAId.FormattingEnabled = true;
             this.cbxAId.Location = new System.Drawing.Point(243, 472);
             this.cbxAId.Name = "cbxAId";
             this.cbxAId.Size = new System.Drawing.Size(153, 28);
             this.cbxAId.TabIndex = 2;
+            this.cbxAId.TextChanged += new System.EventHandler(this.cbxAId_TextChanged);
             // 
             // dgvShowAnimals
             // 
@@ -663,6 +665,7 @@ namespace CMPG223_Group22_Project
             this.cbxVId.Name = "cbxVId";
             this.cbxVId.Size = new System.Drawing.Size(153, 28);
             this.cbxVId.TabIndex = 17;
+            this.cbxVId.TextChanged += new System.EventHandler(this.cbxVId_TextChanged);
             // 
             // dgvShowVisitors
             // 

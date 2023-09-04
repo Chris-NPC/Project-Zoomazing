@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Text.RegularExpressions; //via chatGPT to check for digits in a string
 
 namespace CMPG223_Group22_Project
 {
@@ -21,6 +22,17 @@ namespace CMPG223_Group22_Project
         /// <summary>
         /// SQL components and relevant classes to access and work with databases, connection string also declared
         /// </summary>
+
+        /// <relativepathnote>
+        ///Attempt at creating a relative database path, but received error within terms of remote network, would sort out if given enough time :)
+        ///string executable;
+        ///string path;
+        ///string connString = "Data Source=|DataDirectory|\\Database1.mdf";
+        ///string executable = System.Reflection.Assembly.GetExecutingAssembly().Location;
+        ///string path = System.IO.Path.GetDirectoryName(executable);
+        ///AppDomain.CurrentDomain.SetData("DataDirectory", path);*/
+        ///string connString = "Data Source=(LocalDB)\\MSSQLLocalDB;Database=Databbase1.mdf;Integrated Security=True";
+        /// </note>
         string connString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\chris\OneDrive\Documents\CMPG 223 - Project\Zoomazing Demo\Project-Zoomazing\CMPG223_Group22_Project\CMPG223_Group22_Project\Database1.mdf;Integrated Security=True";
         SqlConnection conn;
         SqlCommand command;
@@ -28,6 +40,7 @@ namespace CMPG223_Group22_Project
         SqlDataAdapter adapter;
         SqlDataReader reader;
         int receive_id;
+
 
 
         /// <summary>
@@ -374,6 +387,23 @@ namespace CMPG223_Group22_Project
             adapter.DeleteCommand.ExecuteNonQuery();
         }
 
+        private bool date_validate(int day, int month, int year)
+        {
+            bool valid = false;
+            int daysInAMonth = DateTime.DaysInMonth(year, month);
+            int dayVali = DateTime.Now.Day;
+            int monthVali = DateTime.Now.Month;
+            int yearVali = DateTime.Now.Year;
+
+
+            if (((day > dayVali) && (month > monthVali) && (year > yearVali)) || (day > daysInAMonth))
+            {
+                MessageBox.Show("Invalid dates, please check dates again");
+                return valid = false;
+            }
+            return valid = true;
+        }
+
 
         /// <summary>
         /// (Same for "cbxAChooseAction_SelectedIndexChanged" and "bxVChooseAction_SelectedIndexChanged" with exceptions being animal = visitor in terminolgy sense)
@@ -503,78 +533,126 @@ namespace CMPG223_Group22_Project
             {
                 case 0:                     //Adds animal
                     {
-                        string gender = "Neutral", vacci = "False";
-                        if (rdbMale.Checked)
+                        try
                         {
-                            gender = rdbMale.Text;
-                        }
-                        else if (rdbFemale.Checked)
-                        {
-                            gender = rdbFemale.Text;
-                        }
+                            string gender = "Neutral", vacci = "False";
+                            if (rdbMale.Checked)
+                            {
+                                gender = rdbMale.Text;
+                            }
+                            else if (rdbFemale.Checked)
+                            {
+                                gender = rdbFemale.Text;
+                            }
 
-                        if (rdbTrue.Checked)
-                        {
-                            vacci = rdbTrue.Text;
-                        }
-                        else if (rdbFalse.Checked)
-                        {
-                            vacci = rdbFalse.Text;
-                        }
+                            if (rdbTrue.Checked)
+                            {
+                                vacci = rdbTrue.Text;
+                            }
+                            else if (rdbFalse.Checked)
+                            {
+                                vacci = rdbFalse.Text;
+                            }
 
-                        MessageBox.Show(txtWeight.Text);
-                        MessageBox.Show((decimal.Parse(txtWeight.Text)).ToString());
-                        sql_AddAnimal(txtAName.Text, gender, decimal.Parse(txtWeight.Text), vacci, (int)nudADay.Value, (int)nudAMonth.Value, (int)nudAYear.Value);
-                        conn.Close();
+                            if (Regex.IsMatch(txtAName.Text, @"\d"))
+                            {
+                                MessageBox.Show("Numbers found in the name entered");
+                                txtAName.Focus();
+                            }
+                            else
+                            {
+                                int dayRec = (int)nudADay.Value;
+                                int monthRec = (int)nudAMonth.Value;
+                                int yearRec = (int)nudAYear.Value;
 
-                        sql_showAnimals();
-                        conn.Close();
+                                date_validate(dayRec, monthRec, yearRec);
+
+                                sql_AddAnimal(txtAName.Text, gender, decimal.Parse(txtWeight.Text), vacci, dayRec, monthRec, yearRec);
+                                conn.Close();
+
+                                sql_showAnimals();
+                                conn.Close();
+                            }
+                            break;
+                        }
+                        catch(Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                        }
                         break;
                     }
                 case 1:                     //Updates Animal
                     {
-                        string animalId = cbxAId.Text;
-                        string gender = "Neutral", vacci = "False";
-                        if (rdbMale.Checked)
+                        try
                         {
-                            gender = rdbMale.Text;
+                            string animalId = cbxAId.Text;
+                            string gender = "Neutral", vacci = "False";
+                            if (rdbMale.Checked)
+                            {
+                                gender = rdbMale.Text;
+                            }
+                            else if (rdbFemale.Checked)
+                            {
+                                gender = rdbFemale.Text;
+                            }
+
+                            if (rdbTrue.Checked)
+                            {
+                                vacci = rdbTrue.Text;
+                            }
+                            else if (rdbFalse.Checked)
+                            {
+                                vacci = rdbFalse.Text;
+                            }
+
+                            if (Regex.IsMatch(txtAName.Text, @"\d"))
+                            {
+                                MessageBox.Show("Numbers found in the name entered");
+                                txtAName.Focus();
+                            }
+                            else
+                            {
+                                int dayRec = (int)nudADay.Value;
+                                int monthRec = (int)nudAMonth.Value;
+                                int yearRec = (int)nudAYear.Value;
+                                date_validate(dayRec, monthRec, yearRec);
+
+                                sql_UpdateAnimal(animalId, txtAName.Text, gender, decimal.Parse(txtWeight.Text), vacci, dayRec, monthRec, yearRec);
+                                conn.Close();
+
+                                sql_showAnimals();
+                                conn.Close();
+
+                                pop_Acbx();
+                                conn.Close();
+                            }
+                            break;
                         }
-                        else if (rdbFemale.Checked)
+                        catch(Exception ex)
                         {
-                            gender = rdbFemale.Text;
+                            MessageBox.Show(ex.Message);
                         }
-
-                        if (rdbTrue.Checked)
-                        {
-                            vacci = rdbTrue.Text;
-                        }
-                        else if (rdbFalse.Checked)
-                        {
-                            vacci = rdbFalse.Text;
-                        }
-
-                        sql_UpdateAnimal(animalId, txtAName.Text, gender, decimal.Parse(txtWeight.Text), vacci, (int)nudADay.Value, (int)nudAMonth.Value, (int)nudAYear.Value);
-                        conn.Close();
-
-                        sql_showAnimals();
-                        conn.Close();
-
-                        pop_Acbx();
-                        conn.Close();
                         break;
                     }
                 case 2:                     //Remove animal
                     {
-                        string animalId = cbxAId.Text;
+                        try
+                        {
+                            string animalId = cbxAId.Text;
+                            sql_DeleteAnimal(animalId);
+                            conn.Close();
 
-                        sql_DeleteAnimal(animalId);
-                        conn.Close();
+                            sql_showAnimals();
+                            conn.Close();
 
-                        sql_showAnimals();
-                        conn.Close();
-
-                        pop_Acbx();
-                        conn.Close();
+                            pop_Acbx();
+                            conn.Close();
+                            break;
+                        }
+                        catch(Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                        }
                         break;
                     }
                 default:
@@ -607,37 +685,125 @@ namespace CMPG223_Group22_Project
             {
                 case 0:                     //Adds Visitor      
                     {
-                        sql_AddVisitor(txtVName.Text, txtVLName.Text, txtContactNumber.Text, (int)nudVDay.Value, (int)nudVMonth.Value, (int)nudVYear.Value);
-                        conn.Close();
+                        try
+                        {
+                            if (Regex.IsMatch(txtVName.Text, @"\d"))
+                            {
+                                MessageBox.Show("Numbers found in the name entered");
+                                txtVName.Focus();
+                            }
+                            else
+                            {
+                                if (Regex.IsMatch(txtVLName.Text, @"\d"))
+                                {
+                                    MessageBox.Show("Numbers found in the last name entered");
+                                    txtVLName.Focus();
+                                }
+                                else
+                                {
+                                    if (Regex.IsMatch(txtContactNumber.Text, @"\D"))
+                                    {
+                                        MessageBox.Show("Letters found in the contact number entered");
+                                        txtContactNumber.Focus();
+                                    }
+                                    else
+                                    {
+                                        int dayRec = (int)nudVDay.Value;
+                                        int monthRec = (int)nudVMonth.Value;
+                                        int yearRec = (int)nudVYear.Value;
 
-                        sql_showVisitors();
-                        conn.Close();
+                                        if (date_validate(dayRec, monthRec, yearRec) == true)
+                                        {
+
+                                            sql_AddVisitor(txtVName.Text, txtVLName.Text, txtContactNumber.Text, dayRec, monthRec, yearRec);
+                                            conn.Close();
+
+                                            sql_showVisitors();
+                                            conn.Close();
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show("Invalid dates chosen");
+                                        }
+                                    }
+                                }
+                            }
+                            break;
+                        }
+                        catch(Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                        }
                         break;
                     }
                 case 1:                     //Updates Visitor         
                     {
-                        string visitorId = cbxVId.Text;
+                        try
+                        {
+                            string visitorId = cbxVId.Text;
+                            if (Regex.IsMatch(txtVName.Text, @"\d"))
+                            {
+                                MessageBox.Show("Numbers found in the name entered");
+                                txtVName.Focus();
+                            }
+                            else
+                            {
+                                if (Regex.IsMatch(txtVLName.Text, @"\d"))
+                                {
+                                    MessageBox.Show("Numbers found in the last name entered");
+                                    txtVLName.Focus();
+                                }
+                                else
+                                {
+                                    if (Regex.IsMatch(txtContactNumber.Text, @"\D"))
+                                    {
+                                        MessageBox.Show("Letters found in the contact number entered");
+                                        txtContactNumber.Focus();
+                                    }
+                                    else
+                                    {
+                                        int dayRec = (int)nudVDay.Value;
+                                        int monthRec = (int)nudVMonth.Value;
+                                        int yearRec = (int)nudVYear.Value;
 
-                        sql_UpdateVisitor(visitorId, txtVLName.Text, txtVName.Text, txtContactNumber.Text, (int)nudVDay.Value, (int)nudVMonth.Value, (int)nudVYear.Value);
-                        conn.Close();
+                                        date_validate(dayRec, monthRec, yearRec);
 
-                        sql_showVisitors();
-                        conn.Close();
+                                        sql_UpdateVisitor(visitorId, txtVLName.Text, txtVName.Text, txtContactNumber.Text, dayRec, monthRec, yearRec);
+                                        conn.Close();
 
-                        pop_Vcbx();
-                        conn.Close();
+                                        sql_showVisitors();
+                                        conn.Close();
 
+                                        pop_Vcbx();
+                                        conn.Close();
+                                    }
+                                }
+                            }
+                            break;
+                        }
+                        catch(Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                        }
                         break;
                     }
                 case 2:                     //Removes Visitor  
                     {
-                        string visitorId = cbxVId.Text;
-                        sql_DeleteVisitor(visitorId);
-                        conn.Close();
+                        try
+                        {
+                            string visitorId = cbxVId.Text;
+                            sql_DeleteVisitor(visitorId);
+                            conn.Close();
 
-                        sql_showVisitors();
-                        pop_Vcbx();
-                        conn.Close();
+                            sql_showVisitors();
+                            pop_Vcbx();
+                            conn.Close();
+                            break;
+                        }
+                        catch(Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                        }
                         break;
                     }
                 default:
@@ -656,16 +822,35 @@ namespace CMPG223_Group22_Project
         /// <param name="e"></param>
         private void AdminForm_Load(object sender, EventArgs e)
         {
+            /// <relativepathnote>
+            /// Attempt at creating a relative database path, but received error within terms of remote network, would sort out if given enough time :)
+            /// connString = "Data Source=|DataDirectory|\\Database1.mdf";
+            /// executable = System.Reflection.Assembly.GetExecutingAssembly().Location;
+            /// path = System.IO.Path.GetDirectoryName(executable);
+            /// AppDomain.CurrentDomain.SetData("DataDirectory", path);
+            /// </note>
+
             lblAID.Visible = false;
             cbxAId.Visible = false;
             sql_showAnimals();
             hide_animal_components();
+            nudAYear.Maximum = DateTime.Now.Year;
 
             lblVID.Visible = false;
             cbxVId.Visible = false;
             sql_showVisitors();
             hide_visitor_components();
+            nudVYear.Maximum = DateTime.Now.Year;
         }
 
+        private void cbxAId_TextChanged(object sender, EventArgs e)
+        {
+            cbxAId.Text = "";
+        }
+
+        private void cbxVId_TextChanged(object sender, EventArgs e)
+        {
+            cbxVId.Text = "";
+        }
     }
 }

@@ -63,17 +63,6 @@ namespace CMPG223_Group22_Project
             dateOfBirth = dob;
         }
 
-        //
-        public bool haveExited()
-        {
-            return false;
-        }
-        public bool haveEntered()
-        {
-            return false;
-        }
-        //
-
         /// <summary>
         /// INSERT SQL statement is formed from variable assigned above as well as superclass "Person".
         /// "set" methods are called to initiate variables and do the validation/ evaluation as previously described.
