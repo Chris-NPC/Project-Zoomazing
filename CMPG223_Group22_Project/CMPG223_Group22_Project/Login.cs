@@ -66,6 +66,8 @@ namespace CMPG223_Group22_Project
                                 {
                                     // User is an admin, perform admin actions
                                     // For example, open admin dashboard/form
+                                    // AdminForm form3 = new AdminForm();
+                                    // AdminForm.show();
                                     
                                 }
                                 else if (userType == "staff")
@@ -104,7 +106,7 @@ namespace CMPG223_Group22_Project
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
-            txtPassword.PasswordChar = '*';//does not show what the user is typing
+            //txtPassword.PasswordChar = '*';//does not show what the user is typing
         }
 
         private void Login_Load(object sender, EventArgs e)
