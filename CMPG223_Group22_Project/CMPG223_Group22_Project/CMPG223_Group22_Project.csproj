@@ -69,7 +69,6 @@
     </Compile>
     <Compile Include="cAnimals.cs" />
     <Compile Include="cPerson.cs" />
-    <Compile Include="cTickets.cs" />
     <Compile Include="cVisitors.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>

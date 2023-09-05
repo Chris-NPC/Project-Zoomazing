@@ -84,6 +84,14 @@ namespace CMPG223_Group22_Project
             this.lstbxReport = new System.Windows.Forms.ListBox();
             this.btnTotalCost = new System.Windows.Forms.Button();
             this.btnNumTickets = new System.Windows.Forms.Button();
+            this.btnVHelp = new System.Windows.Forms.Button();
+            this.btnVExit = new System.Windows.Forms.Button();
+            this.btnAExit = new System.Windows.Forms.Button();
+            this.btnAHelp = new System.Windows.Forms.Button();
+            this.btnRExit = new System.Windows.Forms.Button();
+            this.btnRHelp = new System.Windows.Forms.Button();
+            this.pnlReportH = new System.Windows.Forms.Panel();
+            this.lblReportHeading = new System.Windows.Forms.Label();
             this.tcAdmin.SuspendLayout();
             this.tpAnimals.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudAYear)).BeginInit();
@@ -100,6 +108,7 @@ namespace CMPG223_Group22_Project
             this.pnlVHeading.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvShowVisitors)).BeginInit();
             this.tpReports.SuspendLayout();
+            this.pnlReportH.SuspendLayout();
             this.SuspendLayout();
             // 
             // tcAdmin
@@ -117,6 +126,8 @@ namespace CMPG223_Group22_Project
             // tpAnimals
             // 
             this.tpAnimals.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.tpAnimals.Controls.Add(this.btnAExit);
+            this.tpAnimals.Controls.Add(this.btnAHelp);
             this.tpAnimals.Controls.Add(this.lblAGap2);
             this.tpAnimals.Controls.Add(this.lblAGap1);
             this.tpAnimals.Controls.Add(this.nudAYear);
@@ -247,6 +258,7 @@ namespace CMPG223_Group22_Project
             // 
             // pnlAHeading
             // 
+            this.pnlAHeading.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlAHeading.Controls.Add(this.lblAHeading);
             this.pnlAHeading.Font = new System.Drawing.Font("Verdana", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnlAHeading.Location = new System.Drawing.Point(42, 16);
@@ -286,7 +298,7 @@ namespace CMPG223_Group22_Project
             this.cbxAChooseAction.Name = "cbxAChooseAction";
             this.cbxAChooseAction.Size = new System.Drawing.Size(178, 28);
             this.cbxAChooseAction.TabIndex = 19;
-            this.cbxAChooseAction.Text = "ACTION";
+            this.cbxAChooseAction.Text = "Action";
             this.cbxAChooseAction.SelectedIndexChanged += new System.EventHandler(this.cbxAChooseAction_SelectedIndexChanged);
             // 
             // lstbxAnimalLog
@@ -440,7 +452,7 @@ namespace CMPG223_Group22_Project
             // btnAnimalAction
             // 
             this.btnAnimalAction.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAnimalAction.Location = new System.Drawing.Point(695, 667);
+            this.btnAnimalAction.Location = new System.Drawing.Point(695, 619);
             this.btnAnimalAction.Name = "btnAnimalAction";
             this.btnAnimalAction.Size = new System.Drawing.Size(194, 73);
             this.btnAnimalAction.TabIndex = 8;
@@ -473,6 +485,8 @@ namespace CMPG223_Group22_Project
             // tpVisitors
             // 
             this.tpVisitors.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.tpVisitors.Controls.Add(this.btnVExit);
+            this.tpVisitors.Controls.Add(this.btnVHelp);
             this.tpVisitors.Controls.Add(this.lblVGap2);
             this.tpVisitors.Controls.Add(this.lblVGap1);
             this.tpVisitors.Controls.Add(this.nudVYear);
@@ -589,6 +603,7 @@ namespace CMPG223_Group22_Project
             // 
             // pnlVHeading
             // 
+            this.pnlVHeading.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlVHeading.Controls.Add(this.lblVHeading);
             this.pnlVHeading.Location = new System.Drawing.Point(42, 16);
             this.pnlVHeading.Name = "pnlVHeading";
@@ -626,7 +641,7 @@ namespace CMPG223_Group22_Project
             this.cbxVChooseAction.Name = "cbxVChooseAction";
             this.cbxVChooseAction.Size = new System.Drawing.Size(178, 28);
             this.cbxVChooseAction.TabIndex = 29;
-            this.cbxVChooseAction.Text = "ACTION";
+            this.cbxVChooseAction.Text = "Action";
             this.cbxVChooseAction.SelectedIndexChanged += new System.EventHandler(this.cbxVChooseAction_SelectedIndexChanged);
             // 
             // lblVID
@@ -721,11 +736,11 @@ namespace CMPG223_Group22_Project
             // btnVisitorAction
             // 
             this.btnVisitorAction.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVisitorAction.Location = new System.Drawing.Point(695, 667);
+            this.btnVisitorAction.Location = new System.Drawing.Point(695, 613);
             this.btnVisitorAction.Name = "btnVisitorAction";
             this.btnVisitorAction.Size = new System.Drawing.Size(194, 73);
             this.btnVisitorAction.TabIndex = 22;
-            this.btnVisitorAction.Text = "ACTION";
+            this.btnVisitorAction.Text = "Action";
             this.btnVisitorAction.UseVisualStyleBackColor = true;
             this.btnVisitorAction.Click += new System.EventHandler(this.btnVisitorAction_Click);
             // 
@@ -742,6 +757,9 @@ namespace CMPG223_Group22_Project
             // tpReports
             // 
             this.tpReports.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.tpReports.Controls.Add(this.pnlReportH);
+            this.tpReports.Controls.Add(this.btnRExit);
+            this.tpReports.Controls.Add(this.btnRHelp);
             this.tpReports.Controls.Add(this.lstbxReport);
             this.tpReports.Controls.Add(this.btnTotalCost);
             this.tpReports.Controls.Add(this.btnNumTickets);
@@ -755,28 +773,117 @@ namespace CMPG223_Group22_Project
             // 
             this.lstbxReport.FormattingEnabled = true;
             this.lstbxReport.ItemHeight = 20;
-            this.lstbxReport.Location = new System.Drawing.Point(17, 134);
+            this.lstbxReport.Location = new System.Drawing.Point(17, 114);
             this.lstbxReport.Name = "lstbxReport";
-            this.lstbxReport.Size = new System.Drawing.Size(489, 404);
+            this.lstbxReport.Size = new System.Drawing.Size(560, 424);
             this.lstbxReport.TabIndex = 2;
             // 
             // btnTotalCost
             // 
-            this.btnTotalCost.Location = new System.Drawing.Point(17, 65);
+            this.btnTotalCost.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTotalCost.Location = new System.Drawing.Point(105, 602);
             this.btnTotalCost.Name = "btnTotalCost";
-            this.btnTotalCost.Size = new System.Drawing.Size(372, 41);
+            this.btnTotalCost.Size = new System.Drawing.Size(372, 52);
             this.btnTotalCost.TabIndex = 1;
             this.btnTotalCost.Text = "Report for total ticket cost";
             this.btnTotalCost.UseVisualStyleBackColor = true;
+            this.btnTotalCost.Click += new System.EventHandler(this.btnTotalCost_Click);
             // 
             // btnNumTickets
             // 
-            this.btnNumTickets.Location = new System.Drawing.Point(17, 23);
+            this.btnNumTickets.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNumTickets.Location = new System.Drawing.Point(105, 546);
             this.btnNumTickets.Name = "btnNumTickets";
-            this.btnNumTickets.Size = new System.Drawing.Size(372, 36);
+            this.btnNumTickets.Size = new System.Drawing.Size(372, 50);
             this.btnNumTickets.TabIndex = 0;
             this.btnNumTickets.Text = "Report for number of tickets";
             this.btnNumTickets.UseVisualStyleBackColor = true;
+            this.btnNumTickets.Click += new System.EventHandler(this.btnNumTickets_Click);
+            // 
+            // btnVHelp
+            // 
+            this.btnVHelp.BackColor = System.Drawing.Color.Yellow;
+            this.btnVHelp.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnVHelp.Location = new System.Drawing.Point(695, 692);
+            this.btnVHelp.Name = "btnVHelp";
+            this.btnVHelp.Size = new System.Drawing.Size(94, 40);
+            this.btnVHelp.TabIndex = 37;
+            this.btnVHelp.Text = "Help";
+            this.btnVHelp.UseVisualStyleBackColor = false;
+            // 
+            // btnVExit
+            // 
+            this.btnVExit.BackColor = System.Drawing.Color.Red;
+            this.btnVExit.Location = new System.Drawing.Point(795, 692);
+            this.btnVExit.Name = "btnVExit";
+            this.btnVExit.Size = new System.Drawing.Size(94, 40);
+            this.btnVExit.TabIndex = 38;
+            this.btnVExit.Text = "Exit";
+            this.btnVExit.UseVisualStyleBackColor = false;
+            this.btnVExit.Click += new System.EventHandler(this.btnVExit_Click);
+            // 
+            // btnAExit
+            // 
+            this.btnAExit.BackColor = System.Drawing.Color.Red;
+            this.btnAExit.Location = new System.Drawing.Point(795, 698);
+            this.btnAExit.Name = "btnAExit";
+            this.btnAExit.Size = new System.Drawing.Size(94, 43);
+            this.btnAExit.TabIndex = 40;
+            this.btnAExit.Text = "Exit";
+            this.btnAExit.UseVisualStyleBackColor = false;
+            this.btnAExit.Click += new System.EventHandler(this.btnAExit_Click);
+            // 
+            // btnAHelp
+            // 
+            this.btnAHelp.BackColor = System.Drawing.Color.Yellow;
+            this.btnAHelp.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnAHelp.Location = new System.Drawing.Point(695, 698);
+            this.btnAHelp.Name = "btnAHelp";
+            this.btnAHelp.Size = new System.Drawing.Size(94, 43);
+            this.btnAHelp.TabIndex = 39;
+            this.btnAHelp.Text = "Help";
+            this.btnAHelp.UseVisualStyleBackColor = false;
+            // 
+            // btnRExit
+            // 
+            this.btnRExit.BackColor = System.Drawing.Color.Red;
+            this.btnRExit.Location = new System.Drawing.Point(295, 660);
+            this.btnRExit.Name = "btnRExit";
+            this.btnRExit.Size = new System.Drawing.Size(182, 50);
+            this.btnRExit.TabIndex = 41;
+            this.btnRExit.Text = "Exit";
+            this.btnRExit.UseVisualStyleBackColor = false;
+            this.btnRExit.Click += new System.EventHandler(this.btnRExit_Click);
+            // 
+            // btnRHelp
+            // 
+            this.btnRHelp.BackColor = System.Drawing.Color.Yellow;
+            this.btnRHelp.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnRHelp.Location = new System.Drawing.Point(104, 660);
+            this.btnRHelp.Name = "btnRHelp";
+            this.btnRHelp.Size = new System.Drawing.Size(185, 50);
+            this.btnRHelp.TabIndex = 40;
+            this.btnRHelp.Text = "Help";
+            this.btnRHelp.UseVisualStyleBackColor = false;
+            // 
+            // pnlReportH
+            // 
+            this.pnlReportH.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlReportH.Controls.Add(this.lblReportHeading);
+            this.pnlReportH.Location = new System.Drawing.Point(17, 18);
+            this.pnlReportH.Name = "pnlReportH";
+            this.pnlReportH.Size = new System.Drawing.Size(560, 73);
+            this.pnlReportH.TabIndex = 42;
+            // 
+            // lblReportHeading
+            // 
+            this.lblReportHeading.AutoSize = true;
+            this.lblReportHeading.Font = new System.Drawing.Font("Verdana", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblReportHeading.Location = new System.Drawing.Point(215, 21);
+            this.lblReportHeading.Name = "lblReportHeading";
+            this.lblReportHeading.Size = new System.Drawing.Size(122, 34);
+            this.lblReportHeading.TabIndex = 0;
+            this.lblReportHeading.Text = "Reports";
             // 
             // AdminForm
             // 
@@ -809,6 +916,8 @@ namespace CMPG223_Group22_Project
             this.pnlVHeading.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvShowVisitors)).EndInit();
             this.tpReports.ResumeLayout(false);
+            this.pnlReportH.ResumeLayout(false);
+            this.pnlReportH.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -870,5 +979,13 @@ namespace CMPG223_Group22_Project
         private System.Windows.Forms.NumericUpDown nudVYear;
         private System.Windows.Forms.NumericUpDown nudVMonth;
         private System.Windows.Forms.NumericUpDown nudVDay;
+        private System.Windows.Forms.Button btnAExit;
+        private System.Windows.Forms.Button btnAHelp;
+        private System.Windows.Forms.Button btnVExit;
+        private System.Windows.Forms.Button btnVHelp;
+        private System.Windows.Forms.Panel pnlReportH;
+        private System.Windows.Forms.Label lblReportHeading;
+        private System.Windows.Forms.Button btnRExit;
+        private System.Windows.Forms.Button btnRHelp;
     }
 }

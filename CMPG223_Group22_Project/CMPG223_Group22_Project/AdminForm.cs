@@ -33,7 +33,14 @@ namespace CMPG223_Group22_Project
         ///AppDomain.CurrentDomain.SetData("DataDirectory", path);*/
         ///string connString = "Data Source=(LocalDB)\\MSSQLLocalDB;Database=Databbase1.mdf;Integrated Security=True";
         /// </note>
+        /// 
+
+
+        //C:\Users\chris\OneDrive\Documents\CMPG 223 - Project\Zoomazing Demo\Project-Zoomazing\CMPG223_Group22_Project\CMPG223_Group22_Project
         string connString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\chris\OneDrive\Documents\CMPG 223 - Project\Zoomazing Demo\Project-Zoomazing\CMPG223_Group22_Project\CMPG223_Group22_Project\Database1.mdf;Integrated Security=True";
+        //string connString = @"Data Source =(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True";
+        //string connString = "Data Source=" + System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase) + "\\Database1.mdf";
+        
         SqlConnection conn;
         SqlCommand command;
         DataSet ds;
@@ -235,8 +242,6 @@ namespace CMPG223_Group22_Project
         }
 
 
-
-
         /// <summary>
         /// (For procedures "sql_showAnimals()" and "sql_showVisitors" and "sql_showEmployees")
         /// SELECT SQL statement declared to select all the records from the relevant database to show the database to the user through the 'dataGridView' component.
@@ -404,6 +409,63 @@ namespace CMPG223_Group22_Project
             return valid = true;
         }
 
+        private int total_ticket_qty()
+        {
+            int totalTQty = 0;
+            int ticketQty = 0;
+            bool isValid = false;
+            string sql_receive = "SELECT isTicketValid FROM TICKETS";
+            int receiveTicketId;
+            sql_showComponents(sql_receive);
+            conn.Open();
+            adapter.SelectCommand = command;
+            adapter.Fill(ds, "TICKETS");
+            reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                receiveTicketId = reader.GetInt32(0);
+                isValid = reader.GetBoolean(1);
+
+                if (isValid == true)
+                {
+                    ticketQty++;
+                }
+            }
+
+            conn.Close();
+            totalTQty += ticketQty;
+            return totalTQty;
+        }
+        private decimal total_ticket_price()
+        {
+            decimal totalTPrice = 0.00m;
+            decimal ticketPrice = 0.00m;
+            bool isValid = false;
+            string sql_receive = "SELECT Price, isTicketValid FROM TICKETS";
+            sql_showComponents(sql_receive);
+            conn.Open();
+            adapter.SelectCommand = command;
+            adapter.Fill(ds, "TICKETS");
+            reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                ticketPrice = (decimal)reader.GetValue(0);
+                isValid = reader.GetBoolean(1);
+
+                if (isValid == true)
+                {
+                    ticketPrice += ticketPrice;
+                }
+            }
+
+            totalTPrice += ticketPrice;
+            conn.Close();
+
+            return totalTPrice;
+        }
+
 
         /// <summary>
         /// (Same for "cbxAChooseAction_SelectedIndexChanged" and "bxVChooseAction_SelectedIndexChanged" with exceptions being animal = visitor in terminolgy sense)
@@ -430,6 +492,7 @@ namespace CMPG223_Group22_Project
             {
                 case 0:             //Adds animal
                     {
+                        btnAnimalAction.Enabled = true;
                         pop_Acbx();
                         lblAID.Visible = false;
                         cbxAId.Visible = false;
@@ -440,6 +503,7 @@ namespace CMPG223_Group22_Project
                     }
                 case 1:             //Updates Animal
                     {
+                        btnAnimalAction.Enabled = true;
                         pop_Acbx();
                         lblAID.Visible = true;
                         cbxAId.Visible = true;
@@ -450,6 +514,7 @@ namespace CMPG223_Group22_Project
                     }
                 case 2:             //Deletes Animal
                     {
+                        btnAnimalAction.Enabled = true;
                         pop_Acbx();
                         lblAID.Visible = true;
                         cbxAId.Visible = true;
@@ -471,6 +536,7 @@ namespace CMPG223_Group22_Project
             {
                 case 0:                     //Adds Visitor
                     {
+                        btnVisitorAction.Enabled = true;
                         pop_Vcbx();
                         lblVID.Visible = false;
                         cbxVId.Visible = false;
@@ -481,6 +547,7 @@ namespace CMPG223_Group22_Project
                     }
                 case 1:                     //Updates Visitor
                     {
+                        btnVisitorAction.Enabled = true;
                         pop_Vcbx();
                         lblVID.Visible = true;
                         cbxVId.Visible = true;
@@ -491,6 +558,7 @@ namespace CMPG223_Group22_Project
                     }
                 case 2:                     //Removes Visitor
                     {
+                        btnVisitorAction.Enabled = true;
                         pop_Vcbx();
                         lblVID.Visible = true;
                         cbxVId.Visible = true;
@@ -565,13 +633,26 @@ namespace CMPG223_Group22_Project
                                 int monthRec = (int)nudAMonth.Value;
                                 int yearRec = (int)nudAYear.Value;
 
-                                date_validate(dayRec, monthRec, yearRec);
+                                if (date_validate(dayRec, monthRec, yearRec) == true)
+                                {
+                                    sql_AddAnimal(txtAName.Text, gender, decimal.Parse(txtWeight.Text), vacci, dayRec, monthRec, yearRec);
+                                    conn.Close();
 
-                                sql_AddAnimal(txtAName.Text, gender, decimal.Parse(txtWeight.Text), vacci, dayRec, monthRec, yearRec);
-                                conn.Close();
+                                    sql_showAnimals();
+                                    conn.Close();
 
-                                sql_showAnimals();
-                                conn.Close();
+                                    lstbxAnimalLog.Items.Add("==================================================");
+                                    lstbxAnimalLog.Items.Add("Record Added to ANIMAL table:");
+                                    lstbxAnimalLog.Items.Add("");
+                                    lstbxAnimalLog.Items.Add("Name:\t\t " + txtAName.Text);
+                                    lstbxAnimalLog.Items.Add("Gender:\t\t " + gender.ToString());
+                                    lstbxAnimalLog.Items.Add("Weight:\t\t " + decimal.Parse(txtWeight.Text));
+                                    lstbxAnimalLog.Items.Add("Vaccinated:\t " + vacci.ToString());
+                                    lstbxAnimalLog.Items.Add("Date of Birth:\t " + dayRec.ToString() + " / " + monthRec.ToString() + " / " + yearRec.ToString());
+                                    lstbxAnimalLog.Items.Add("==================================================");
+
+                                    ;
+                                }
                             }
                             break;
                         }
@@ -615,16 +696,29 @@ namespace CMPG223_Group22_Project
                                 int dayRec = (int)nudADay.Value;
                                 int monthRec = (int)nudAMonth.Value;
                                 int yearRec = (int)nudAYear.Value;
-                                date_validate(dayRec, monthRec, yearRec);
+                                if (date_validate(dayRec, monthRec, yearRec) == true)
+                                {
 
-                                sql_UpdateAnimal(animalId, txtAName.Text, gender, decimal.Parse(txtWeight.Text), vacci, dayRec, monthRec, yearRec);
-                                conn.Close();
+                                    sql_UpdateAnimal(animalId, txtAName.Text, gender, decimal.Parse(txtWeight.Text), vacci, dayRec, monthRec, yearRec);
+                                    conn.Close();
 
-                                sql_showAnimals();
-                                conn.Close();
+                                    sql_showAnimals();
+                                    conn.Close();
 
-                                pop_Acbx();
-                                conn.Close();
+                                    pop_Acbx();
+                                    conn.Close();
+
+                                    lstbxAnimalLog.Items.Add("==================================================");
+                                    lstbxAnimalLog.Items.Add("Record Updated on ANIMAL table: (Full Details)");
+                                    lstbxAnimalLog.Items.Add("");
+                                    lstbxAnimalLog.Items.Add("ID used:\t\t " + animalId.ToString());
+                                    lstbxAnimalLog.Items.Add("Name:\t\t " + txtAName.Text);
+                                    lstbxAnimalLog.Items.Add("Gender:\t\t " + gender.ToString());
+                                    lstbxAnimalLog.Items.Add("Weight:\t\t " + decimal.Parse(txtWeight.Text));
+                                    lstbxAnimalLog.Items.Add("Vaccinated:\t " + vacci.ToString());
+                                    lstbxAnimalLog.Items.Add("Date of Birth:\t " + dayRec.ToString() + " / " + monthRec.ToString() + " / " + yearRec.ToString());
+                                    lstbxAnimalLog.Items.Add("==================================================");
+                                }
                             }
                             break;
                         }
@@ -639,14 +733,23 @@ namespace CMPG223_Group22_Project
                         try
                         {
                             string animalId = cbxAId.Text;
-                            sql_DeleteAnimal(animalId);
-                            conn.Close();
+                            DialogResult userAnswer = MessageBox.Show($"Are you sure you want to delete record with ID number: {animalId} ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                            if (userAnswer == DialogResult.Yes)
+                            {
+                                sql_DeleteAnimal(animalId);
+                                conn.Close();
 
-                            sql_showAnimals();
-                            conn.Close();
+                                sql_showAnimals();
+                                conn.Close();
 
-                            pop_Acbx();
-                            conn.Close();
+                                pop_Acbx();
+                                conn.Close();
+                                lstbxAnimalLog.Items.Add("==================================================");
+                                lstbxAnimalLog.Items.Add("Record Deleted on ANIMAL table:");
+                                lstbxAnimalLog.Items.Add("");
+                                lstbxAnimalLog.Items.Add("Record deleted with ID: " + animalId.ToString());
+                                lstbxAnimalLog.Items.Add("==================================================");
+                            }
                             break;
                         }
                         catch(Exception ex)
@@ -720,10 +823,15 @@ namespace CMPG223_Group22_Project
 
                                             sql_showVisitors();
                                             conn.Close();
-                                        }
-                                        else
-                                        {
-                                            MessageBox.Show("Invalid dates chosen");
+
+                                            lstbxVisitorLog.Items.Add("==================================================");
+                                            lstbxVisitorLog.Items.Add("Record Added to VISITOR table:");
+                                            lstbxVisitorLog.Items.Add("");
+                                            lstbxVisitorLog.Items.Add("Name:\t\t " + txtVName.Text);
+                                            lstbxVisitorLog.Items.Add("Last Name:\t " + txtVLName.Text);
+                                            lstbxVisitorLog.Items.Add("ContactNumber:\t " + txtContactNumber.Text);
+                                            lstbxVisitorLog.Items.Add("Date of Birth:\t " + dayRec.ToString() + " / " + monthRec.ToString() + " / " + yearRec.ToString());
+                                            lstbxVisitorLog.Items.Add("==================================================");
                                         }
                                     }
                                 }
@@ -766,16 +874,28 @@ namespace CMPG223_Group22_Project
                                         int monthRec = (int)nudVMonth.Value;
                                         int yearRec = (int)nudVYear.Value;
 
-                                        date_validate(dayRec, monthRec, yearRec);
+                                        if (date_validate(dayRec, monthRec, yearRec) == true)
+                                        {
 
-                                        sql_UpdateVisitor(visitorId, txtVLName.Text, txtVName.Text, txtContactNumber.Text, dayRec, monthRec, yearRec);
-                                        conn.Close();
+                                            sql_UpdateVisitor(visitorId, txtVLName.Text, txtVName.Text, txtContactNumber.Text, dayRec, monthRec, yearRec);
+                                            conn.Close();
 
-                                        sql_showVisitors();
-                                        conn.Close();
+                                            sql_showVisitors();
+                                            conn.Close();
 
-                                        pop_Vcbx();
-                                        conn.Close();
+                                            pop_Vcbx();
+                                            conn.Close();
+
+                                            lstbxVisitorLog.Items.Add("==================================================");
+                                            lstbxVisitorLog.Items.Add("Record Updated on VISITOR table: (Full Details)");
+                                            lstbxVisitorLog.Items.Add("");
+                                            lstbxVisitorLog.Items.Add("ID used:\t\t " + visitorId.ToString());
+                                            lstbxVisitorLog.Items.Add("Name:\t\t " + txtVName.Text);
+                                            lstbxVisitorLog.Items.Add("Last Name:\t " + txtVLName.Text);
+                                            lstbxVisitorLog.Items.Add("ContactNumber:\t " + txtContactNumber.Text);
+                                            lstbxVisitorLog.Items.Add("Date of Birth:\t " + dayRec.ToString() + " / " + monthRec.ToString() + " / " + yearRec.ToString());
+                                            lstbxVisitorLog.Items.Add("==================================================");
+                                        }
                                     }
                                 }
                             }
@@ -792,12 +912,22 @@ namespace CMPG223_Group22_Project
                         try
                         {
                             string visitorId = cbxVId.Text;
-                            sql_DeleteVisitor(visitorId);
-                            conn.Close();
+                            DialogResult userAnswer = MessageBox.Show($"Are you sure you want to delete record with ID number: {visitorId} ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                            if (userAnswer == DialogResult.Yes)
+                            {
+                                sql_DeleteVisitor(visitorId);
+                                conn.Close();
 
-                            sql_showVisitors();
-                            pop_Vcbx();
-                            conn.Close();
+                                sql_showVisitors();
+                                pop_Vcbx();
+                                conn.Close();
+
+                                lstbxVisitorLog.Items.Add("==================================================");
+                                lstbxVisitorLog.Items.Add("Record Deleted on VISITOR table:");
+                                lstbxVisitorLog.Items.Add("");
+                                lstbxVisitorLog.Items.Add("Record deleted with ID: " + visitorId.ToString());
+                                lstbxVisitorLog.Items.Add("==================================================");
+                            }
                             break;
                         }
                         catch(Exception ex)
@@ -830,6 +960,14 @@ namespace CMPG223_Group22_Project
             /// AppDomain.CurrentDomain.SetData("DataDirectory", path);
             /// </note>
 
+
+            lstbxAnimalLog.Items.Add("ANIMAL TABLE LOG");
+            lstbxAnimalLog.Items.Add("");
+            lstbxVisitorLog.Items.Add("VISITOR TABLE LOG");
+            lstbxVisitorLog.Items.Add("");
+            lstbxReport.Items.Add("REPORTS");
+            lstbxVisitorLog.Items.Add("");
+
             lblAID.Visible = false;
             cbxAId.Visible = false;
             sql_showAnimals();
@@ -841,6 +979,10 @@ namespace CMPG223_Group22_Project
             sql_showVisitors();
             hide_visitor_components();
             nudVYear.Maximum = DateTime.Now.Year;
+
+            btnAnimalAction.Enabled = false;
+            btnVisitorAction.Enabled = false;
+            
         }
 
         private void cbxAId_TextChanged(object sender, EventArgs e)
@@ -851,6 +993,50 @@ namespace CMPG223_Group22_Project
         private void cbxVId_TextChanged(object sender, EventArgs e)
         {
             cbxVId.Text = "";
+        }
+
+        private void btnNumTickets_Click(object sender, EventArgs e)
+        {
+            //Quantity of tickets
+            int totalTQty = total_ticket_qty();
+            DateTime today = DateTime.Now;
+
+            lstbxReport.Items.Add("==================================================");
+            lstbxReport.Items.Add($" TOTAL number of tickets |\t\t\t({today})");
+            lstbxReport.Items.Add("---------------------------");
+            lstbxReport.Items.Add("");
+            lstbxReport.Items.Add("Total Tickets: " + totalTQty.ToString());
+            lstbxReport.Items.Add("==================================================");
+        }
+
+        private void btnTotalCost_Click(object sender, EventArgs e)
+        {
+            //Total money received from tickets
+            decimal totalTPrice = total_ticket_price();
+            DateTime today = DateTime.Now;
+
+            lstbxReport.Items.Add("==================================================");
+            lstbxReport.Items.Add($"TOTAL TICKET COST |\t\t\t({today})");
+            lstbxReport.Items.Add("-----------------------");
+            lstbxReport.Items.Add("");
+            lstbxReport.Items.Add("Total Price of Tickets: R" + totalTPrice.ToString());
+            lstbxReport.Items.Add("==================================================");
+
+        }
+
+        private void btnAExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnVExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnRExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
