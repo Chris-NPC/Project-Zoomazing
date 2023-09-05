@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Database1ModelStoreContainer" CdmEntityContainer="Database1Entities">
+    <EntitySetMapping Name="ANIMALS">
+      <EntityTypeMapping TypeName="Database1Model.ANIMAL">
+        <MappingFragment StoreEntitySet="ANIMALS">
+          <ScalarProperty Name="Animal_ID" ColumnName="Animal_ID" />
+          <ScalarProperty Name="Animal_Name" ColumnName="Animal_Name" />
+          <ScalarProperty Name="Date_Of_Birth" ColumnName="Date_Of_Birth" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="Vaccination" ColumnName="Vaccination" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TICKETS">
+      <EntityTypeMapping TypeName="Database1Model.TICKET">
+        <MappingFragment StoreEntitySet="TICKETS">
+          <ScalarProperty Name="Ticket_ID" ColumnName="Ticket_ID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="isTicketValid" ColumnName="isTicketValid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="Database1Model.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Last_Name" ColumnName="Last_Name" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="EmployeeType" ColumnName="EmployeeType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VISITORS">
+      <EntityTypeMapping TypeName="Database1Model.VISITOR">
+        <MappingFragment StoreEntitySet="VISITORS">
+          <ScalarProperty Name="Visitors_ID" ColumnName="Visitors_ID" />
+          <ScalarProperty Name="Visitors_LName" ColumnName="Visitors_LName" />
+          <ScalarProperty Name="Visitors_Name" ColumnName="Visitors_Name" />
+          <ScalarProperty Name="Date_Of_Birth" ColumnName="Date_Of_Birth" />
+          <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VISITORS_ON_TICKET">
+      <EntityTypeMapping TypeName="Database1Model.VISITORS_ON_TICKET">
+        <MappingFragment StoreEntitySet="VISITORS_ON_TICKET">
+          <ScalarProperty Name="Visitors_on_Ticket_ID" ColumnName="Visitors_on_Ticket_ID" />
+          <ScalarProperty Name="Visitors_ID" ColumnName="Visitors_ID" />
+          <ScalarProperty Name="Ticket_ID" ColumnName="Ticket_ID" />
+          <ScalarProperty Name="Ticket_Date" ColumnName="Ticket_Date" />
+          <ScalarProperty Name="Ticket_Amount" ColumnName="Ticket_Amount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

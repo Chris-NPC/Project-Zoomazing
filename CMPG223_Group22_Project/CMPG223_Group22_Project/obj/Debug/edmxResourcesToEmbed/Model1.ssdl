@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Database1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ANIMALS">
+    <Key>
+      <PropertyRef Name="Animal_ID" />
+    </Key>
+    <Property Name="Animal_ID" Type="int" Nullable="false" />
+    <Property Name="Animal_Name" Type="nvarchar" MaxLength="25" />
+    <Property Name="Date_Of_Birth" Type="date" />
+    <Property Name="Gender" Type="char" MaxLength="1" />
+    <Property Name="Weight" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Vaccination" Type="bit" />
+  </EntityType>
+  <EntityType Name="TICKETS">
+    <Key>
+      <PropertyRef Name="Ticket_ID" />
+    </Key>
+    <Property Name="Ticket_ID" Type="int" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="25" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="isTicketValid" Type="bit" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Last_Name" Type="nvarchar" MaxLength="25" />
+    <Property Name="Name" Type="nvarchar" MaxLength="25" />
+    <Property Name="ContactNumber" Type="nvarchar" MaxLength="25" />
+    <Property Name="Username" Type="nvarchar" MaxLength="25" />
+    <Property Name="Password" Type="nvarchar" MaxLength="25" />
+    <Property Name="EmployeeType" Type="nvarchar" MaxLength="25" />
+  </EntityType>
+  <EntityType Name="VISITORS">
+    <Key>
+      <PropertyRef Name="Visitors_ID" />
+    </Key>
+    <Property Name="Visitors_ID" Type="int" Nullable="false" />
+    <Property Name="Visitors_LName" Type="nvarchar" MaxLength="25" />
+    <Property Name="Visitors_Name" Type="nvarchar" MaxLength="25" />
+    <Property Name="Date_Of_Birth" Type="date" />
+    <Property Name="ContactNumber" Type="nvarchar" MaxLength="13" />
+  </EntityType>
+  <EntityType Name="VISITORS_ON_TICKET">
+    <Key>
+      <PropertyRef Name="Visitors_on_Ticket_ID" />
+    </Key>
+    <Property Name="Visitors_on_Ticket_ID" Type="int" Nullable="false" />
+    <Property Name="Visitors_ID" Type="int" />
+    <Property Name="Ticket_ID" Type="int" />
+    <Property Name="Ticket_Date" Type="date" />
+    <Property Name="Ticket_Amount" Type="int" />
+  </EntityType>
+  <EntityContainer Name="Database1ModelStoreContainer">
+    <EntitySet Name="ANIMALS" EntityType="Self.ANIMALS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TICKETS" EntityType="Self.TICKETS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VISITORS" EntityType="Self.VISITORS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VISITORS_ON_TICKET" EntityType="Self.VISITORS_ON_TICKET" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
