@@ -51,7 +51,7 @@ namespace CMPG223_Group22_Project
             this.contactNum = contactNum;
         }
 
-        //
+        //Not necessary
         public void addPerson()
         {
             
@@ -64,6 +64,6 @@ namespace CMPG223_Group22_Project
         {
 
         }
-        //
+        /////
     }
 }

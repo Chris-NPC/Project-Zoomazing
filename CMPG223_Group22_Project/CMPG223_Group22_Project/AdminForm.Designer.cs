@@ -31,6 +31,8 @@ namespace CMPG223_Group22_Project
         {
             this.tcAdmin = new System.Windows.Forms.TabControl();
             this.tpAnimals = new System.Windows.Forms.TabPage();
+            this.btnAExit = new System.Windows.Forms.Button();
+            this.btnAHelp = new System.Windows.Forms.Button();
             this.lblAGap2 = new System.Windows.Forms.Label();
             this.lblAGap1 = new System.Windows.Forms.Label();
             this.nudAYear = new System.Windows.Forms.NumericUpDown();
@@ -59,6 +61,8 @@ namespace CMPG223_Group22_Project
             this.lblAID = new System.Windows.Forms.Label();
             this.lblAName = new System.Windows.Forms.Label();
             this.tpVisitors = new System.Windows.Forms.TabPage();
+            this.btnVExit = new System.Windows.Forms.Button();
+            this.btnVHelp = new System.Windows.Forms.Button();
             this.lblVGap2 = new System.Windows.Forms.Label();
             this.lblVGap1 = new System.Windows.Forms.Label();
             this.nudVYear = new System.Windows.Forms.NumericUpDown();
@@ -81,17 +85,13 @@ namespace CMPG223_Group22_Project
             this.btnVisitorAction = new System.Windows.Forms.Button();
             this.lblVLName = new System.Windows.Forms.Label();
             this.tpReports = new System.Windows.Forms.TabPage();
+            this.pnlReportH = new System.Windows.Forms.Panel();
+            this.lblReportHeading = new System.Windows.Forms.Label();
+            this.btnRExit = new System.Windows.Forms.Button();
+            this.btnRHelp = new System.Windows.Forms.Button();
             this.lstbxReport = new System.Windows.Forms.ListBox();
             this.btnTotalCost = new System.Windows.Forms.Button();
             this.btnNumTickets = new System.Windows.Forms.Button();
-            this.btnVHelp = new System.Windows.Forms.Button();
-            this.btnVExit = new System.Windows.Forms.Button();
-            this.btnAExit = new System.Windows.Forms.Button();
-            this.btnAHelp = new System.Windows.Forms.Button();
-            this.btnRExit = new System.Windows.Forms.Button();
-            this.btnRHelp = new System.Windows.Forms.Button();
-            this.pnlReportH = new System.Windows.Forms.Panel();
-            this.lblReportHeading = new System.Windows.Forms.Label();
             this.tcAdmin.SuspendLayout();
             this.tpAnimals.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudAYear)).BeginInit();
@@ -157,6 +157,29 @@ namespace CMPG223_Group22_Project
             this.tpAnimals.Size = new System.Drawing.Size(1487, 793);
             this.tpAnimals.TabIndex = 0;
             this.tpAnimals.Text = "Animals";
+            // 
+            // btnAExit
+            // 
+            this.btnAExit.BackColor = System.Drawing.Color.Red;
+            this.btnAExit.Location = new System.Drawing.Point(795, 698);
+            this.btnAExit.Name = "btnAExit";
+            this.btnAExit.Size = new System.Drawing.Size(94, 43);
+            this.btnAExit.TabIndex = 40;
+            this.btnAExit.Text = "Exit";
+            this.btnAExit.UseVisualStyleBackColor = false;
+            this.btnAExit.Click += new System.EventHandler(this.btnAExit_Click);
+            // 
+            // btnAHelp
+            // 
+            this.btnAHelp.BackColor = System.Drawing.Color.Yellow;
+            this.btnAHelp.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnAHelp.Location = new System.Drawing.Point(695, 698);
+            this.btnAHelp.Name = "btnAHelp";
+            this.btnAHelp.Size = new System.Drawing.Size(94, 43);
+            this.btnAHelp.TabIndex = 39;
+            this.btnAHelp.Text = "Help";
+            this.btnAHelp.UseVisualStyleBackColor = false;
+            this.btnAHelp.Click += new System.EventHandler(this.btnAHelp_Click);
             // 
             // lblAGap2
             // 
@@ -514,6 +537,29 @@ namespace CMPG223_Group22_Project
             this.tpVisitors.TabIndex = 1;
             this.tpVisitors.Text = "Visitors";
             // 
+            // btnVExit
+            // 
+            this.btnVExit.BackColor = System.Drawing.Color.Red;
+            this.btnVExit.Location = new System.Drawing.Point(795, 692);
+            this.btnVExit.Name = "btnVExit";
+            this.btnVExit.Size = new System.Drawing.Size(94, 40);
+            this.btnVExit.TabIndex = 38;
+            this.btnVExit.Text = "Exit";
+            this.btnVExit.UseVisualStyleBackColor = false;
+            this.btnVExit.Click += new System.EventHandler(this.btnVExit_Click);
+            // 
+            // btnVHelp
+            // 
+            this.btnVHelp.BackColor = System.Drawing.Color.Yellow;
+            this.btnVHelp.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnVHelp.Location = new System.Drawing.Point(695, 692);
+            this.btnVHelp.Name = "btnVHelp";
+            this.btnVHelp.Size = new System.Drawing.Size(94, 40);
+            this.btnVHelp.TabIndex = 37;
+            this.btnVHelp.Text = "Help";
+            this.btnVHelp.UseVisualStyleBackColor = false;
+            this.btnVHelp.Click += new System.EventHandler(this.btnVHelp_Click);
+            // 
             // lblVGap2
             // 
             this.lblVGap2.AutoSize = true;
@@ -769,6 +815,48 @@ namespace CMPG223_Group22_Project
             this.tpReports.TabIndex = 2;
             this.tpReports.Text = "Reports";
             // 
+            // pnlReportH
+            // 
+            this.pnlReportH.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlReportH.Controls.Add(this.lblReportHeading);
+            this.pnlReportH.Location = new System.Drawing.Point(17, 18);
+            this.pnlReportH.Name = "pnlReportH";
+            this.pnlReportH.Size = new System.Drawing.Size(560, 73);
+            this.pnlReportH.TabIndex = 42;
+            // 
+            // lblReportHeading
+            // 
+            this.lblReportHeading.AutoSize = true;
+            this.lblReportHeading.Font = new System.Drawing.Font("Verdana", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblReportHeading.Location = new System.Drawing.Point(215, 21);
+            this.lblReportHeading.Name = "lblReportHeading";
+            this.lblReportHeading.Size = new System.Drawing.Size(122, 34);
+            this.lblReportHeading.TabIndex = 0;
+            this.lblReportHeading.Text = "Reports";
+            // 
+            // btnRExit
+            // 
+            this.btnRExit.BackColor = System.Drawing.Color.Red;
+            this.btnRExit.Location = new System.Drawing.Point(295, 660);
+            this.btnRExit.Name = "btnRExit";
+            this.btnRExit.Size = new System.Drawing.Size(182, 50);
+            this.btnRExit.TabIndex = 41;
+            this.btnRExit.Text = "Exit";
+            this.btnRExit.UseVisualStyleBackColor = false;
+            this.btnRExit.Click += new System.EventHandler(this.btnRExit_Click);
+            // 
+            // btnRHelp
+            // 
+            this.btnRHelp.BackColor = System.Drawing.Color.Yellow;
+            this.btnRHelp.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnRHelp.Location = new System.Drawing.Point(104, 660);
+            this.btnRHelp.Name = "btnRHelp";
+            this.btnRHelp.Size = new System.Drawing.Size(185, 50);
+            this.btnRHelp.TabIndex = 40;
+            this.btnRHelp.Text = "Help";
+            this.btnRHelp.UseVisualStyleBackColor = false;
+            this.btnRHelp.Click += new System.EventHandler(this.btnRHelp_Click);
+            // 
             // lstbxReport
             // 
             this.lstbxReport.FormattingEnabled = true;
@@ -799,91 +887,6 @@ namespace CMPG223_Group22_Project
             this.btnNumTickets.Text = "Report for number of tickets";
             this.btnNumTickets.UseVisualStyleBackColor = true;
             this.btnNumTickets.Click += new System.EventHandler(this.btnNumTickets_Click);
-            // 
-            // btnVHelp
-            // 
-            this.btnVHelp.BackColor = System.Drawing.Color.Yellow;
-            this.btnVHelp.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnVHelp.Location = new System.Drawing.Point(695, 692);
-            this.btnVHelp.Name = "btnVHelp";
-            this.btnVHelp.Size = new System.Drawing.Size(94, 40);
-            this.btnVHelp.TabIndex = 37;
-            this.btnVHelp.Text = "Help";
-            this.btnVHelp.UseVisualStyleBackColor = false;
-            // 
-            // btnVExit
-            // 
-            this.btnVExit.BackColor = System.Drawing.Color.Red;
-            this.btnVExit.Location = new System.Drawing.Point(795, 692);
-            this.btnVExit.Name = "btnVExit";
-            this.btnVExit.Size = new System.Drawing.Size(94, 40);
-            this.btnVExit.TabIndex = 38;
-            this.btnVExit.Text = "Exit";
-            this.btnVExit.UseVisualStyleBackColor = false;
-            this.btnVExit.Click += new System.EventHandler(this.btnVExit_Click);
-            // 
-            // btnAExit
-            // 
-            this.btnAExit.BackColor = System.Drawing.Color.Red;
-            this.btnAExit.Location = new System.Drawing.Point(795, 698);
-            this.btnAExit.Name = "btnAExit";
-            this.btnAExit.Size = new System.Drawing.Size(94, 43);
-            this.btnAExit.TabIndex = 40;
-            this.btnAExit.Text = "Exit";
-            this.btnAExit.UseVisualStyleBackColor = false;
-            this.btnAExit.Click += new System.EventHandler(this.btnAExit_Click);
-            // 
-            // btnAHelp
-            // 
-            this.btnAHelp.BackColor = System.Drawing.Color.Yellow;
-            this.btnAHelp.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnAHelp.Location = new System.Drawing.Point(695, 698);
-            this.btnAHelp.Name = "btnAHelp";
-            this.btnAHelp.Size = new System.Drawing.Size(94, 43);
-            this.btnAHelp.TabIndex = 39;
-            this.btnAHelp.Text = "Help";
-            this.btnAHelp.UseVisualStyleBackColor = false;
-            // 
-            // btnRExit
-            // 
-            this.btnRExit.BackColor = System.Drawing.Color.Red;
-            this.btnRExit.Location = new System.Drawing.Point(295, 660);
-            this.btnRExit.Name = "btnRExit";
-            this.btnRExit.Size = new System.Drawing.Size(182, 50);
-            this.btnRExit.TabIndex = 41;
-            this.btnRExit.Text = "Exit";
-            this.btnRExit.UseVisualStyleBackColor = false;
-            this.btnRExit.Click += new System.EventHandler(this.btnRExit_Click);
-            // 
-            // btnRHelp
-            // 
-            this.btnRHelp.BackColor = System.Drawing.Color.Yellow;
-            this.btnRHelp.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnRHelp.Location = new System.Drawing.Point(104, 660);
-            this.btnRHelp.Name = "btnRHelp";
-            this.btnRHelp.Size = new System.Drawing.Size(185, 50);
-            this.btnRHelp.TabIndex = 40;
-            this.btnRHelp.Text = "Help";
-            this.btnRHelp.UseVisualStyleBackColor = false;
-            // 
-            // pnlReportH
-            // 
-            this.pnlReportH.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlReportH.Controls.Add(this.lblReportHeading);
-            this.pnlReportH.Location = new System.Drawing.Point(17, 18);
-            this.pnlReportH.Name = "pnlReportH";
-            this.pnlReportH.Size = new System.Drawing.Size(560, 73);
-            this.pnlReportH.TabIndex = 42;
-            // 
-            // lblReportHeading
-            // 
-            this.lblReportHeading.AutoSize = true;
-            this.lblReportHeading.Font = new System.Drawing.Font("Verdana", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblReportHeading.Location = new System.Drawing.Point(215, 21);
-            this.lblReportHeading.Name = "lblReportHeading";
-            this.lblReportHeading.Size = new System.Drawing.Size(122, 34);
-            this.lblReportHeading.TabIndex = 0;
-            this.lblReportHeading.Text = "Reports";
             // 
             // AdminForm
             // 

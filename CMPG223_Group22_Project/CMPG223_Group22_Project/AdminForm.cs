@@ -34,13 +34,11 @@ namespace CMPG223_Group22_Project
         ///string connString = "Data Source=(LocalDB)\\MSSQLLocalDB;Database=Databbase1.mdf;Integrated Security=True";
         /// </note>
         /// 
-
-
-        //C:\Users\chris\OneDrive\Documents\CMPG 223 - Project\Zoomazing Demo\Project-Zoomazing\CMPG223_Group22_Project\CMPG223_Group22_Project
-        string connString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\chris\OneDrive\Documents\CMPG 223 - Project\Zoomazing Demo\Project-Zoomazing\CMPG223_Group22_Project\CMPG223_Group22_Project\Database1.mdf;Integrated Security=True";
         //string connString = @"Data Source =(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True";
         //string connString = "Data Source=" + System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase) + "\\Database1.mdf";
-        
+        //C:\Users\chris\OneDrive\Documents\CMPG 223 - Project\Zoomazing Demo\Project-Zoomazing\CMPG223_Group22_Project\CMPG223_Group22_Project
+
+        string connString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\chris\OneDrive\Documents\CMPG 223 - Project\Zoomazing Demo\Project-Zoomazing\CMPG223_Group22_Project\CMPG223_Group22_Project\Database1.mdf;Integrated Security=True";
         SqlConnection conn;
         SqlCommand command;
         DataSet ds;
@@ -271,6 +269,7 @@ namespace CMPG223_Group22_Project
         }
 
 
+
         /// <summary>
         /// Procedure to add an animal to the database(ANIMALS) and takes all the data/ values needed, as parameters.
         /// "sql_showComponents()" takes an sql statement as a parameter, thus the animal class with an "addAnimal" procedure is called because it returns an SQL statement with values received.
@@ -392,6 +391,13 @@ namespace CMPG223_Group22_Project
             adapter.DeleteCommand.ExecuteNonQuery();
         }
 
+        /// <summary>
+        /// Validates the components used for date with the present date and tests accordingly
+        /// </summary>
+        /// <param name="day"></param>
+        /// <param name="month"></param>
+        /// <param name="year"></param>
+        /// <returns></returns>
         private bool date_validate(int day, int month, int year)
         {
             bool valid = false;
@@ -409,6 +415,14 @@ namespace CMPG223_Group22_Project
             return valid = true;
         }
 
+
+        /// <summary>
+        /// (For procedures "total_ticket_qty" and "total_ticket_price")
+        /// Reads data from TICKET entity to generate relevant reports such as:
+        /// total ticket quantities
+        /// total prices of tickets
+        /// </summary>
+        /// <returns></returns>
         private int total_ticket_qty()
         {
             int totalTQty = 0;
@@ -592,6 +606,7 @@ namespace CMPG223_Group22_Project
         ///         ~ Animal record Id chosen through comboBox (populated, as described earlier, with id's of the records) and declared into variable.
         ///         ~ Variable is then called in the "sql_DeleteAnimal" procedure to be used in SQL statement, it would then be executed as button is pressed (Delete)
         ///         ~ Connection is then closed. The connection would open again to populate the comboBox (containing id's) and show database after deleting ("refresh").
+        /// Format in log listbox for each option
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -779,6 +794,7 @@ namespace CMPG223_Group22_Project
         ///         ~ Visitor record Id chosen through comboBox (populated, as described earlier, with id's of the records) and declared into variable.
         ///         ~ "sql_DeleteVisitor" called to get the values needed for the SQL statement and thus would be executed when button is pressed(Delete).
         ///         ~ Connection is then closed. The connection would open again to populate the comboBox (containing id's) and show database after deleting ("refresh").
+        /// Format in log listbox for each option       
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -944,7 +960,6 @@ namespace CMPG223_Group22_Project
             }
         }
 
-
         /// <summary>
         /// Initiates form by hiding almost all [but relevant] components.
         /// </summary>
@@ -985,16 +1000,27 @@ namespace CMPG223_Group22_Project
             
         }
 
+
+        /// <summary>
+        /// Validation, disables user from entering values
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cbxAId_TextChanged(object sender, EventArgs e)
         {
             cbxAId.Text = "";
         }
-
         private void cbxVId_TextChanged(object sender, EventArgs e)
         {
             cbxVId.Text = "";
         }
 
+
+        /// <summary>
+        /// Gives the report for the tickets with formatting
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnNumTickets_Click(object sender, EventArgs e)
         {
             //Quantity of tickets
@@ -1008,7 +1034,6 @@ namespace CMPG223_Group22_Project
             lstbxReport.Items.Add("Total Tickets: " + totalTQty.ToString());
             lstbxReport.Items.Add("==================================================");
         }
-
         private void btnTotalCost_Click(object sender, EventArgs e)
         {
             //Total money received from tickets
@@ -1024,19 +1049,42 @@ namespace CMPG223_Group22_Project
 
         }
 
+
+        /// <summary>
+        /// Exits application
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-
         private void btnVExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-
         private void btnRExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+
+        /// <summary>
+        /// Quick help button for users
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnAHelp_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Button will only activate once the action on the top has been chosen", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+        private void btnVHelp_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Button will only activate once the action on the top has been chosen", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+        private void btnRHelp_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Reports are pre-determined via buttons above. Press a button to get the report(s)", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }
