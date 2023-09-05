@@ -29,35 +29,21 @@ namespace CMPG223_Group22_Project
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblWelcome = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // lblWelcome
-            // 
-            this.lblWelcome.AutoSize = true;
-            this.lblWelcome.Location = new System.Drawing.Point(484, 126);
-            this.lblWelcome.Name = "lblWelcome";
-            this.lblWelcome.Size = new System.Drawing.Size(69, 17);
-            this.lblWelcome.TabIndex = 0;
-            this.lblWelcome.Text = "Welcome!";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1411, 672);
-            this.Controls.Add(this.lblWelcome);
             this.Name = "Form1";
             this.Text = "Form1";
-            this.DoubleClick += new System.EventHandler(this.Form1_DoubleClick);
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lblWelcome;
     }
 }
 

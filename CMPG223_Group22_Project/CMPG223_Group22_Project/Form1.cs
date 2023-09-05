@@ -19,9 +19,12 @@ namespace CMPG223_Group22_Project
 
         private void Form1_DoubleClick(object sender, EventArgs e)
         {
-            AdminForm frmAdmin = new AdminForm();
+            
+        }
 
-            frmAdmin.Show();
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
 
         //===============================================
